@@ -143,8 +143,8 @@
 
 @include oFtTypographyClass(article-subheading1) {
 	@include article-subheading();
-	border-top: 1px dotted oColorsGetColorFor(article-divider-border);
-	border-bottom: 1px dotted oColorsGetColorFor(article-divider-border);
+	border-top: 1px dotted oColorsGetColorFor(article-body-lead-border);
+	border-bottom: 1px dotted oColorsGetColorFor(article-body-lead-border);
 	& + * {
 		margin-top: 0;
 	}
