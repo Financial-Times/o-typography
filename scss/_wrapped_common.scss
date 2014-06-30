@@ -1,9 +1,11 @@
 @mixin oFtTypographyCommonWrappedBodyStyles() {
-  strong {
+  strong,
+  b {
     @include oFtTypographyExtend(body--bold);
   }
 
-  em {
+  em,
+  i {
     @include oFtTypographyExtend(body--italic);
   }
 
