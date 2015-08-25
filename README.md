@@ -2,6 +2,22 @@
 
 Typographical styles for FT branded sites - fonts, weight, colors, sizes and vertical rhythm.
 
+## This module is deprecated
+
+- To display editorial copy or simple text, please refer to [o-type](https://github.com/Financial-Times/o-type).
+- To style text in user-interface components, please refer to the design team (documentation coming soon).
+
+### Why is this module deprecated?
+
+We've learned that:
+
+- old ft.com typography styles don't appeal to new products as they need to be readable on mobile, and ft.com styles aren't optimised for it.
+- a rather opinionated module that becomes a dependency for many modules isn't great for maintainability. When we renamed o-ft-typography to o-typography, we found out other modules that required o-typography for a single mixin. We thought this wasn't worth the dependency debt and hard-coded corresponding styles instead.
+- the typography module is thorough, and covers ft.com standard styles with high granularity. Developers seem to prefer simple sensible defaults (__don't make me think__).
+- long class names are painful to use. Series of `o-ft-typography-block__element--modifier` tend to pollute the markup.
+
+For these reasons, we'll delegate the responsibility of typographic consistency to modules and give them lower level helpers (such as a typographic scale) and better guidance from a design perspective.
+
 ## Overview
 
 This module provides styles for Headings, Titles, Leads, Metadata, and body content.
