@@ -18,6 +18,9 @@
 @import 'scss/labels';
 @import 'scss/badges';
 
+// Add deprecation warning
+$_o-typography-deprecation-warnings: true;
+
 @if $o-typography-is-silent == false {
 	// Badges
 	.o-typography-badge {
@@ -190,6 +193,3 @@
 		@include oTypographyArticleBodyWrapper;
 	}
 }
-
-// Add deprecation warning
-$_o-typography-deprecation-warnings: true;
