@@ -7,7 +7,7 @@
 @mixin oTypographyBrand {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyBrand() is now deprecated and will be removed in the next major release";
-	}		
+	}
 	margin: 0;
 	font-size: 12px;
 	line-height: 14px;
