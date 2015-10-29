@@ -7,6 +7,9 @@
 ///
 /// @todo what is the difference between this and the other leader styles?
 @mixin oTypographyBodyLead {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBodyLead() is now deprecated and will be replaced with oTypographyLead() in the next major release";
+	}
 	font-family: BentonSans, sans-serif;
 	font-weight: normal;
 	font-size: 18px;
@@ -26,12 +29,18 @@
 
 /// Apply to a block of text
 @mixin oTypographyBodyBlock {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBodyBlock() is now deprecated and will be replaced with oTypographyBlock() in the next major release";
+	}
 	margin-bottom: 21px;
 	margin-top: 21px;
 }
 
 /// Styling for <ul> and <ol>
 @mixin oTypographyBodyList {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBodyList() is now deprecated and will be replaced with oTypographyList() in the next major release";
+	}	
 	list-style-position: outside;
 	padding-left: 20px;
 	font-weight: normal;
@@ -41,10 +50,16 @@
 
 /// Styles for <ol> tags
 @mixin oTypographyBodyListOrdered {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBodyListOrdered() is now deprecated and will be replaced with oTypographyListOrdered() in the next major release";
+	}		
 	list-style-type: decimal;
 }
 
 /// Styles for <ul> tags
 @mixin oTypographyBodyListUnordered {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBodyListUnordered() is now deprecated and will be replaced with oTypographyListUnordered() in the next major release";
+	}		
 	list-style-type: disc;
 }

@@ -7,6 +7,9 @@
 ///
 /// @param {Color} $color - Background color
 @mixin oTypographyFauxTextBackground($color) {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyFauxTextBackground() is now deprecated and will be removed in the next major release";
+	}
 	text-shadow: 4px 0 2px $color, -4px 0 2px $color,
 	0 4px 2px $color, 0 -4px 2px $color,
 	2px 0 4px $color, -2px 0 4px $color,
@@ -21,6 +24,9 @@
 ///
 /// @access private
 @mixin _oTypographyLinkStyle($color, $hover-color) {
+	@if $_o-typography-deprecation-warnings {
+		@warn "_oTypographyLinkStyle() is now deprecated and will be removed in the next major release";
+	}
 	a {
 		text-decoration: none;
 		color: $color;

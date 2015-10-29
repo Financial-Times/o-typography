@@ -15,6 +15,9 @@
 
 /// Small text
 @mixin oTypographySmall {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographySmall() is now deprecated and will be removed in next major release";
+	}
 	font-size: 0.75em;
 }
 
@@ -36,6 +39,9 @@
 
 /// Link styles
 @mixin oTypographyBodyLink {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBodyLink() is now deprecated and will be replaced with oTypographyLink() in the next major release";
+	}
 	text-decoration: none;
 	@include oColorsFor(link, text);
 	cursor: pointer;

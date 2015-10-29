@@ -5,6 +5,9 @@
 
 /// Article leader styles
 @mixin oTypographyArticleBodyLead {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyArticleBodyLead() is now deprecated and will be replaced with oTypographyLead() in the next major release";
+	}
 	margin: 0 0 9px;
 	border-bottom: 1px dotted oColorsGetColorFor(o-typography-article-body-lead, border);
 	padding: 0 0 14px;
@@ -17,6 +20,9 @@
 
 /// Default article text style
 @mixin oTypographyArticleBody {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyArticleBody() is now deprecated and will be replaced with oTypographyBody() in the next major release";
+	}
 	font-size: 16px;
 	line-height: 24px;
 	font-family: Georgia, serif;
@@ -26,12 +32,18 @@
 
 /// Block of text in an article
 @mixin oTypographyArticleBodyBlock {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyArticleBodyBlock() is now deprecated and will be replaced with oTypographyBlock() in the next major release";
+	}
 	margin-bottom: 24px;
 	margin-top: 24px;
 }
 
 /// Styles for <ul> and <ol> articles
 @mixin oTypographyArticleBodyList {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyArticleBodyList() is now deprecated and will be replaced with oTypographyList() in the next major release";
+	}
 	list-style-position: outside;
 	padding-left: 20px;
 	@include oTypographyArticleBody;

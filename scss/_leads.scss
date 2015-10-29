@@ -5,6 +5,9 @@
 
 /// Large leader
 @mixin oTypographyLeadLarge {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyLeadLarge() is now deprecated and will be replaced with oTypographyLead() in the next major release";
+	}
 	font-family: Georgia, serif;
 	font-weight: normal;
 	font-size: 21px;
@@ -15,6 +18,9 @@
 
 /// Medium leader
 @mixin oTypographyLeadMedium {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyLeadLarge() is now deprecated and will be replaced with oTypographyLead() and oTypographyLeadSmall() in the next major release";
+	}
 	font-family: Georgia, serif;
 	font-weight: normal;
 	font-size: 17px;
@@ -25,6 +31,9 @@
 
 /// Small leader
 @mixin oTypographyLeadSmall {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyLeadLarge() is now deprecated and will be replaced with TypographyLeadSmall() in the next major release";
+	}
 	font-family: BentonSans, sans-serif;
 	font-weight: normal;
 	font-size: 13px;

@@ -9,6 +9,9 @@
 /// @example scss
 /// article { @include oTypographyArticleBodyWrapper; }
 @mixin oTypographyArticleBodyWrapper {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyArticleBodyWrapper() is now deprecated and will be removed in the next major release";
+	}	
 	h2 {
 		@include oTypographyHeading3;
 	}

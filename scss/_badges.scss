@@ -5,6 +5,9 @@
 
 /// Style an element like a badge
 @mixin oTypographyBadge {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyBadge() is now deprecated and will be removed in next major release";
+	}
 	display: inline-block;
 	border-radius: 5px;
 	padding: 0 4px;

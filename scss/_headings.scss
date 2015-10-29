@@ -5,6 +5,9 @@
 
 /// Layout styles for heading level 1
 @mixin oTypographyHeading1Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading1Layout() is now deprecated and will be removed in the next major release";
+	}
 	margin: 0 0 16px;
 	padding: 8px 0 7px;
 	border-top: 4px solid oColorsGetColorFor(o-typography-heading1 o-typography-heading-large body, border);
@@ -13,6 +16,9 @@
 
 /// Text styles for heading level 1
 @mixin oTypographyHeading1Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading1Text() is now deprecated and will be removed in the next major release";
+	}
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
 	font-size: 16px;
@@ -23,6 +29,9 @@
 
 /// Layout styles for heading 2
 @mixin oTypographyHeading2Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading2Layout() is now deprecated and will be removed in the next major release";
+	}
 	margin: 0 0 16px;
 	padding: 8px 0 7px;
 	border-top: 4px solid oColorsGetColorFor(o-typography-heading2 o-typography-heading-large body, border);
@@ -31,6 +40,9 @@
 
 /// Text styles for heading level 2
 @mixin oTypographyHeading2Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading2Text() is now deprecated and will be removed in the next major release";
+	}	
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;
@@ -42,12 +54,18 @@
 
 /// Layout styles for heading level 3 and 4
 @mixin oTypographyHeading3And4Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading3And4Layout() is now deprecated and will be removed in the next major release";
+	}
 	margin-bottom: 15px;
 	padding: 5px 0;
 }
 
 /// Text styles for heading level 3 and 4
 @mixin oTypographyHeading3And4Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading3And4Text() is now deprecated and will be removed in the next major release";
+	}
 	font-size: 16px;
 	line-height: 20px;
 	@include oTypographyBodyBlock;
@@ -58,6 +76,9 @@
 
 /// Layout styles for heading level 3
 @mixin oTypographyHeading3Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading3Layout() is now deprecated and will be removed in the next major release";
+	}
 	@include oTypographyHeading3And4Layout;
 	border-top: 1px dotted oColorsGetColorFor(o-typography-article-subheading, border);
 	border-bottom: 1px dotted oColorsGetColorFor(o-typography-article-subheading, border);
@@ -69,12 +90,18 @@
 
 /// Text styles for level 3 heading
 @mixin oTypographyHeading3Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading3And4Layout() is now deprecated and will be removed in the next major release";
+	}
 	@include oTypographyHeading3And4Text;
 	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading3 o-typography-article-subheading, text), oColorsGetColorFor(link, text));
 }
 
 /// Layout styles for level 4 heading
 @mixin oTypographyHeading4Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading4Layout() is now deprecated and will be removed in the next major release";
+	}
 	@include oTypographyHeading3And4Layout;
 
 	+ * {
@@ -84,12 +111,18 @@
 
 /// Text styles for level 4 heading
 @mixin oTypographyHeading4Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading4Text() is now deprecated and will be removed in the next major release";
+	}
 	@include oTypographyHeading3And4Text;
 	@include _oTypographyLinkStyle(oColorsGetColorFor(o-typography-heading4 o-typography-article-subheading body, text), oColorsGetColorFor(link, text));
 }
 
 /// Layout styles for level 5 heading
 @mixin oTypographyHeading5Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading5Layout() is now deprecated and will be removed in the next major release";
+	}
 	margin: 0 0 16px;
 	background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAAPAQMAAADEaZ8BAAAABlBMVEUAAADs3s8R/6e7AAAAAXRSTlMAQObYZgAAADBJREFUSMdj+D90QcNQdvyDUccPEPgw6njiwKjjh43jh3SGHdKOb2AYBaNgFAwdAACrOE9c1sAQpgAAAABJRU5ErkJggg==') bottom right no-repeat;
 
@@ -102,6 +135,9 @@
 
 /// Text styles for level 5 heading
 @mixin oTypographyHeading5Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading5Text() is now deprecated and will be removed in the next major release";
+	}
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
 	font-size: 13px;
@@ -114,11 +150,17 @@
 
 /// Layout styles for heading level 6
 @mixin oTypographyHeading6Layout {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading6Layout() is now deprecated and will be removed in the next major release";
+	}
 	margin: 0 0 8px;
 }
 
 /// Text styles for level 6 heading
 @mixin oTypographyHeading6Text {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading6Text() is now deprecated and will be removed in the next major release";
+	}
 	margin: 0 0 8px;
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
@@ -154,12 +196,18 @@
 
 /// h5 styles
 @mixin oTypographyHeading5 {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading5() is now deprecated and will be removed in the next major release";
+	}
 	@include oTypographyHeading5Layout;
 	@include oTypographyHeading5Text;
 }
 
 /// h6 styles
 @mixin oTypographyHeading6 {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyHeading6() is now deprecated and will be removed in the next major release";
+	}
 	@include oTypographyHeading6Layout;
 	@include oTypographyHeading6Text;
 }

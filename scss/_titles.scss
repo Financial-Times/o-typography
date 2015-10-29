@@ -5,6 +5,9 @@
 
 /// Large title
 @mixin oTypographyTitleLarge {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyTitleLarge() is now deprecated and will be removed in the next major release";
+	}
 	font-family: Georgia, serif;
 	font-weight: normal;
 	font-size: 30px;
@@ -21,6 +24,9 @@
 
 /// Medium title
 @mixin oTypographyTitleMedium {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyTitleMedium() is now deprecated and will be removed in the next major release";
+	}
 	font-family: Georgia, serif;
 	font-weight: normal;
 	font-size: 21px;
@@ -31,6 +37,9 @@
 
 /// Small title
 @mixin oTypographyTitleSmall {
+	@if $_o-typography-deprecation-warnings {
+		@warn "oTypographyTitleSmall() is now deprecated and will be removed in the next major release";
+	}
 	font-family: Georgia, serif;
 	font-weight: bold;
 	font-size: 15px;
