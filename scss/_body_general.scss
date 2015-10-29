@@ -40,7 +40,7 @@
 @mixin oTypographyBodyList {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyBodyList() is now deprecated and will be replaced with oTypographyList() in the next major release";
-	}	
+	}
 	list-style-position: outside;
 	padding-left: 20px;
 	font-weight: normal;
@@ -52,7 +52,7 @@
 @mixin oTypographyBodyListOrdered {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyBodyListOrdered() is now deprecated and will be replaced with oTypographyListOrdered() in the next major release";
-	}		
+	}
 	list-style-type: decimal;
 }
 
@@ -60,6 +60,6 @@
 @mixin oTypographyBodyListUnordered {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyBodyListUnordered() is now deprecated and will be replaced with oTypographyListUnordered() in the next major release";
-	}		
+	}
 	list-style-type: disc;
 }
