@@ -42,7 +42,7 @@
 @mixin oTypographyHeading2Text {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyHeading2Text() is now deprecated and will be removed in the next major release";
-	}	
+	}
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
 	text-transform: uppercase;

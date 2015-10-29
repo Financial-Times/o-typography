@@ -9,7 +9,7 @@
 @mixin _oTypographyLabelText {
 	@if $_o-typography-deprecation-warnings {
 		@warn "_oTypographyLabelText() is now deprecated and will be removed in the next major release";
-	}	
+	}
 	@include oColorsFor(body, text);
 	@include _oTypographyLinkStyle(oColorsGetColorFor(link, text), oColorsGetColorFor(link-hover, text));
 }
@@ -18,7 +18,7 @@
 @mixin oTypographyLabelLarge {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyLabelLarge() is now deprecated and will be removed in the next major release";
-	}	
+	}
 	@include _oTypographyLabelText;
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
@@ -30,7 +30,7 @@
 @mixin oTypographyLabelMedium {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyLabelMedium() is now deprecated and will be removed in the next major release";
-	}	
+	}
 	@include _oTypographyLabelText;
 	font-family: BentonSans, sans-serif;
 	font-weight: bold;
@@ -42,7 +42,7 @@
 @mixin oTypographyLabelSmall {
 	@if $_o-typography-deprecation-warnings {
 		@warn "oTypographyLabelSmall() is now deprecated and will be removed in the next major release";
-	}	
+	}
 	@include _oTypographyLabelText;
 	font-family: BentonSans, sans-serif;
 	font-weight: normal;
