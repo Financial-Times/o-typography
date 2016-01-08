@@ -1,0 +1,94 @@
+/// Get font scale for given font variation
+///
+/// @private
+/// @param {String} $variation-name - Name of font variation
+@function oTypeFontScaleFor($variation-name) {
+	$font-group: map-get($o-typography-font-scale, $variation-name);
+
+	@if $font-group {
+		@return $font-group;
+	}
+
+	@warn "Font variation '#{$variation-name}' not found in $o-typography-font-scale";
+}
+
+/// Get breakpoints for given font variation and size
+///
+/// @private
+/// @param {String} $variation-name - Name of font variation
+/// @param {String} $text-size - Name of font size
+@function oTypeBreakpointsFor($variation-name, $text-size) {
+	$font-group: oTypeFontScaleFor($variation-name);
+	$text-breakpoints: map-get($font-group, $text-size);
+
+	@if $text-breakpoints {
+		@return $text-breakpoints;
+	}
+
+	@warn "Text size '#{$text-size}' not found for font variation '#{$variation-name}'";
+}
+
+/// Get nearest breakpoint available from the given set
+///
+/// @private
+/// @param {Map} $available-breakpoints - Map of available breakpoints
+/// @param {String} $target-name - Name of desired breakpoint
+@function oTypeNearestBreakpoint($available-breakpoints, $target-name) {
+	$available-keys: map-keys($available-breakpoints);
+	$all-keys: map-keys($o-typography-breakpoints);
+
+	$nearest: 1;
+	$target-index: index($all-keys, $target-name);
+	$difference: abs($target-index - $nearest);
+
+	@each $key in $available-keys {
+		$index: index($available-keys, $key);
+		$relative-index: index($all-keys, $key);
+		$new-difference: abs($target-index - $relative-index);
+
+		@if ($new-difference < $difference) {
+			$difference: $new-difference;
+			$nearest: $index;
+		}
+	}
+
+	@return nth($available-keys, $nearest);
+}
+
+/// Get font size and line height properties for given variation, size and breakpoint
+///
+/// @private
+/// @param {String} $variation-name - Name of font variation
+/// @param {String} $text-size - Name of font size
+/// @param {String} $breakpoint-name - Name of breakpoint
+@function oTypePropertiesFor($variation-name, $text-size, $breakpoint-name) {
+	$text-breakpoints: oTypeBreakpointsFor($variation-name, $text-size);
+	$text-properties: map-get($text-breakpoints, $breakpoint-name);
+
+	@if $text-properties {
+		@return $text-properties;
+	} @else {
+		$nearest: oTypeNearestBreakpoint($text-breakpoints, $breakpoint-name);
+		@return map-get($text-breakpoints, $nearest);
+	}
+}
+
+/// Get font size value for given variation, size and breakpoint
+///
+/// @param {String} $variation-name - Name of font variation
+/// @param {String} $text-size - Name of font size
+/// @param {String} $breakpoint-name - Name of breakpoint
+@function oTypeFontSize($variation-name, $text-size, $breakpoint-name) {
+	$text-size-properties: oTypePropertiesFor($variation-name, $text-size, $breakpoint-name);
+	@return map-get($text-size-properties, 'font-size');
+}
+
+/// Get line height value for given variation, size and breakpoint
+///
+/// @param {String} $variation-name - Name of font variation
+/// @param {String} $text-size - Name of font size
+/// @param {String} $breakpoint-name - Name of breakpoint
+@function oTypeLineHeight($variation-name, $text-size, $breakpoint-name) {
+	$text-size-properties: oTypePropertiesFor($variation-name, $text-size, $breakpoint-name);
+	@return map-get($text-size-properties, 'line-height');
+}
