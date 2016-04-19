@@ -13,12 +13,8 @@
 /// @example
 ///  @include oTypographySansSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySansSize($level) {
-	@include font-size(get-font-size(sans, $level), get-line-height(sans, $level));
+	@include oTypeFontSize('sans', $level);
 }
 
 ///
@@ -28,8 +24,6 @@
 ///
 /// @example
 ///  @include oTypographySans(xl);
-///
-/// @requires {mixin} oTypographySansSize
 ///
 @mixin oTypographySans($level) {
 	@include oTypographySansSize($level);
@@ -45,12 +39,9 @@
 /// @example
 ///  @include oTypographySansBoldSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySansBoldSize($level) {
-	@include font-size(get-font-size(sansBold, $level), get-line-height(sansBold, $level));
+	@warn 'oTypographySansBoldSize is deprecated, use oTypographySansSize instead.';
+	@include oTypographySansSize($level);
 }
 
 ///
@@ -61,10 +52,8 @@
 /// @example
 ///  @include oTypographySansBold(xl);
 ///
-/// @requires {mixin} oTypographySansBoldSize
-///
 @mixin oTypographySansBold($level) {
-	@include oTypographySansBoldSize($level);
+	@include oTypographySansSize($level);
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(semibold);
 }
@@ -77,12 +66,8 @@
 /// @example
 ///  @include oTypographySansDataSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySansDataSize($level) {
-	@include font-size(get-font-size(sansData, $level), get-line-height(sansData, $level));
+	@include oTypeFontSize('sansData', $level);
 }
 
 ///
@@ -92,8 +77,6 @@
 ///
 /// @example
 ///  @include oTypographySansData(xl);
-///
-/// @requires {mixin} oTypographySansDataSize
 ///
 @mixin oTypographySansData($level) {
 	@include oTypographySansDataSize($level);
@@ -109,12 +92,9 @@
 /// @example
 ///  @include oTypographySansDataBoldSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySansDataBoldSize($level) {
-	@include font-size(get-font-size(sansDataBold, $level), get-line-height(sansDataBold, $level));
+	@warn 'oTypographySansDataBoldSize is deprecated, use oTypographySansDataSize instead.';
+	@include oTypographySansDataSize($level);
 }
 
 ///
@@ -125,10 +105,8 @@
 /// @example
 ///  @include oTypographySansDataBold(xl);
 ///
-/// @requires {mixin} oTypographySansDataBoldSize
-///
 @mixin oTypographySansDataBold($level) {
-	@include oTypographySansDataBoldSize($level);
+	@include oTypographySansDataSize($level);
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(semibold);
 }
@@ -141,12 +119,9 @@
 /// @example
 ///  @include oTypographySansDataItalicSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySansDataItalicSize($level) {
-	@include font-size(get-font-size(sansDataItalic, $level), get-line-height(sansDataItalic, $level));
+	@warn 'oTypographySansDataItalicSize is deprecated, use oTypographySansDataSize instead.';
+	@include oTypographySansDataSize($level);
 }
 
 ///
@@ -157,10 +132,8 @@
 /// @example
 ///  @include oTypographySansDataItalic(xl);
 ///
-/// @requires {mixin} oTypographySansDataItalicSize
-///
 @mixin oTypographySansDataItalic($level) {
-	@include oTypographySansDataItalicSize($level);
+	@include oTypographySansDataSize($level);
 	font-family: $o-typography-sans;
 	font-weight: oFontsWeight(regular);
 	font-style: italic;
@@ -175,12 +148,8 @@
 /// @example
 ///  @include oTypographySerifSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySerifSize($level) {
-	@include font-size(get-font-size(serif, $level), get-line-height(serif, $level));
+	@include oTypeFontSize('serif', $level);
 }
 
 ///
@@ -190,8 +159,6 @@
 ///
 /// @example
 ///  @include oTypographySerif(xl);
-///
-/// @requires {mixin} oTypographySerifSize
 ///
 @mixin oTypographySerif($level) {
 	@include oTypographySerifSize($level);
@@ -207,12 +174,9 @@
 /// @example
 ///  @include oTypographySerifBoldSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySerifBoldSize($level) {
-	@include font-size(get-font-size(serifBold, $level), get-line-height(serifBold, $level));
+	@warn 'oTypographySerifBoldSize is deprecated, use oTypographySerifSize instead.';
+	@include oTypographySerifSize($level);
 }
 
 ///
@@ -223,10 +187,8 @@
 /// @example
 ///  @include oTypographySerifBold(xl);
 ///
-/// @requires {mixin} oTypographySerifBoldSize
-///
 @mixin oTypographySerifBold($level) {
-	@include oTypographySerifBoldSize($level);
+	@include oTypographySerifSize($level);
 	font-family: $o-typography-serif;
 	font-weight: oFontsWeight(bold);
 }
@@ -239,12 +201,9 @@
 /// @example
 ///  @include oTypographySerifItalicSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySerifItalicSize($level) {
-	@include font-size(get-font-size(serifItalic, $level), get-line-height(serifItalic, $level));
+	@warn 'oTypographySerifItalicSize is deprecated, use oTypographySerifSize instead.';
+	@include oTypographySerifSize($level);
 }
 
 ///
@@ -255,10 +214,8 @@
 /// @example
 ///  @include oTypographySerifItalic(xl);
 ///
-/// @requires {mixin} oTypographySerifItalicSize
-///
 @mixin oTypographySerifItalic($level) {
-	@include oTypographySerifItalicSize($level);
+	@include oTypographySerifSize($level);
 	font-family: $o-typography-serif;
 	font-style: italic;
 	font-weight: oFontsWeight(light);
@@ -272,12 +229,8 @@
 /// @example
 ///  @include oTypographySerifDisplaySize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySerifDisplaySize($level) {
-	@include font-size(get-font-size(serifDisplay, $level), get-line-height(serifDisplay, $level));
+	@include oTypeFontSize('serifDisplay', $level);
 }
 
 ///
@@ -287,8 +240,6 @@
 ///
 /// @example
 ///  @include oTypographySerifDisplay(xl);
-///
-/// @requires {mixin} oTypographySerifDisplaySize
 ///
 @mixin oTypographySerifDisplay($level) {
 	@include oTypographySerifDisplaySize($level);
@@ -304,12 +255,9 @@
 /// @example
 ///  @include oTypographySerifDisplayBoldSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySerifDisplayBoldSize($level) {
-	@include font-size(get-font-size(serifDisplayBold, $level), get-line-height(serifDisplayBold, $level));
+	@warn 'oTypographySerifDisplayBoldSize is deprecated, use oTypographySerifDisplaySize instead.';
+	@include oTypographySerifDisplaySize($level);
 }
 
 ///
@@ -320,10 +268,8 @@
 /// @example
 ///  @include oTypographySerifDisplayBold(xl);
 ///
-/// @requires {mixin} oTypographySerifDisplayBoldSize
-///
 @mixin oTypographySerifDisplayBold($level) {
-	@include oTypographySerifDisplayBoldSize($level);
+	@include oTypographySerifDisplaySize($level);
 	font-family: $o-typography-serif-display;
 	font-weight: oFontsWeight(bold);
 }
@@ -336,12 +282,9 @@
 /// @example
 ///  @include oTypographySerifDisplayItalicSize(xl);
 ///
-/// @requires {mixin} font-size
-/// @requires {function} get-font-size
-/// @requires {function} get-line-height 
-///
 @mixin oTypographySerifDisplayItalicSize($level) {
-	@include font-size(get-font-size(serifDisplayItalic, $level), get-line-height(serifDisplayItalic, $level));
+	@warn 'oTypographySerifDisplayItalicSize is deprecated, use oTypographySerifDisplaySize instead.';
+	@include oTypographySerifDisplaySize($level);
 }
 
 ///
@@ -352,10 +295,8 @@
 /// @example
 ///  @include oTypographySerifDisplayItalic(xl);
 ///
-/// @requires {mixin} oTypographySerifDisplayItalicSize
-///
 @mixin oTypographySerifDisplayItalic($level) {
-	@include oTypographySerifDisplayItalicSize($level);
+	@include oTypographySerifDisplaySize($level);
 	font-family: $o-typography-serif-display;
 	font-style: italic;
 	font-weight: oFontsWeight(light);

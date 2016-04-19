@@ -7,8 +7,9 @@
 @import 'o-hoverable/main';
 @import 'o-fonts/main';
 
-@import 'scss/helpers';
 @import 'scss/variables';
+@import 'scss/functions';
+@import 'scss/mixins';
 @import 'scss/type_matrix';
 
 @import 'scss/body_common';
@@ -69,7 +70,7 @@
 		@include oTypographyLead;
 	}
 	.o-typography-lead--small {
-		@include oTypographyLeadSmall;	
+		@include oTypographyLeadSmall;
 	}
 	.o-typography-block {
 		@include oTypographyBodyBlock;

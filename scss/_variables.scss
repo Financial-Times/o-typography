@@ -7,107 +7,118 @@
 /// @type Bool
 $o-typography-is-silent: true !default;
 
-// serifDisplayBoldItalic is deprecated and will be removed
+/// Named breakpoints
+/// @type Map
+$o-typography-breakpoints: (
+	'XS': 300px,
+	'S':  490px,
+	'M':  740px,
+	'L':  980px,
+	'XL': 1220px
+) !default;
+
+/// Default breakpoint (usually the smallest when building mobile first)
+/// @type String
+$o-typography-default-breakpoint: 'XS' !default;
+
+/// Font variations, sizes and breakpoints
+/// @type Map
 $o-typography-font-scale: (
-	sans: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 20, line-height: 24),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
+	'sans': (
+		'xl': (
+			'XS':	('font-size': 28, 'line-height': 28),
+			'M':	('font-size': 32, 'line-height': 32),
+			'L':	('font-size': 36, 'line-height': 36),
+			'XL':	('font-size': 40, 'line-height': 40)
+		),
+		'l': (
+			'XS':	('font-size': 22, 'line-height': 24),
+			'M':	('font-size': 24, 'line-height': 25),
+			'L':	('font-size': 26, 'line-height': 27)
+		),
+		'm': (
+			'XS':	('font-size': 18, 'line-height': 22),
+			'M':	('font-size': 20, 'line-height': 24)
+		),
+		's': (
+			'XS':	('font-size': 14, 'line-height': 16),
+			'M':	('font-size': 15, 'line-height': 17)
+		),
+		'xs': (
+			'XS':	('font-size': 12, 'line-height': 12)
+		)
 	),
-	sansBold: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 20, line-height: 22),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
+	'sansData': (
+		'xl': (
+			'XS':	('font-size': 20, 'line-height': 24),
+			'M':	('font-size': 24, 'line-height': 26),
+			'L':	('font-size': 28, 'line-height': 32)
+		),
+		'l': (
+			'XS':	('font-size': 16, 'line-height': 18),
+			'M':	('font-size': 18, 'line-height': 22),
+			'L':	('font-size': 21, 'line-height': 24)
+		),
+		'm': (
+			'XS':	('font-size': 12, 'line-height': 14),
+			'M':	('font-size': 14, 'line-height': 16)
+		),
+		's': (
+			'XS':	('font-size': 12, 'line-height': 14)
+		),
+		'xs': (
+			'XS':	('font-size': 11, 'line-height': 13)
+		)
 	),
-	sansData: (
-		xl: (font-size: 28, line-height: 32),
-		l: (font-size: 21, line-height: 24),
-		m: (font-size: 14, line-height: 16),
-		s: (font-size: 12, line-height: 14),
-		xs: (font-size: 11, line-height: 13)
+	'serif': (
+		'xl': (
+			'XS':	('font-size': 28, 'line-height': 28),
+			'M':	('font-size': 32, 'line-height': 32),
+			'L':	('font-size': 36, 'line-height': 36),
+			'XL':	('font-size': 40, 'line-height': 40)
+		),
+		'l': (
+			'XS':	('font-size': 22, 'line-height': 26),
+			'M':	('font-size': 24, 'line-height': 28),
+			'L':	('font-size': 26, 'line-height': 31)
+		),
+		'm': (
+			'XS':	('font-size': 18, 'line-height': 22),
+			'M':	('font-size': 20, 'line-height': 24)
+		),
+		's': (
+			'XS':	('font-size': 14, 'line-height': 17),
+			'M':	('font-size': 16, 'line-height': 19)
+		),
+		'xs': (
+			'XS':	('font-size': 12, 'line-height': 12)
+		)
 	),
-	sansDataBold: (
-		xl: (font-size: 28, line-height: 32),
-		l: (font-size: 21, line-height: 24),
-		m: (font-size: 14, line-height: 16),
-		s: (font-size: 12, line-height: 14),
-		xs: (font-size: 11, line-height: 13)
-	),
-	sansDataItalic: (
-		xl: (font-size: 28, line-height: 32),
-		l: (font-size: 21, line-height: 24),
-		m: (font-size: 14, line-height: 16),
-		s: (font-size: 12, line-height: 14),
-		xs: (font-size: 11, line-height: 13)
-	),
-	serif: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 31),
-		m: (font-size: 20, line-height: 24),
-		s: (font-size: 16, line-height: 19),
-		xs: (font-size: 12, line-height: 12)
-	),
-	serifBold: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 31),
-		m: (font-size: 20, line-height: 24),
-		s: (font-size: 16, line-height: 19),
-		xs: (font-size: 12, line-height: 12)
-	),
-	serifItalic: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 22, line-height: 22),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
-	),
-	serifDisplay: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 31),
-		m: (font-size: 20, line-height: 24),
-		s: (font-size: 16, line-height: 19),
-		xs: (font-size: 12, line-height: 12)
-	),
-	serifDisplayBold: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 31),
-		m: (font-size: 20, line-height: 24),
-		s: (font-size: 16, line-height: 19),
-		xs: (font-size: 12, line-height: 12)
-	),
-	serifDisplayItalic: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 20, line-height: 22),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
-	),
-	serifDisplayBoldItalic: (
-		xl: (font-size: 40, line-height: 40),
-		l: (font-size: 26, line-height: 27),
-		m: (font-size: 22, line-height: 24),
-		s: (font-size: 15, line-height: 17),
-		xs: (font-size: 12, line-height: 12)
+	'serifDisplay': (
+		'xl': (
+			'XS':	('font-size': 28, 'line-height': 28),
+			'M':	('font-size': 32, 'line-height': 32),
+			'L':	('font-size': 36, 'line-height': 36),
+			'XL':	('font-size': 40, 'line-height': 40)
+		),
+		'l': (
+			'XS':	('font-size': 22, 'line-height': 26),
+			'M':	('font-size': 24, 'line-height': 28),
+			'L':	('font-size': 26, 'line-height': 31)
+		),
+		'm': (
+			'XS':	('font-size': 18, 'line-height': 22),
+			'M':	('font-size': 20, 'line-height': 24)
+		),
+		's': (
+			'XS':	('font-size': 14, 'line-height': 17),
+			'M':	('font-size': 16, 'line-height': 19)
+		),
+		'xs': (
+			'XS':	('font-size': 12, 'line-height': 12)
+		)
 	)
-);
-
-// Previously, $o-typography-font-scale was called $font-scale. In order to not
-// make this rename a breaking change, check if anything is overriding
-// $font-scale and if it is, set $o-typography-font-scale to that value.
-// If it isn't, set $font-scale to $o-typography-font-scale in case anything is
-// reading it
-
-@if variable-exists(font-scale) {
-	$o-typography-font-scale: $font-scale;
-} @else {
- 	$font-scale: $o-typography-font-scale;
-}
-
-
+) !default;
 
 $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
 $o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;

@@ -1,0 +1,37 @@
+/// Get font size and line height properties for a given breakpoint
+///
+/// @example scss
+///  @include oTypeFontSizeStatic('sans', 's', 'M');
+///
+/// @param {String} $variation-name - Name of font variation
+/// @param {String} $text-size - Name of font size
+/// @param {String} $breakpoint-name - Name of breakpoint
+@mixin oTypeFontSizeStatic($args...) {
+	font-size: oTypeFontSize($args...) + px;
+	line-height: oTypeLineHeight($args...) + px;
+}
+
+/// Get font size and line height properties for all breakpoints
+///
+/// @example scss
+///  @include oTypeFontSize('sans', 's');
+///
+/// @param {String} $variation-name - Name of font variation
+/// @param {String} $text-size - Name of font size
+/// @param {String} $default-breakpoint - (optional) Name of default breakpoint
+@mixin oTypeFontSize($variation-name, $text-size, $default-breakpoint: $o-typography-default-breakpoint) {
+	$text-breakpoints-map: oTypeBreakpointsFor($variation-name, $text-size);
+	$text-breakpoints-keys: map-keys($text-breakpoints-map);
+
+	@include oTypeFontSizeStatic($variation-name, $text-size, $default-breakpoint);
+
+	@each $breakpoint-name in $text-breakpoints-keys {
+		$breakpoint-size: map-get($o-typography-breakpoints, $breakpoint-name);
+
+		@if $breakpoint-name != $default-breakpoint and $breakpoint-size {
+			@media screen and (min-width: $breakpoint-size) {
+				@include oTypeFontSizeStatic($variation-name, $text-size, $breakpoint-name);
+			}
+		}
+	}
+}
