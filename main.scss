@@ -24,6 +24,8 @@
 @import 'scss/wrapped_common';
 @import 'scss/wrapped_general';
 
+@import 'scss/new-styles';
+
 @import 'scss/_deprecated.scss';
 
 @if $o-typography-is-silent == false {

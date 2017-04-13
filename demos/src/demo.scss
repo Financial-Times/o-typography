@@ -7,7 +7,12 @@ html {
 	overflow-y: scroll;
 }
 
+hr {
+	margin: 40px 0 20px;
+}
+
 .demo {
+	padding: 20px 0;
 	// prevent images and media from expanding its container
 	img {
 		max-width: 100%;

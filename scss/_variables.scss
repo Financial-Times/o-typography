@@ -129,5 +129,5 @@ $o-typography-loaded-prefix: 'o-typography--loaded' !default;
 
 
 $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
-$o-typography-serif: oFontsGetFontFamilyWithFallbacks(FinancierTextWeb) !default;
+$o-typography-serif: Georgia, serif !default;
 $o-typography-serif-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
