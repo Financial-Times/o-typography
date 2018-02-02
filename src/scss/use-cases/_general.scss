@@ -20,7 +20,7 @@
 }
 
 /// Custom link styles
-@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: 'paper', $outlineColor: 'teal') {
+@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: 'paper', $outlineColor: 'teal-100') {
 	color: oColorsGetPaletteColor($baseColor);
 	text-decoration: none;
 	cursor: pointer;
@@ -33,7 +33,7 @@
 	}
 
 	&:focus {
-		outline: 3px solid oColorsGetPaletteColor($outlineColor);
+		outline: 2px solid oColorsGetPaletteColor($outlineColor);
 		border-bottom-color: transparent;
 	}
 }
