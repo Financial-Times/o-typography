@@ -4,6 +4,10 @@
 	"origamiCategory": "primitives",
 	"origamiVersion": 1,
 	"support": "https://github.com/Financial-Times/o-typography/issues",
+	"supportContact": {
+		"email": "origami.support@ft.com",
+		"slack": "financialtimes/ft-origami"
+	},
 	"supportStatus": "active",
 	"browserFeatures": {
 		"optional": [
@@ -35,12 +39,6 @@
 			"name": "headings",
 			"template": "demos/src/headings.mustache",
 			"description": ""
-		},
-		{
-			"name": "manage-account",
-			"template": "demos/src/manage-account.mustache",
-			"description": "",
-			"hidden": true
 		},
 		{
 			"name": "all-styles",
