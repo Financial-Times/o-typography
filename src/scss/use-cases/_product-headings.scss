@@ -62,10 +62,3 @@
 	@include oColorsFor('o-typography-headline');
 	font-weight: 400;
 }
-
-/// Product Field Label styles
-@mixin oTypographyProductFieldLabel {
-	@include oTypographySansBold($scale: 0);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-product-field-label');
-}
