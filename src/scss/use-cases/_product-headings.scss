@@ -5,7 +5,7 @@
 
 /// Level 1 product heading styles
 @mixin oTypographyProductHeadingLevel1 {
-	@include _oTypographyProductHeadingBase($scale: 5, $weight: bold);
+	@include _oTypographyProductHeadingBase($scale: 5, $weight: semibold);
 }
 
 /// Level 2 product heading styles
@@ -15,7 +15,7 @@
 
 /// Level 3 product heading styles
 @mixin oTypographyProductHeadingLevel3 {
-	@include _oTypographyProductHeadingBase($scale: 4, $weight: bold);
+	@include _oTypographyProductHeadingBase($scale: 4, $weight: semibold);
 }
 
 /// Level 4 heading styles
@@ -25,7 +25,7 @@
 
 /// Level 5 heading styles
 @mixin oTypographyProductHeadingLevel5 {
-	@include _oTypographyProductHeadingBase($scale: 3, $weight: bold);
+	@include _oTypographyProductHeadingBase($scale: 3, $weight: semibold);
 }
 
 /// Level 6 heading styles
@@ -35,7 +35,7 @@
 
 /// Level 7 heading styles
 @mixin oTypographyProductHeadingLevel7 {
-	@include _oTypographyProductHeadingBase($scale: 2, $weight: bold);
+	@include _oTypographyProductHeadingBase($scale: 2, $weight: semibold);
 }
 
 /// Level 8 heading styles

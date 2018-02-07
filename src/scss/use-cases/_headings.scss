@@ -28,7 +28,7 @@
 
 /// Level 2 heading styles
 @mixin oTypographyHeadingLevel2 {
-	@include _oTypographyProductHeadingBase($scale: 4, $weight: bold);
+	@include _oTypographyProductHeadingBase($scale: 4, $weight: semibold);
 }
 
 /// Level 3 heading styles

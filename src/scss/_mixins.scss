@@ -1,10 +1,15 @@
-@mixin _oTypographyProductHeadingBase($scale,$weight: 'regular') {
+/// Outputs styling for headings, namely the font size based on the scale and the font-weight based on preference,
+/// along with the base colour
+///
+/// @param {Number} $scale number on scale the sizes are based on
+/// @param {String} $weight to determine which font to load
+@mixin _oTypographyProductHeadingBase($scale, $weight: regular) {
 	@include oTypographyMargin($top: 0, $bottom: 5);
 	@include oColorsFor('o-typography-headline');
-	@if $weight == 'regular' {
+	@if $weight == regular {
 		@include oTypographySans($scale: $scale);
 		font-weight: 400;
-	} @else if $weight == 'bold' {
+	} @else if $weight == semibold {
 		@include oTypographySansBold($scale: $scale);
 	} @else {
 		@error '#{$weight} is not a defined weight in oTypography';
