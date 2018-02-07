@@ -171,6 +171,11 @@
 		@include oTypographyWrapper;
 	}
 
+	// Body wrapper for non-article related products
+	.o-typography-wrapper--product {
+		@include oTypographyWrapper($style: product);
+	}
+
 	// Don't output twice
 	$o-typography-is-silent: true !global;
 }

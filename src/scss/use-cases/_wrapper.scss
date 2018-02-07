@@ -6,11 +6,12 @@
 /// General typography
 /// Apply to a wrapper to style all text inside it
 ///
+/// @param {String} $style will change the headings in a body that is not an article
 /// @example scss
 /// article { @include oTypographyWrapper; }
-/// non-article { @include oTypographyWrapper($style: 'product'); }
-@mixin oTypographyWrapper($style: 'article') {
-	@if $style == 'article' {
+/// non-article { @include oTypographyWrapper($style: product); }
+@mixin oTypographyWrapper($style: article) {
+	@if $style == article {
 		h1 {
 			// Article headline
 			@include oTypographyHeadline;
