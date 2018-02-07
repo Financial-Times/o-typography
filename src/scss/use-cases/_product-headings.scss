@@ -5,60 +5,40 @@
 
 /// Level 1 product heading styles
 @mixin oTypographyProductHeadingLevel1 {
-	@include oTypographySansBold($scale: 5);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
+	@include _oTypographyProductHeadingBase($scale: 5, $weight: bold);
 }
 
 /// Level 2 product heading styles
 @mixin oTypographyProductHeadingLevel2 {
-	@include oTypographySans($scale: 5);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 5);
 }
 
 /// Level 3 product heading styles
 @mixin oTypographyProductHeadingLevel3 {
-	@include oTypographySansBold($scale: 4);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
+	@include _oTypographyProductHeadingBase($scale: 4, $weight: bold);
 }
 
 /// Level 4 heading styles
 @mixin oTypographyProductHeadingLevel4 {
-	@include oTypographySans($scale: 4);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 4);
 }
 
 /// Level 5 heading styles
 @mixin oTypographyProductHeadingLevel5 {
-	@include oTypographySansBold($scale: 3);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
+	@include _oTypographyProductHeadingBase($scale: 3, $weight: bold);
 }
 
 /// Level 6 heading styles
 @mixin oTypographyProductHeadingLevel6 {
-	@include oTypographySans($scale: 3);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 3);
 }
 
 /// Level 7 heading styles
 @mixin oTypographyProductHeadingLevel7 {
-	@include oTypographySansBold($scale: 2);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
+	@include _oTypographyProductHeadingBase($scale: 2, $weight: bold);
 }
 
 /// Level 8 heading styles
 @mixin oTypographyProductHeadingLevel8 {
-	@include oTypographySans($scale: 2);
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	font-weight: 400;
+	@include _oTypographyProductHeadingBase($scale: 2);
 }

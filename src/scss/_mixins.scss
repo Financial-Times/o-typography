@@ -1,3 +1,16 @@
+@mixin _oTypographyProductHeadingBase($scale,$weight: 'regular') {
+	@include oTypographyMargin($top: 0, $bottom: 5);
+	@include oColorsFor('o-typography-headline');
+	@if $weight == 'regular' {
+		@include oTypographySans($scale: $scale);
+		font-weight: 400;
+	} @else if $weight == 'bold' {
+		@include oTypographySansBold($scale: $scale);
+	} @else {
+		@error '#{$weight} is not a defined weight in oTypography';
+	}
+}
+
 /// Outputs the font size based on the scale, also accepts a font adjustment
 /// parameter for when outputting styles for progressively loaded fonts
 ///
