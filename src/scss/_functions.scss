@@ -49,7 +49,7 @@
 /// Returns a maximum line width based on the given scale
 ///
 /// @param {Number} $scale - number of the scale to return
-/// @param {Number} $characters-per-li e - number of the characters per line
+/// @param {Number} $characters-per-line - number of the characters per line
 ///
 /// @returns {Number} maximum line width in px
 @function oTypographyMaxLineWidth($scale: 0, $characters-per-line: 65) {
