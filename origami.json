@@ -50,6 +50,12 @@
 			"description": ""
 		},
 		{
+			"name": "line-width",
+			"title": "Line Width",
+			"template": "demos/src/line-width.mustache",
+			"description": "Demonstrates line widths for different font-sizes"
+		},
+		{
 			"name": "all-styles",
 			"title": "All Styles",
 			"template": "demos/src/all-styles.mustache",
