@@ -66,7 +66,7 @@ $_max-line-width: $_characters-per-line * ($_font-size / $_ultimate-ratio);
 /// @param {Number} $characters-per-li e - number of the characters per line
 ///
 /// @returns {Number} maximum line width in px
-@function oTypographyMaxLineWidth($scale, $characters-per-line: 65) {
+@function oTypographyMaxLineWidth($scale: 0, $characters-per-line: 65) {
 	$settings: oTypographyGetScale($scale);
 
 	$font-size: nth($settings, 1) * 1px;
