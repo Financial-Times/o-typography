@@ -45,3 +45,35 @@
 @function oTypographySpacingSize($units: 0) {
 	@return ($units * $o-typography-baseline-unit) * 1px;
 }
+}
+
+//temporary until design confirms
+$_line-height: _oTypographyLineHeightFromScale($o-message-typography-scale, null);
+$_font-size: _oTypographyFontSizeFromScale($o-message-typography-scale);
+$_line-height-ratio: $_font-size / $_line-height;
+$_golden-ratio: 1.618;
+
+$_ultimate-ratio: $_line-height-ratio + $_golden-ratio;
+$_characters-per-line: 65;
+$_max-line-width: $_characters-per-line * ($_font-size / $_ultimate-ratio);
+
+@debug ($_max-line-width);
+
+
+/// Returns a maximum line width based on the given scale
+///
+/// @param {Number} $scale - number of the scale to return
+/// @param {Number} $characters-per-li e - number of the characters per line
+///
+/// @returns {Number} maximum line width in px
+@function oTypographyMaxLineWidth($scale, $characters-per-line: 65) {
+	$settings: oTypographyGetScale($scale);
+
+	$font-size: nth($settings, 1) * 1px;
+	$line-height: nth($settings, 2) * 1px;
+
+	$golden-ratio: 1.618;
+	$scale-ratio: ($font-size / $line-height)  + $golden-ratio; //adapts ratio to quirks in oTypography's line-heights
+
+	@return $characters-per-line * ($font-size / $scale-ratio);
+}
