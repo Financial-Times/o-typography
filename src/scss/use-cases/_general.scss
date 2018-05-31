@@ -126,7 +126,7 @@
 			display: inline-block;
 			position: absolute;
 			content: '\2022'; // dot character
-			left: -0.25ch;
+			left: -0.0625em;
 			font-size: 1.777777778em; // font-size 32px for `li` items with font-size of 18px
 		}
 	}
