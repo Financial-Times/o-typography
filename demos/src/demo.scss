@@ -40,9 +40,21 @@ html {
 		overflow: hidden;
 	}
 
-	@each $scale, $values in $o-typography-font-scale {
+	// @each $scale, $values in $o-typography-font-scale {
+	// 	&__example-#{$scale} {
+	// 		@include oTypographyDisplay($scale);
+	// 	}
+	// }
+
+	@each $scale, $values in map-get($o-typography-font-scale-by-font, $o-typography-display) {
 		&__example-#{$scale} {
 			@include oTypographyDisplay($scale);
+		}
+	}
+
+	@each $scale, $values in map-get($o-typography-font-scale-by-font, $o-typography-sans) {
+		&__example-sans-#{$scale} {
+			@include oTypographySans($scale);
 		}
 	}
 }

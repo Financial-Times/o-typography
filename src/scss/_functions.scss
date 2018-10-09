@@ -3,8 +3,10 @@
 /// @param {Number} $index - number of the scale to return
 ///
 /// @returns {List} list of the requested scale value
-@function oTypographyGetScale($index: 0) {
-	@return map-get($o-typography-font-scale, $index);
+@function oTypographyGetScale($index: 0, $font: '') {
+	$scale: map-get($o-typography-font-scale-by-font, $font);
+	$scale: if(type-of($scale) == 'map', $scale, $o-typography-font-scale);
+	@return map-get($scale, $index);
 }
 
 /// Returns the font-size value from the scale passed in
@@ -14,8 +16,8 @@
 /// @param {Number} $font-adjust - multiplier if used as a progressive font
 ///
 /// @returns {Number} size in px
-@function _oTypographyFontSizeFromScale($scale, $font-adjust: 1) {
-	$settings: oTypographyGetScale($scale);
+@function _oTypographyFontSizeFromScale($scale, $font-adjust: 1, $font: '') {
+	$settings: oTypographyGetScale($scale, $font);
 	@return (nth($settings, 1) * $font-adjust) * 1px;
 }
 
@@ -26,8 +28,8 @@
 /// @param {Number} $line-height - size to output if not false
 ///
 /// @returns {Number} size in px
-@function _oTypographyLineHeightFromScale($scale, $line-height) {
-	$settings: oTypographyGetScale($scale);
+@function _oTypographyLineHeightFromScale($scale, $line-height, $font: '') {
+	$settings: oTypographyGetScale($scale, $font);
 
 	@if $line-height {
 		@return $line-height;
@@ -52,8 +54,8 @@
 /// @param {Number} $optimal-characters-per-line - number of the characters per line
 ///
 /// @returns {Number} maximum line width in px
-@function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65) {
-	$settings: oTypographyGetScale($scale);
+@function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65, $font: '') {
+	$settings: oTypographyGetScale($scale, $font);
 
 	$font-size: nth($settings, 1) * 1px;
 	$line-height: nth($settings, 2) * 1px;

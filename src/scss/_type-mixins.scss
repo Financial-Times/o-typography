@@ -29,7 +29,7 @@
 	font-family: $o-typography-display;
 
 	@if $scale {
-		@include oTypographySize($scale, $line-height);
+		@include oTypographySize($scale, $line-height, $o-typography-display);
 	}
 
 	@if $progressive {
@@ -47,7 +47,7 @@
 	font-family: $o-typography-sans;
 
 	@if $scale {
-		@include oTypographySize($scale, $line-height);
+		@include oTypographySize($scale, $line-height, $o-typography-sans);
 	}
 
 	@if $progressive {
