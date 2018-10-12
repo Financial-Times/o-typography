@@ -103,10 +103,9 @@
 			$style-match: if($fallback-style, index($fallback-style, $style), true);
 
 			@if ($label-match or ($family-match and $weight-match and $style-match)) {
-				@debug #{$o-typography-loading-prefix}-#{$fallback-label} &;
 				.#{$o-typography-loading-prefix}-#{$fallback-label} & {
-					font-family: map-get($fallback, 'fallback');
 					@include _oTypographyFontSize($scale: $scale, $progressive-font-adjust: $fallback-scale, $font: $fallback-family);
+					font-family: map-get($fallback, 'fallback');
 				}
 			}
 		}
