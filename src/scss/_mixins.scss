@@ -47,21 +47,6 @@
 	}
 }
 
-/// Outputs the the fallback font size only for progressively
-/// loaded fonts
-///
-/// @param {String} $font font to output fallback styles for
-/// @param {Number} $scale number on scale the sizes are based on
-@mixin _oTypographyProgressiveFontFallbackSize($font, $scale) {
-	@if $scale != false and map-has-key($_o-typography-progressive-font-fallbacks, $font) {
-		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
-
-		.#{$o-typography-loading-prefix}-#{$font} & {
-			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'), map-get($font-config, 'font'));
-		}
-	}
-}
-
 /// Outputs the font size and line height based on the scale, also
 /// accepts an override line-height to output and a font adjustment
 /// parameter for when outputting styles for progressively loaded fonts
@@ -99,16 +84,31 @@
 
 /// Outputs the progressive font fallback styles based on
 /// font and scale if the font has fallback settings
+/// @todo deprecate (make private)
 ///
 /// @param {String} $font font to output fallback styles for
 /// @param {Number} $scale number on scale the size is based on
-@mixin oTypographyProgressiveFontFallback($font, $scale) {
-	@if $scale != false and map-has-key($_o-typography-progressive-font-fallbacks, $font) {
-		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
+@mixin oTypographyProgressiveFontFallback($font, $scale, $weight: false, $style: false) {
+	@if $scale != false {
+		@each $fallback in $_o-typography-progressive-font-fallbacks {
+			$fallback-family: map-get($fallback, 'family');
+			$fallback-label: map-get($fallback, 'label');
+			$fallback-weight: map-get($fallback, 'weight');
+			$fallback-style: map-get($fallback, 'style');
+			$fallback-scale: map-get($fallback, 'fallback-scale');
 
-		.#{$o-typography-loading-prefix}-#{$font} & {
-			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'), map-get($font-config, 'font'));
-			font-family: map-get($font-config, 'fallback');
+			$label-match: $fallback-label == $font;
+			$family-match: $fallback-family == $font;
+			$weight-match: if($fallback-weight, index($fallback-weight, $weight), true);
+			$style-match: if($fallback-style, index($fallback-style, $style), true);
+
+			@if ($label-match or ($family-match and $weight-match and $style-match)) {
+				@debug #{$o-typography-loading-prefix}-#{$fallback-label} &;
+				.#{$o-typography-loading-prefix}-#{$fallback-label} & {
+					font-family: map-get($fallback, 'fallback');
+					@include _oTypographyFontSize($scale: $scale, $progressive-font-adjust: $fallback-scale, $font: $fallback-family);
+				}
+			}
 		}
 	}
 }

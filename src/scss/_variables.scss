@@ -97,37 +97,46 @@ $o-typography-font-scale-by-font: (
 	)
 );
 
+/// @todo move into o-fonts, add mixin to o-fonts to add new font
+$o-fonts-families: map-merge($o-fonts-families, ('Georgia': (
+	font-family: 'Georgia, serif',
+	variants: (
+		(weight: regular, style: normal),
+		(weight: regular, style: italic),
+		(weight: semibold, style: normal),
+		(weight: semibold, style: italic),
+		(weight: bold, style: normal),
+		(weight: bold, style: italic)
+	)
+)));
+
 /// Configuration for fallback fonts when loading
 /// fonts progressively
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
-	sans: (
-		font: $o-typography-sans,
+	(
+		label: 'sans',
+		family: $o-typography-sans,
 		fallback: sans-serif,
 		fallback-scale: 0.87
 	),
-	sansBold: (
-		font: $o-typography-sans,
+	(
+		label: 'sansBold',
+		family: $o-typography-sans,
+		weight: ('bold', 'semibold'),
 		fallback: sans-serif,
 		fallback-scale: 0.83
 	),
-	sansItalic: (
-		font: $o-typography-sans,
-		fallback: sans-serif,
-		fallback-scale: 0.87
-	),
-	display: (
-		font: $o-typography-display,
+	(
+		label: 'display',
+		family: $o-typography-display,
 		fallback: serif,
 		fallback-scale: 0.9
 	),
-	displayBold: (
-		font: $o-typography-display,
-		fallback: serif,
-		fallback-scale: 0.9
-	),
-	displayItalic: (
-		font: $o-typography-display,
+	(
+		label: 'displayBold',
+		family: $o-typography-display,
+		weight: bold,
 		fallback: serif,
 		fallback-scale: 0.9
 	)

@@ -18,7 +18,7 @@
 		"sass": "demos/src/demo.scss",
 		"js": "demos/src/demo.js",
 		"dependencies": ["o-grid@^4.0.0"],
-		"documentClasses": "o-typography--loading-serifDisplay o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-serifDisplayBold"
+		"documentClasses": "o-typography--loading-display o-typography--loading-sans o-typography--loading-sansBold o-typography--loading-displayBold"
 	},
 	"ci": {
 		"circle": "https://circleci.com/api/v1/project/Financial-Times/o-typography"

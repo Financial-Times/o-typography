@@ -9,12 +9,16 @@
 	@return map-get($scale, $index);
 }
 
-/// Removes a fonts fallabck.
+/// Removes a fonts fallbacks.
+/// @todo move into o-fonts
 ///
 /// @param {String} $font - font family
 ///
 /// @returns {String} font family without fallbacks
 @function _oTypographyRemoveFontFallback($font) {
+	@if type-of($font) == 'list' {
+		@return nth($font, 1);
+	}
 	$index: str-index($font, ',');
 	@if $index {
 		$font: str-slice($font, 0, $index - 1);
