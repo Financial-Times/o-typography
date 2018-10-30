@@ -15,13 +15,10 @@
 	$progressive: map-get($opts, 'progressive');
 
 	// Check font variant is supported.
-	/// @todo have o-fonts use default style/weight if null/false
-	$test-style: if($style, $style, 'normal');
-	$test-weight: if($weight, $weight, 'regular');
-	$font-without-fallbacks: _oTypographyRemoveFontFallback($font);
-	$variant-exists: _oFontsVariantExists($family: $font-without-fallbacks, $weight: $test-weight, $style: $test-style);
+	$font-without-fallbacks: oFontsGetFontFamilyWithoutFallbacks($font);
+	$variant-exists: oFontsVariantExists($family: $font-without-fallbacks, $weight, $style);
 	@if not $variant-exists {
-		@error 'Font family "#{$font-without-fallbacks}" of weight "#{$test-weight}" and style "#{$test-style}" is not supported.';
+		@error 'Font family "#{$font-without-fallbacks}" of weight "#{if($weight, $weight, 'regular')}" and style "#{if($style, $style, 'normal')}" is not supported.';
 	}
 
 	@if $family {
