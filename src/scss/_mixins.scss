@@ -19,9 +19,9 @@
 /// Outputs the font size based on the scale, also accepts a font adjustment
 /// parameter for when outputting styles for progressively loaded fonts
 ///
-/// @param {Number} $scale number on scale the sizes are based on
-/// @param {Number} $progressive-font-adjust multiplier for font-size adjustments
-/// when adding styles for progressively loaded font
+/// @param {Number} $scale - Number on scale the sizes are based on.
+/// @param {Number} $progressive-font-adjust - Multiplier for font-size adjustments, when adding styles for progressively loaded font.
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
 @mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1, $font: '') {
 	@if type-of($scale) == map {
 		@each $breakpoint, $number in $scale {
@@ -53,6 +53,7 @@
 ///
 /// @param {Number} $scale number on scale the sizes are based on
 /// @param {Bool | Number} $line-height size to override the line-height property
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
 @mixin oTypographySize($scale, $line-height: false, $font: '') {
 	@if type-of($scale) == map {
 		@each $breakpoint, $scale in $scale {
@@ -84,24 +85,33 @@
 
 /// Outputs the progressive font fallback styles based on
 /// font and scale if the font has fallback settings
-/// @todo deprecate (make private)
 ///
-/// @param {String} $font font to output fallback styles for
-/// @param {Number} $scale number on scale the size is based on
-@mixin oTypographyProgressiveFontFallback($font, $scale, $weight: false, $style: false) {
-	@if $scale != false {
+/// @todo Make private in the next major release.
+/// @deprecated The progressive font fallback is output by other `o-typography` mixins, and should not be needed directly within products.
+///
+/// @param {String} $font - Font to output fallback styles for (or .
+/// @param {Number} $scale - Number on scale the size is based on.
+/// @param {String} $weight [null] - The weight of the font which needs a fallback e.g. 'bold'.
+/// @param {String} $style [null] - The style of the font which needs a fallback e.g. 'italic'.
+@mixin oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null) {
+	@if $scale {
+		// If falsy weight/style default to regular/normal.
+		$weight: if($weight, $weight, 'regular');
+		$style: if($style, $style, 'normal');
+		// Find fallback config for font, weight, and style.
 		@each $fallback in $_o-typography-progressive-font-fallbacks {
+			// Get fallback properties.
 			$fallback-family: map-get($fallback, 'family');
 			$fallback-label: map-get($fallback, 'label');
 			$fallback-weight: map-get($fallback, 'weight');
 			$fallback-style: map-get($fallback, 'style');
 			$fallback-scale: map-get($fallback, 'fallback-scale');
-
-			$label-match: $fallback-label == $font;
+			// Check if fallback is for the given font, weight, and style.
+			$label-match: $fallback-label == $font; // For backward compatibility
 			$family-match: $fallback-family == $font;
 			$weight-match: if($fallback-weight, index($fallback-weight, $weight), true);
 			$style-match: if($fallback-style, index($fallback-style, $style), true);
-
+			// Output the fallback if it matches.
 			@if ($label-match or ($family-match and $weight-match and $style-match)) {
 				.#{$o-typography-loading-prefix}-#{$fallback-label} & {
 					@include _oTypographyFontSize($scale: $scale, $progressive-font-adjust: $fallback-scale, $font: $fallback-family);

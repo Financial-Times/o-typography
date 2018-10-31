@@ -1,8 +1,8 @@
 /// Returns a single list on the scale
 ///
-/// @param {Number} $index - number of the scale to return
-///
-/// @returns {List} list of the requested scale value
+/// @param {Number} $index - Number of the scale to return.
+/// @param {String} $font [''] - The font to get the scale number for, as fonts may have different scales. Uses the default scale if not specified.
+/// @returns {List} List of the requested scale value.
 @function oTypographyGetScale($index: 0, $font: '') {
 	$scale: map-get($o-typography-font-scale-by-font, oFontsGetFontFamilyWithoutFallbacks($font));
 	$scale: if(type-of($scale) == 'map', $scale, $o-typography-font-scale);
@@ -14,7 +14,7 @@
 ///
 /// @param {Number} $scale - number of the scale to return
 /// @param {Number} $font-adjust - multiplier if used as a progressive font
-///
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {Number} size in px
 @function _oTypographyFontSizeFromScale($scale, $font-adjust: 1, $font: '') {
 	$settings: oTypographyGetScale($scale, $font);
@@ -26,7 +26,7 @@
 ///
 /// @param {Number} $scale - number of the scale to return
 /// @param {Number} $line-height - size to output if not false
-///
+/// @param {String} $font [''] - The font to get the line height for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {Number} size in px
 @function _oTypographyLineHeightFromScale($scale, $line-height, $font: '') {
 	$settings: oTypographyGetScale($scale, $font);
@@ -42,7 +42,6 @@
 /// passed to the function
 ///
 /// @param {Number} $units [0] - multiple of the baseline unit
-///
 /// @returns {Number} size in px
 @function oTypographySpacingSize($units: 0) {
 	@return ($units * $o-typography-baseline-unit) * 1px;
@@ -52,7 +51,7 @@
 ///
 /// @param {Number} $scale - number of the scale to return
 /// @param {Number} $optimal-characters-per-line - number of the characters per line
-///
+/// @param {String} $font [''] - The font to get the max line width for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {Number} maximum line width in px
 @function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65, $font: '') {
 	$settings: oTypographyGetScale($scale, $font);
