@@ -450,6 +450,30 @@ If you need to cap the line width, o-typography provides a function which limits
 	max-width: oTypographyMaxLineWidth($scale: 1);
 ```
 
+#### Register A Custom Font Scale
+
+`o-typography` supports multiple fonts scales, so each font may use a different scale. To register a custom font with a custom scale use `oTypographyDefineFontScale`. The mixin accepts the font family the scale is for and the scale map (a map of scale numbers to font size/line height).
+
+```scss
+$example-custom-font-family: 'MyCustomFont, sans';
+$example-custom-font-scale: (
+   -2: (12, 16), // $scale: ($font-size, $line-height)
+   -1: (14, 16),
+    0: (16, 20),
+    1: (18, 20),
+    2: (20, 24),
+    3: (24, 28),
+    4: (28, 32),
+    5: (32, 32),
+    6: (40, 40),
+    7: (48, 48),
+    8: (56, 56),
+    9: (72, 72),
+   10: (84, 84),
+);
+
+@include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
+```
 
 ### JavaScript
 

@@ -17,7 +17,7 @@ $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
 
 /// Serif font-family
 /// @type String
-$o-typography-serif:  Georgia, serif !default;
+$o-typography-serif: Georgia, serif !default;
 
 /// Display font-family
 /// @type String
@@ -31,7 +31,9 @@ $o-typography-baseline-unit: 4;
 /// @type String
 $o-typography-loading-prefix: 'o-typography--loading' !default;
 
-/// Scale of font-sizes and line-heights for all font-families
+/// The default font scale of font-sizes and line-heights.
+/// For backward compatibility this scale is used by default when a scale is needed but the font family is not known.
+/// @see $_o-typography-font-scale-by-font
 /// @type Map
 $o-typography-font-scale: (
    -2: (12, 16),
@@ -49,69 +51,17 @@ $o-typography-font-scale: (
    10: (84, 84),
 );
 
-$o-typography-font-scale-by-font: (
-	'MetricWeb': (
-		-2: (12, 16),
-		-1: (14, 16),
-		0: (16, 20),
-		1: (18, 20),
-		2: (20, 24),
-		3: (24, 28),
-		4: (28, 32),
-		5: (32, 32),
-		6: (40, 40),
-		7: (48, 48),
-		8: (56, 56),
-		9: (72, 72),
-		10: (84, 84)
-	),
-	'FinancierDisplayWeb': (
-		-2: (12, 16),
-		-1: (14, 16),
-		0: (16, 20),
-		1: (18, 20),
-		2: (20, 24),
-		3: (24, 28),
-		4: (28, 32),
-		5: (32, 32),
-		6: (40, 40),
-		7: (48, 48),
-		8: (56, 56),
-		9: (72, 72),
-		10: (84, 84)
-	),
-	'Georgia': (
-		-2: (12, 16),
-		-1: (14, 16),
-		0: (16, 20),
-		1: (18, 20),
-		2: (20, 24),
-		3: (24, 28),
-		4: (28, 32),
-		5: (32, 32),
-		6: (40, 40),
-		7: (48, 48),
-		8: (56, 56),
-		9: (72, 72),
-		10: (84, 84)
-	)
+/// Font scale of font-sizes and line-heights.
+/// Currently master brand fonts share the same scale, but other products may choose to define their own scale on a per font basis.
+/// @access private
+/// @type Map
+$_o-typography-font-scale-by-font: (
+	'MetricWeb': $o-typography-font-scale,
+	'FinancierDisplayWeb': $o-typography-font-scale,
+	'Georgia': $o-typography-font-scale
 );
 
-/// @todo move into o-fonts, add mixin to o-fonts to add new font
-$o-fonts-families: map-merge($o-fonts-families, ('Georgia': (
-	font-family: 'Georgia, serif',
-	variants: (
-		(weight: regular, style: normal),
-		(weight: regular, style: italic),
-		(weight: semibold, style: normal),
-		(weight: semibold, style: italic),
-		(weight: bold, style: normal),
-		(weight: bold, style: italic)
-	)
-)));
-
-/// Configuration for fallback fonts when loading
-/// fonts progressively
+/// Configuration for fallback fonts when loading fonts progressively.
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
 	(

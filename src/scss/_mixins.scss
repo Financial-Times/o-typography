@@ -162,3 +162,23 @@
 		font-weight: 700;
 	}
 }
+
+/// Set the typographic scale for a given font.
+/// @param {String} $font - The font name to apply a scale to.
+/// @param {Map} $scale - A map of scale numbers as keys (-2 to 10), with list values of font size and line height "(-2: (12, 16), -1: (14, 16), 0: (16, 20))" etc...
+@mixin oTypographyDefineFontScale($font, $scale) {
+	@if type-of($scale) != 'map' {
+		@error 'Could not set the scale for font "#{$font}", expected the scale to be a map but found "#{$scale}", of type "#{type-of($scale)}".';
+	}
+	@each $scale-number, $scale-item in $scale {
+		@if type-of($scale-item) != 'list' or length($scale-item) != 2 {
+			@error 'Expected each item in the scale to be a list with two items, the font size followed by the line height.';
+		}
+	}
+	@if map-keys($scale) != (-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10) {
+		@error 'Expected the scale for font "#{$font}" to contain values for scales -2 to 10, but found scales "#{map-keys($scale)}".';
+	}
+	$font: oFontsGetFontFamilyWithoutFallbacks($font);
+	$_o-typography-font-scale-by-font: map-merge(($font: $scale), $_o-typography-font-scale-by-font) !global;
+}
+

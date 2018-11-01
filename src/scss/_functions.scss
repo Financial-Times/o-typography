@@ -4,7 +4,7 @@
 /// @param {String} $font [''] - The font to get the scale number for, as fonts may have different scales. Uses the default scale if not specified.
 /// @returns {List} List of the requested scale value.
 @function oTypographyGetScale($index: 0, $font: '') {
-	$scale: map-get($o-typography-font-scale-by-font, oFontsGetFontFamilyWithoutFallbacks($font));
+	$scale: map-get($_o-typography-font-scale-by-font, oFontsGetFontFamilyWithoutFallbacks($font));
 	$scale: if(type-of($scale) == 'map', $scale, $o-typography-font-scale);
 	@return map-get($scale, $index);
 }

@@ -25,6 +25,15 @@
 
 @if $o-typography-is-silent == false {
 
+	// Register allowed font variants with `o-fonts`.
+	// Georgia is the only font used outside of `o-fonts`.
+	@include oFontsDefineCustomFont('Georgia, serif', (
+		(weight: regular, style: normal),
+		(weight: regular, style: italic),
+		(weight: bold, style: normal),
+		(weight: bold, style: italic)
+	));
+
 	@if $o-typography-load-fonts == true {
 		@include oFontsIncludeAll();
 	}
