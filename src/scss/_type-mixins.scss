@@ -22,7 +22,7 @@
 	}
 
 	@if $family {
-		font-family: $font;
+		font-family: if(type-of($font) == 'string', unquote($font), $font);
 	}
 
 	@if $scale {
