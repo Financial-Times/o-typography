@@ -1,4 +1,4 @@
-@mixin oTypography($font, $opts: (
+@mixin oTypographyFor($font, $opts: (
 	'family': false,
 	'scale': false,
 	'custom-line-height': false,
@@ -51,7 +51,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySerif($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-serif, $opts: (
+	@include oTypographyFor($o-typography-serif, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
@@ -66,7 +66,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographyDisplay($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-display, $opts: (
+	@include oTypographyFor($o-typography-display, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
@@ -81,7 +81,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySans($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-sans, $opts: (
+	@include oTypographyFor($o-typography-sans, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
@@ -96,7 +96,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographyDisplayBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-display, $opts: (
+	@include oTypographyFor($o-typography-display, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
@@ -112,7 +112,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySansBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-sans, $opts: (
+	@include oTypographyFor($o-typography-sans, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
@@ -128,7 +128,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySerifBold($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-serif, $opts: (
+	@include oTypographyFor($o-typography-serif, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,
@@ -144,7 +144,7 @@
 /// @param {Bool | Number} $line-height [false] - line-height value to use instead of scale default
 /// @param {Bool} $progressive [true] - whether to output progressive font loading styles
 @mixin oTypographySerifItalic($scale: false, $line-height: false, $progressive: true) {
-	@include oTypography($o-typography-serif, $opts: (
+	@include oTypographyFor($o-typography-serif, $opts: (
 		'family': true,
 		'scale': $scale,
 		'custom-line-height': $line-height,

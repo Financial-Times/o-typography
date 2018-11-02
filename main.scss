@@ -1,8 +1,3 @@
-////
-/// @group general
-/// @link http://registry.origami.ft.com/components/o-typography
-////
-
 @import 'o-grid/main';
 @import 'o-fonts/main';
 @import 'o-colors/main';
@@ -12,9 +7,7 @@
 @import 'src/scss/color-use-cases';
 @import 'src/scss/functions';
 @import 'src/scss/mixins';
-
 @import 'src/scss/type-mixins';
-
 @import 'src/scss/use-cases/general';
 @import 'src/scss/use-cases/headings';
 @import 'src/scss/use-cases/product-headings';
@@ -22,18 +15,17 @@
 @import 'src/scss/use-cases/asides';
 @import 'src/scss/use-cases/wrapper';
 
+// Register allowed font variants with `o-fonts`.
+// Georgia is the only font in `o-typography` which isn't part of `o-fonts`.
+@include oFontsDefineCustomFont('Georgia, serif', (
+	(weight: regular, style: normal),
+	(weight: regular, style: italic),
+	(weight: bold, style: normal),
+	(weight: bold, style: italic)
+));
 
-@if $o-typography-is-silent == false {
-
-	// Register allowed font variants with `o-fonts`.
-	// Georgia is the only font used outside of `o-fonts`.
-	@include oFontsDefineCustomFont('Georgia, serif', (
-		(weight: regular, style: normal),
-		(weight: regular, style: italic),
-		(weight: bold, style: normal),
-		(weight: bold, style: italic)
-	));
-
+/// Output all default typography styles.
+@mixin oTypography() {
 	@if $o-typography-load-fonts == true {
 		@include oFontsIncludeAll();
 	}
@@ -196,7 +188,11 @@
 	.o-typography-wrapper--product {
 		@include oTypographyWrapper($style: product);
 	}
+}
 
+// So the build service can output all typography styles.
+@if $o-typography-is-silent == false {
+	@include oTypography();
 	// Don't output twice
 	$o-typography-is-silent: true !global;
 }
