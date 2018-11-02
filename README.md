@@ -448,14 +448,33 @@ If you need to cap the line width, o-typography provides a function which limits
 	max-width: oTypographyMaxLineWidth($scale: 1);
 ```
 
-#### Register A Custom Font Scale
+#### Use A Custom Font
 
-`o-typography` supports multiple fonts scales, so each font may use a different scale. To register a custom font with a custom scale use `oTypographyDefineFontScale`. The mixin accepts the font family the scale is for and the scale map (a map of scale numbers to font size/line height).
-
-If defining a scale for a custom font, first [register the custom font with `o-fonts`](https://github.com/Financial-Times/o-fonts#using-custom-font-families).
+To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a key (sans, serif, or display), the custom font family, and the variants the fonts supports (which combinations of weight and style).
 
 ```scss
-$example-custom-font-family: 'MyCustomFont, sans';
+	@import 'o-typography/main';
+	// Set custom sans font, with support for regular and bold weights.
+ 	@include oTypographySetCustomFont(
+		$key: 'sans',
+		$family: 'MySansFont, sans',
+		$variants: (
+ 			(weight: regular, style: normal),
+ 			(weight: bold, style: normal)
+		)
+	);
+	// The custom sans font is now output by other `o-typography` mixins such as `oTypography`.
+	@include oTypography();
+```
+
+#### Register A Custom Font Scale
+
+`o-typography` supports multiple fonts scales, so each font may use a different scale. To register a custom scale use `oTypographyDefineFontScale`. The mixin accepts the font family the scale is for and the scale map (a map of scale numbers to font size/line height).
+
+If defining a scale for a custom font, first [set the custom font](#use-a-custom-font).
+
+```scss
+$example-custom-font-family: 'MySansFont, sans';
 $example-custom-font-scale: (
    -2: (12, 16), // $scale: ($font-size, $line-height)
    -1: (14, 16),
@@ -473,23 +492,6 @@ $example-custom-font-scale: (
 );
 
 @include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
-```
-
-#### Output Typography For A Custom Font & Scale
-
-After registering a [custom font scale](#register-a-custom-font-scale), output typography using `oTypographyFor`. This will check the font weight and style are supported by the font, and output the correct size and line height if a scale value is given. There is also the option for a custom line height, to override the typographic scale.
-
-There is also an option for [progressive font loading](#progressive-loading-web-fonts), note this feature currently only works  with the default fonts of `o-typography`.
-
-```scss
-	@include oTypographyFor($font: $example-custom-font-family, $opts: (
-		'family': false,
-		'scale': false,
-		'custom-line-height': false,
-		'weight': false,
-		'style': false,
-		'progressive': true
-	));
 ```
 
 ### JavaScript

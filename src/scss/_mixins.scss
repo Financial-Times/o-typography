@@ -47,6 +47,37 @@
 	}
 }
 
+/// Set a custom font.
+///
+/// @example This example shows setting a custom font "MySansFont" as the "sans" font. We specify out custom font supports regular or bold variants.
+/// 	@include oTypographySetCustomFont($key: 'sans', $family: 'MySansFont, sans', $variants: (
+/// 		(weight: regular, style: normal),
+/// 		(weight: bold, style: normal)
+/// 	));
+///
+/// @param {String} $key - One of 'sans', 'serif', or 'display'.
+/// @param {String} $family - The font family to set.
+/// @param {Map} $variants - The variants (weight and style combinations) which are allowed in a nested map.
+@mixin oTypographySetCustomFont($key, $family, $variants) {
+	$keys: ('sans', 'serif', 'display');
+	@if map-get($keys, $key) {
+		@error 'Could not set font-family "#{$family}" for font key "#{key}", key must be one of "#{$keys}".';
+	}
+	// Register the custom font with o-fonts.
+	@include oFontsDefineCustomFont($family, $variants);
+	// Set the custom font.
+	@if $key == 'sans' {
+		$o-typography-sans: $family;
+	}
+	@if $key == 'serif' {
+		$o-typography-serif: $family;
+	}
+	@if $key == 'display' {
+		$o-typography-display: $family;
+	}
+}
+
+
 /// Outputs the font size and line height based on the scale, also
 /// accepts an override line-height to output and a font adjustment
 /// parameter for when outputting styles for progressively loaded fonts
