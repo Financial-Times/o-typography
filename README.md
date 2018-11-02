@@ -99,7 +99,7 @@ The Sass in o-typography provides several types of mixin for use in your project
 
 ##### Use Case mixins
 
-The module has a small number of common typographic use cases that are available as mixins.
+The module has common typographic use cases that are available as mixins. See the ([full list in the registry](https://registry.origami.ft.com/components/o-typography/sassdoc)):
 
 ```scss
 .article {
@@ -110,23 +110,79 @@ The module has a small number of common typographic use cases that are available
 }
 ```
 
-For wrappers ([see wrapper section](#wrappers)):
+##### Heading mixins
+
+Headings in o-typography have a specific font-family, and some additional styling depending on the functionality of the heading.
+
+There are two groups of mixins that are available to style headings, one for article headings, and one for headings that support other types of content, which we are calling 'product'.
+
+The following are two examples of many available mixins.
+
+`oTypographyHeadline` will output styles for an article headline.
+
+Usage:
 
 ```scss
-.article__body {
-	@include oTypographyBodyWrapper;
+.my-article-headline {
+	@include oTypographyHeadline();
 }
 ```
 
-Mixins exist for all the same styles as pre-defined classes, named with a camelCased version of the class name.
+Output:
+
+```css
+.my-article-headline {
+	font-family: FinancierDisplayWeb, serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 700;
+	margin-top: 0px;
+	margin-bottom: 28px;
+	color: #33302e;
+}
+```
+
+`oTypographyProductHeadingLevel1` is an example of the product variant for an `h1`.
+
+Usage:
+```scss
+.my-non-article-headline {
+	@include oTypographyProductHeadingLevel1();
+}
+```
+
+Output:
+```css
+.my-non-article-headline {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	color: #33302e;
+	font-family: MetricWeb, sans-serif;
+	font-size: 32px;
+	line-height: 32px;
+	font-weight: 600;
+}
+```
+
+There are multiple mixins for article headings and for product headings, examples of which can be found in the [`o-typography` demos](http://registry.origami.ft.com/components/o-typography).
 
 ##### Type mixins
 
 If you want to output only the font-family, font-size, and line-height, with no extra styles, use the type mixins.
 
+- oTypographySerif
+- oTypographyDisplay
+- oTypographySans
+- oTypographyDisplayBold
+- oTypographySansBold
+- oTypographySerifBold
+- oTypographySerifItalic
+
+[See all type mixins in the registry](https://registry.origami.ft.com/components/o-typography/sassdoc)
+
 Sass:
 
-```sass
+```scss
 h1 {
 	@include oTypographyDisplay($scale: 7);
 }
@@ -134,7 +190,7 @@ h1 {
 
 Output:
 
-```css
+```scss
 h1 {
 	font-family: FinancierTextDisplay, serif;
 	font-size: 48px;
@@ -189,10 +245,9 @@ h1 {
 
 As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a second parameter of `$line-height` to override the default value from the font scale.
 
+##### Spacing
 
-##### Baseline grid mixins
-
-Along with font sizing o-typography provides mixins for working with a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
+Along with font sizing o-typography provides spacing mixins, for spacing elements within a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
 
 There are 2 mixins and a function provided for working with the baseline grid. Each mixin or function takes arguments used as multipliers of the `$o-typography-baseline-unit` variable.
 
@@ -258,63 +313,6 @@ Example usage:
 	);
 }
 ```
-
-##### Heading mixins
-
-Headings in o-typography have a specific font-family, and some additional styling depending on the functionality of the heading.
-
-There are two groups of mixins that are available to style headings, one for article headings, and one for headings that support other types of content, which we are calling 'product'.
-
-The following are two examples of many available mixins.
-
-`oTypographyHeadline` will output styles for an article headline.
-
-Usage:
-
-```scss
-.my-article-headline {
-	@include oTypographyHeadline();
-}
-```
-
-Output:
-
-```css
-.my-article-headline {
-	font-family: FinancierDisplayWeb, serif;
-	font-size: 32px;
-	line-height: 32px;
-	font-weight: 700;
-	margin-top: 0px;
-	margin-bottom: 28px;
-	color: #33302e;
-}
-```
-
-`oTypographyProductHeadingLevel1` is an example of the product variant for an `h1`.
-
-Usage:
-```scss
-.my-non-article-headline {
-	@include oTypographyProductHeadingLevel1();
-}
-```
-
-Output:
-```css
-.my-non-article-headline {
-	margin-top: 0px;
-	margin-bottom: 20px;
-	color: #33302e;
-	font-family: MetricWeb, sans-serif;
-	font-size: 32px;
-	line-height: 32px;
-	font-weight: 600;
-}
-```
-
-There are multiple mixins for article headings and for product headings, examples of which can be found in the [`o-typography` demos](http://registry.origami.ft.com/components/o-typography).
-
 
 #### Responsive font scales
 
@@ -454,6 +452,8 @@ If you need to cap the line width, o-typography provides a function which limits
 
 `o-typography` supports multiple fonts scales, so each font may use a different scale. To register a custom font with a custom scale use `oTypographyDefineFontScale`. The mixin accepts the font family the scale is for and the scale map (a map of scale numbers to font size/line height).
 
+If defining a scale for a custom font, first [register the custom font with `o-fonts`](https://github.com/Financial-Times/o-fonts#using-custom-font-families).
+
 ```scss
 $example-custom-font-family: 'MyCustomFont, sans';
 $example-custom-font-scale: (
@@ -473,6 +473,23 @@ $example-custom-font-scale: (
 );
 
 @include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
+```
+
+#### Output Typography For A Custom Font & Scale
+
+After registering a [custom font scale](#register-a-custom-font-scale), output typography using `oTypographyFor`. This will check the font weight and style are supported by the font, and output the correct size and line height if a scale value is given. There is also the option for a custom line height, to override the typographic scale.
+
+There is also an option for [progressive font loading](#progressive-loading-web-fonts), note this feature currently only works  with the default fonts of `o-typography`.
+
+```scss
+	@include oTypographyFor($font: $example-custom-font-family, $opts: (
+		'family': false,
+		'scale': false,
+		'custom-line-height': false,
+		'weight': false,
+		'style': false,
+		'progressive': true
+	));
 ```
 
 ### JavaScript
