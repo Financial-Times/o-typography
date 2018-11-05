@@ -1,21 +1,3 @@
-/// Outputs styling for headings, namely the font size based on the scale and the font-weight based on preference,
-/// along with the base colour
-///
-/// @param {Number} $scale number on scale the sizes are based on
-/// @param {String} $weight to determine which font to load
-@mixin _oTypographyProductHeadingBase($scale, $weight: regular) {
-	@include oTypographyMargin($top: 0, $bottom: 5);
-	@include oColorsFor('o-typography-headline');
-	@if $weight == regular {
-		@include oTypographySans($scale: $scale);
-		font-weight: 400;
-	} @else if $weight == semibold {
-		@include oTypographySansBold($scale: $scale);
-	} @else {
-		@error '#{$weight} is not a defined weight in oTypography';
-	}
-}
-
 /// Outputs the font size based on the scale, also accepts a font adjustment
 /// parameter for when outputting styles for progressively loaded fonts
 ///
@@ -31,7 +13,7 @@
 				} @else {
 					font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust, $font);
 				}
-			} @else {
+			} @else if($number) {
 				@include oGridRespondTo($breakpoint) {
 					@if type-of($number) == list {
 						font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust, $font);
@@ -50,29 +32,29 @@
 /// Set a custom font.
 ///
 /// @example This example shows setting a custom font "MySansFont" as the "sans" font. We specify out custom font supports regular or bold variants.
-/// 	@include oTypographySetCustomFont($key: 'sans', $family: 'MySansFont, sans', $variants: (
+/// 	@include oTypographySetCustomFont($family-style: 'sans', $family: 'MySansFont, sans', $variants: (
 /// 		(weight: regular, style: normal),
 /// 		(weight: bold, style: normal)
 /// 	));
 ///
-/// @param {String} $key - One of 'sans', 'serif', or 'display'.
+/// @param {String} $family-style - One of 'sans', 'serif', or 'display'.
 /// @param {String} $family - The font family to set.
 /// @param {Map} $variants - The variants (weight and style combinations) which are allowed in a nested map.
-@mixin oTypographySetCustomFont($key, $family, $variants) {
-	$keys: ('sans', 'serif', 'display');
-	@if map-get($keys, $key) {
-		@error 'Could not set font-family "#{$family}" for font key "#{key}", key must be one of "#{$keys}".';
+@mixin oTypographySetCustomFont($family-style, $family, $variants) {
+	$family-styles: ('sans', 'serif', 'display');
+	@if not index($family-styles, $family-style) {
+		@error 'Could not set font-family "#{$family}" for family style "#{$family-style}", family style must be one of "#{$family-styles}".';
 	}
 	// Register the custom font with o-fonts.
 	@include oFontsDefineCustomFont($family, $variants);
 	// Set the custom font.
-	@if $key == 'sans' {
+	@if $family-style == 'sans' {
 		$o-typography-sans: $family;
 	}
-	@if $key == 'serif' {
+	@if $family-style == 'serif' {
 		$o-typography-serif: $family;
 	}
-	@if $key == 'display' {
+	@if $family-style == 'display' {
 		$o-typography-display: $family;
 	}
 }
@@ -96,7 +78,7 @@
 					font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
 					line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
 				}
-			} @else {
+			} @else if($scale) {
 				@include oGridRespondTo($breakpoint) {
 					@if type-of($scale) == list {
 						font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
@@ -134,13 +116,17 @@
 			// Get fallback properties.
 			$fallback-family: map-get($fallback, 'family');
 			$fallback-label: map-get($fallback, 'label');
+			// Match regular by default.
 			$fallback-weight: map-get($fallback, 'weight');
+			$fallback-weight: if($fallback-weight, $fallback-weight, ('regular'));
+			// Match normal by default.
 			$fallback-style: map-get($fallback, 'style');
+			$fallback-style: if($fallback-style, $fallback-style, ('normal'));
 			$fallback-scale: map-get($fallback, 'fallback-scale');
-			// Check if fallback is for the given font, weight, and style.
-			$label-match: $fallback-label == $font; // For backward compatibility
-			$family-match: $fallback-family == $font;
-			$weight-match: if($fallback-weight, index($fallback-weight, $weight), true);
+			// Check if fallback is for the given font, weight, and style.;
+			$label-match: $fallback-label == oFontsGetFontFamilyWithoutFallbacks($font); // For backward compatibility
+			$family-match: oFontsGetFontFamilyWithoutFallbacks($fallback-family) == oFontsGetFontFamilyWithoutFallbacks($font);
+			$weight-match: index($fallback-weight, $weight);
 			$style-match: if($fallback-style, index($fallback-style, $style), true);
 			// Output the fallback if it matches.
 			@if ($label-match or ($family-match and $weight-match and $style-match)) {

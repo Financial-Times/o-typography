@@ -74,6 +74,10 @@
 			"title": "Custom Links",
 			"template": "demos/src/custom-links.mustache",
 			"description": "",
+			"brands": [
+				"master",
+				"internal"
+			],
 			"hidden": true
 		}
 	]

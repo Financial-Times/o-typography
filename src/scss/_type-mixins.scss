@@ -2,21 +2,15 @@
 /// @param {String} $font - The font to output typography for.
 /// @param {Map} $opts - What typography styles to output: family (boolean), scale (number -2 - 12), custom-line-height (e.g. 1em), weight (e.g. bold), style (e.g. italic), progressive (boolean).
 /// @access private
-@mixin _oTypographyFor($font, $opts: (
-	'family': false,
-	'scale': false,
-	'custom-line-height': false,
-	'weight': false,
-	'style': false,
-	'progressive': true
-)) {
-	// Get options.
+@mixin _oTypographyFor($font, $opts: ()) {
+	// Get options, null default.
 	$family: map-get($opts, 'family');
 	$scale: map-get($opts, 'scale');
 	$custom-line-height: map-get($opts, 'custom-line-height');
 	$weight: map-get($opts, 'weight');
 	$style: map-get($opts, 'style');
-	$progressive: map-get($opts, 'progressive');
+	// Get options, true default.
+	$progressive: if(map-has-key($opts, 'progressive'), map-get($opts, 'progressive'), true);
 
 	// Check font variant is supported.
 	$font-without-fallbacks: oFontsGetFontFamilyWithoutFallbacks($font);

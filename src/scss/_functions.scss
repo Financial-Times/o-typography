@@ -34,7 +34,8 @@
 	@if $line-height {
 		@return $line-height;
 	} @else {
-		@return nth($settings, 2) * 1px;
+		$line-height: nth($settings, 2);
+		@return if($line-height, $line-height * 1px, null);
 	}
 }
 
@@ -57,10 +58,34 @@
 	$settings: oTypographyGetScale($scale, $font);
 
 	$font-size: nth($settings, 1) * 1px;
-	$line-height: nth($settings, 2) * 1px;
+	$line-height: if(nth($settings, 2), nth($settings, 2) * 1px, $font-size);
 
 	$golden-ratio: 1.618;
 	$scale-ratio: ($font-size / $line-height)  + $golden-ratio; //adapts ratio to quirks in oTypography's line-heights
 
 	@return $optimal-characters-per-line * ($font-size / $scale-ratio);
+}
+
+/// Get font family for family style i.e "sans", "serif", or "display".
+///
+/// @example
+/// 	font-family: oTypographyGetFamily('sans')
+///
+/// @access private
+/// @param {String} $family-style - One of 'sans', 'serif', or 'display'.
+/// @return {String|List} The font-family set for the given font style.
+@function _oTypographyFontFamilyForStyle($family-style) {
+	$family-styles: ('sans', 'serif', 'display');
+	@if not index($family-styles, $family-style) {
+		@error 'Could not get the font-family for font of style "#{$family-style}", style must be one of "#{$family-styles}".';
+	}
+	@if $family-style == 'sans' {
+		@return $o-typography-sans;
+	}
+	@if $family-style == 'serif' {
+		@return $o-typography-serif;
+	}
+	@if $family-style == 'display' {
+		@return $o-typography-display;
+	}
 }

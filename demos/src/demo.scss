@@ -47,11 +47,13 @@ html {
 	}
 }
 
-.o-typography-link--custom {
-	@include oTypographyLinkCustom(
-		$baseColor: 'claret',
-		$hoverColor: 'claret-30'
-	);
+@if oBrandGetCurrentBrand() == 'master' or oBrandGetCurrentBrand() == 'internal' {
+	.o-typography-link--custom {
+		@include oTypographyLinkCustom(
+			$baseColor: 'oxford',
+			$hoverColor: 'oxford-30'
+		);
+	}
 }
 
 .line-width-demo {

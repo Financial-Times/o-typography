@@ -3,9 +3,10 @@
 @import 'o-colors/main';
 @import 'o-icons/main';
 
+@import 'src/scss/brand';
 @import 'src/scss/variables';
-@import 'src/scss/color-use-cases';
 @import 'src/scss/functions';
+@import 'src/scss/color-use-cases';
 @import 'src/scss/mixins';
 @import 'src/scss/type-mixins';
 @import 'src/scss/use-cases/general';
@@ -15,17 +16,12 @@
 @import 'src/scss/use-cases/asides';
 @import 'src/scss/use-cases/wrapper';
 
-// Register allowed font variants with `o-fonts`.
-// Georgia is the only font in `o-typography` which isn't part of `o-fonts`.
-@include oFontsDefineCustomFont('Georgia, serif', (
-	(weight: regular, style: normal),
-	(weight: regular, style: italic),
-	(weight: bold, style: normal),
-	(weight: bold, style: italic)
-));
-
 /// Output all default typography styles.
-@mixin oTypography() {
+@mixin oTypography($opts: ('product', 'article')) {
+	$product-enabled: index($opts, 'product');
+	$article-enabled: index($opts, 'article');
+
+	// @breaking Remove this conditional. Always include required font faces.
 	@if $o-typography-load-fonts == true {
 		@include oFontsIncludeAll();
 	}
@@ -36,9 +32,11 @@
 		@include oTypographyHeadline;
 	}
 
-	.o-typography-headline--large,
-	.o-typography-heading-level-1--large {
-		@include oTypographyHeadlineLarge;
+	@if _oTypographySupports('heading-level-one-large') {
+		.o-typography-headline--large,
+		.o-typography-heading-level-1--large {
+			@include oTypographyHeadlineLarge;
+		}
 	}
 
 	.o-typography-heading-level-2 {
@@ -57,53 +55,8 @@
 		@include oTypographyHeadingLevel5;
 	}
 
-	.o-typography-read-next {
-		@include oTypographyReadNext;
-	}
-
-	.o-typography-collection-heading {
-		@include oTypographyCollectionHeader;
-	}
-
-	// Product Headings
-
-	.o-typography-product-heading-level-1 {
-		@include oTypographyProductHeadingLevel1;
-	}
-
-	.o-typography-product-heading-level-2 {
-		@include oTypographyProductHeadingLevel2;
-	}
-
-	.o-typography-product-heading-level-3 {
-		@include oTypographyProductHeadingLevel3;
-	}
-
-	.o-typography-product-heading-level-4 {
-		@include oTypographyProductHeadingLevel4;
-	}
-
-	.o-typography-product-heading-level-5 {
-		@include oTypographyProductHeadingLevel5;
-	}
-
-	.o-typography-product-heading-level-6 {
-		@include oTypographyProductHeadingLevel6;
-	}
-
-	.o-typography-product-heading-level-7 {
-		@include oTypographyProductHeadingLevel7;
-	}
-
-	.o-typography-product-heading-level-8 {
-		@include oTypographyProductHeadingLevel8;
-	}
-
-	.o-typography-product-heading-level-7--thin-rule {
-		@include oTypographyProductHeadingLevel7;
-		border-top: 1px solid oColorsGetPaletteColor('black-30');
-		padding-top: oTypographySpacingSize(3);
-		margin-bottom: oTypographySpacingSize(1);
+	.o-typography-body {
+		@include oTypographyBody;
 	}
 
 	// Body copy - common
@@ -134,22 +87,6 @@
 		@include oTypographyCaption;
 	}
 
-	.o-typography-topic {
-		@include oTypographyTopic;
-	}
-
-	.o-typography-author {
-		@include oTypographyAuthor;
-	}
-
-	.o-typography-body {
-		@include oTypographyBody;
-	}
-
-	.o-typography-standfirst {
-		@include oTypographyStandfirst;
-	}
-
 	.o-typography-list {
 		@include oTypographyList;
 	}
@@ -170,23 +107,91 @@
 		@include oTypographyBlockquote;
 	}
 
-	.o-typography-big-number {
-		@include oTypographyBigNumber;
-	}
-
-	// Timestamps usecase
-	.o-typography-timestamp {
-		@include oTypographyTimestamp;
-	}
-
 	// Body wrapper
 	.o-typography-wrapper {
 		@include oTypographyWrapper;
 	}
 
 	// Body wrapper for non-article related products
-	.o-typography-wrapper--product {
-		@include oTypographyWrapper($style: product);
+	@if $product-enabled and _oTypographySupports('product') {
+		.o-typography-wrapper--product {
+			@include oTypographyWrapper($style: product);
+		}
+	}
+
+	// Product Headings
+	@if $product-enabled and _oTypographySupports('product') {
+		.o-typography-product-heading-level-1 {
+			@include oTypographyProductHeadingLevel1;
+		}
+
+		.o-typography-product-heading-level-2 {
+			@include oTypographyProductHeadingLevel2;
+		}
+
+		.o-typography-product-heading-level-3 {
+			@include oTypographyProductHeadingLevel3;
+		}
+
+		.o-typography-product-heading-level-4 {
+			@include oTypographyProductHeadingLevel4;
+		}
+
+		.o-typography-product-heading-level-5 {
+			@include oTypographyProductHeadingLevel5;
+		}
+
+		.o-typography-product-heading-level-6 {
+			@include oTypographyProductHeadingLevel6;
+		}
+
+		.o-typography-product-heading-level-7 {
+			@include oTypographyProductHeadingLevel7;
+		}
+
+		.o-typography-product-heading-level-8 {
+			@include oTypographyProductHeadingLevel8;
+		}
+
+		.o-typography-product-heading-level-7--thin-rule {
+			@include oTypographyProductHeadingLevel7;
+			border-top: 1px solid oColorsGetPaletteColor('black-30');
+			padding-top: oTypographySpacingSize(3);
+			margin-bottom: oTypographySpacingSize(1);
+		}
+	}
+
+	// FT.com article styles.
+	@if $article-enabled and _oTypographySupports('article') {
+		.o-typography-topic {
+			@include oTypographyTopic;
+		}
+
+		.o-typography-author {
+			@include oTypographyAuthor;
+		}
+
+		.o-typography-standfirst {
+			@include oTypographyStandfirst;
+		}
+
+		.o-typography-big-number {
+			@include oTypographyBigNumber;
+		}
+
+		.o-typography-read-next {
+			@include oTypographyReadNext;
+		}
+
+		// Collection Heading
+		.o-typography-collection-heading {
+			@include oTypographyCollectionHeader;
+		}
+
+		// Timestamps usecase
+		.o-typography-timestamp {
+			@include oTypographyTimestamp;
+		}
 	}
 }
 
