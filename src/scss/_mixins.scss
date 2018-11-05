@@ -19,48 +19,64 @@
 /// Outputs the font size based on the scale, also accepts a font adjustment
 /// parameter for when outputting styles for progressively loaded fonts
 ///
-/// @param {Number} $scale number on scale the sizes are based on
-/// @param {Number} $progressive-font-adjust multiplier for font-size adjustments
-/// when adding styles for progressively loaded font
-@mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1) {
+/// @param {Number} $scale - Number on scale the sizes are based on.
+/// @param {Number} $progressive-font-adjust - Multiplier for font-size adjustments, when adding styles for progressively loaded font.
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
+@mixin _oTypographyFontSize($scale, $progressive-font-adjust: 1, $font: '') {
 	@if type-of($scale) == map {
 		@each $breakpoint, $number in $scale {
 			@if $breakpoint == 'default' {
 				@if type-of($number) == list {
-					font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust);
+					font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust, $font);
 				} @else {
-					font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust);
+					font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust, $font);
 				}
 			} @else {
 				@include oGridRespondTo($breakpoint) {
 					@if type-of($number) == list {
-						font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust);
+						font-size: _oTypographyFontSizeFromScale(nth($number, 1), $progressive-font-adjust, $font);
 					} @else {
-						font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust);
+						font-size: _oTypographyFontSizeFromScale($number, $progressive-font-adjust, $font);
 					}
 				}
 			}
 
 		}
 	} @else {
-		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust);
+		font-size: _oTypographyFontSizeFromScale($scale, $progressive-font-adjust, $font);
 	}
 }
 
-/// Outputs the the fallback font size only for progressively
-/// loaded fonts
+/// Set a custom font.
 ///
-/// @param {String} $font font to output fallback styles for
-/// @param {Number} $scale number on scale the sizes are based on
-@mixin _oTypographyProgressiveFontFallbackSize($font, $scale) {
-	@if $scale != false and map-has-key($_o-typography-progressive-font-fallbacks, $font) {
-		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
-
-		.#{$o-typography-loading-prefix}-#{$font} & {
-			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
-		}
+/// @example This example shows setting a custom font "MySansFont" as the "sans" font. We specify out custom font supports regular or bold variants.
+/// 	@include oTypographySetCustomFont($key: 'sans', $family: 'MySansFont, sans', $variants: (
+/// 		(weight: regular, style: normal),
+/// 		(weight: bold, style: normal)
+/// 	));
+///
+/// @param {String} $key - One of 'sans', 'serif', or 'display'.
+/// @param {String} $family - The font family to set.
+/// @param {Map} $variants - The variants (weight and style combinations) which are allowed in a nested map.
+@mixin oTypographySetCustomFont($key, $family, $variants) {
+	$keys: ('sans', 'serif', 'display');
+	@if map-get($keys, $key) {
+		@error 'Could not set font-family "#{$family}" for font key "#{key}", key must be one of "#{$keys}".';
+	}
+	// Register the custom font with o-fonts.
+	@include oFontsDefineCustomFont($family, $variants);
+	// Set the custom font.
+	@if $key == 'sans' {
+		$o-typography-sans: $family;
+	}
+	@if $key == 'serif' {
+		$o-typography-serif: $family;
+	}
+	@if $key == 'display' {
+		$o-typography-display: $family;
 	}
 }
+
 
 /// Outputs the font size and line height based on the scale, also
 /// accepts an override line-height to output and a font adjustment
@@ -68,47 +84,71 @@
 ///
 /// @param {Number} $scale number on scale the sizes are based on
 /// @param {Bool | Number} $line-height size to override the line-height property
-@mixin oTypographySize($scale, $line-height: false) {
+/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
+@mixin oTypographySize($scale, $line-height: false, $font: '') {
 	@if type-of($scale) == map {
 		@each $breakpoint, $scale in $scale {
 			@if $breakpoint == 'default' {
 				@if type-of($scale) == list {
-					font-size: _oTypographyFontSizeFromScale(nth($scale, 1));
+					font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
 					line-height: nth($scale, 2);
 				} @else {
-					font-size: _oTypographyFontSizeFromScale($scale);
-					line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+					font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
+					line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
 				}
 			} @else {
 				@include oGridRespondTo($breakpoint) {
 					@if type-of($scale) == list {
-						font-size: _oTypographyFontSizeFromScale(nth($scale, 1));
+						font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
 						line-height: nth($scale, 2);
 					} @else {
-						font-size: _oTypographyFontSizeFromScale($scale);
-						line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+						font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
+						line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
 					}
 				}
 			}
 		}
 	} @else {
-		font-size: _oTypographyFontSizeFromScale($scale);
-		line-height: _oTypographyLineHeightFromScale($scale, $line-height);
+		font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
+		line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
 	}
 }
 
 /// Outputs the progressive font fallback styles based on
 /// font and scale if the font has fallback settings
 ///
-/// @param {String} $font font to output fallback styles for
-/// @param {Number} $scale number on scale the size is based on
-@mixin oTypographyProgressiveFontFallback($font, $scale) {
-	@if $scale != false and map-has-key($_o-typography-progressive-font-fallbacks, $font) {
-		$font-config: map-get($_o-typography-progressive-font-fallbacks, $font);
-
-		.#{$o-typography-loading-prefix}-#{$font} & {
-			@include _oTypographyFontSize($scale, map-get($font-config, 'fallback-scale'));
-			font-family: map-get($font-config, 'fallback');
+/// @todo Make private in the next major release.
+/// @deprecated The progressive font fallback is output by other `o-typography` mixins, and should not be needed directly within products.
+///
+/// @param {String} $font - Font to output fallback styles for (or .
+/// @param {Number} $scale - Number on scale the size is based on.
+/// @param {String} $weight [null] - The weight of the font which needs a fallback e.g. 'bold'.
+/// @param {String} $style [null] - The style of the font which needs a fallback e.g. 'italic'.
+@mixin oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null) {
+	@if $scale {
+		// If falsy weight/style default to regular/normal.
+		$weight: if($weight, $weight, 'regular');
+		$style: if($style, $style, 'normal');
+		// Find fallback config for font, weight, and style.
+		@each $fallback in $_o-typography-progressive-font-fallbacks {
+			// Get fallback properties.
+			$fallback-family: map-get($fallback, 'family');
+			$fallback-label: map-get($fallback, 'label');
+			$fallback-weight: map-get($fallback, 'weight');
+			$fallback-style: map-get($fallback, 'style');
+			$fallback-scale: map-get($fallback, 'fallback-scale');
+			// Check if fallback is for the given font, weight, and style.
+			$label-match: $fallback-label == $font; // For backward compatibility
+			$family-match: $fallback-family == $font;
+			$weight-match: if($fallback-weight, index($fallback-weight, $weight), true);
+			$style-match: if($fallback-style, index($fallback-style, $style), true);
+			// Output the fallback if it matches.
+			@if ($label-match or ($family-match and $weight-match and $style-match)) {
+				.#{$o-typography-loading-prefix}-#{$fallback-label} & {
+					@include _oTypographyFontSize($scale: $scale, $progressive-font-adjust: $fallback-scale, $font: $fallback-family);
+					font-family: map-get($fallback, 'fallback');
+				}
+			}
 		}
 	}
 }
@@ -153,3 +193,23 @@
 		font-weight: 700;
 	}
 }
+
+/// Set the typographic scale for a given font.
+/// @param {String} $font - The font name to apply a scale to.
+/// @param {Map} $scale - A map of scale numbers as keys (-2 to 10), with list values of font size and line height "(-2: (12, 16), -1: (14, 16), 0: (16, 20))" etc...
+@mixin oTypographyDefineFontScale($font, $scale) {
+	@if type-of($scale) != 'map' {
+		@error 'Could not set the scale for font "#{$font}", expected the scale to be a map but found "#{$scale}", of type "#{type-of($scale)}".';
+	}
+	@each $scale-number, $scale-item in $scale {
+		@if type-of($scale-item) != 'list' or length($scale-item) != 2 {
+			@error 'Expected each item in the scale to be a list with two items, the font size followed by the line height.';
+		}
+	}
+	@if map-keys($scale) != (-2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10) {
+		@error 'Expected the scale for font "#{$font}" to contain values for scales -2 to 10, but found scales "#{map-keys($scale)}".';
+	}
+	$font: oFontsGetFontFamilyWithoutFallbacks($font);
+	$_o-typography-font-scale-by-font: map-merge(($font: $scale), $_o-typography-font-scale-by-font) !global;
+}
+

@@ -31,7 +31,9 @@ $o-typography-baseline-unit: 4;
 /// @type String
 $o-typography-loading-prefix: 'o-typography--loading' !default;
 
-/// Scale of font-sizes and line-heights for all font-families
+/// The default font scale of font-sizes and line-heights.
+/// For backward compatibility this scale is used by default when a scale is needed but the font family is not known.
+/// @see $_o-typography-font-scale-by-font
 /// @type Map
 $o-typography-font-scale: (
    -2: (12, 16),
@@ -49,37 +51,42 @@ $o-typography-font-scale: (
    10: (84, 84),
 );
 
-/// Configuration for fallback fonts when loading
-/// fonts progressively
+/// Font scale of font-sizes and line-heights.
+/// Currently master brand fonts share the same scale, but other products may choose to define their own scale on a per font basis.
+/// @access private
+/// @type Map
+$_o-typography-font-scale-by-font: (
+	'MetricWeb': $o-typography-font-scale,
+	'FinancierDisplayWeb': $o-typography-font-scale,
+	'Georgia': $o-typography-font-scale
+);
+
+/// Configuration for fallback fonts when loading fonts progressively.
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
-	sans: (
-		font: $o-typography-sans,
+	(
+		label: 'sans',
+		family: $o-typography-sans,
 		fallback: sans-serif,
 		fallback-scale: 0.87
 	),
-	sansBold: (
-		font: $o-typography-sans,
+	(
+		label: 'sansBold',
+		family: $o-typography-sans,
+		weight: ('bold', 'semibold'),
 		fallback: sans-serif,
 		fallback-scale: 0.83
 	),
-	sansItalic: (
-		font: $o-typography-sans,
-		fallback: sans-serif,
-		fallback-scale: 0.87
-	),
-	display: (
-		font: $o-typography-display,
+	(
+		label: 'display',
+		family: $o-typography-display,
 		fallback: serif,
 		fallback-scale: 0.9
 	),
-	displayBold: (
-		font: $o-typography-display,
-		fallback: serif,
-		fallback-scale: 0.9
-	),
-	displayItalic: (
-		font: $o-typography-display,
+	(
+		label: 'displayBold',
+		family: $o-typography-display,
+		weight: bold,
 		fallback: serif,
 		fallback-scale: 0.9
 	)
