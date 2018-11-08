@@ -22,10 +22,7 @@
         @include assert-equal(
             $_o-typography-font-scale-by-font,
             (
-                'MyFont': $custom-font-scale,
-                'MetricWeb': $o-typography-font-scale,
-                'FinancierDisplayWeb': $o-typography-font-scale,
-                'Georgia': $o-typography-font-scale
+                'MyFont': $custom-font-scale
             )
         );
 	}
