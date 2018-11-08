@@ -26,6 +26,8 @@
 
 	@include oBrandDefine('o-typography', 'master', (
 		'variables': (
+            'author-color': oColorsGetColorFor('body', 'text'),
+            'author-hover-color': oColorsGetPaletteColor('claret'),
             'blockquote-color': oColorsGetPaletteColor('claret'),
             'heading-level-one-large': (
                 'family-style': 'display',
@@ -116,6 +118,25 @@
 	$o-typography-sans: 'Arial, sans' !default!global;
 	$o-typography-serif: 'Georgia, serif' !default!global;
     $o-typography-display: 'Arial, sans' !default!global;
+
+    // Other components may get values from the scale map and assume a px value.
+    // Therefore we must set a line height of px value.
+    // @breaking Allow scale to have `null` line-heights, for the default browser line height.
+    $o-typography-font-scale: (
+       -2: (12, (12 * 1.2)),
+       -1: (14, (14 * 1.2)),
+        0: (16, (16 * 1.2)),
+        1: (18, (18 * 1.2)),
+        2: (20, (20 * 1.2)),
+        3: (24, (24 * 1.2)),
+        4: (28, (28 * 1.2)),
+        5: (32, (32 * 1.2)),
+        6: (40, (40 * 1.2)),
+        7: (48, (48 * 1.2)),
+        8: (56, (56 * 1.2)),
+        9: (72, (72 * 1.2)),
+       10: (84, (84 * 1.2)),
+    )!default!global;
 
 	@include oBrandDefine('o-typography', 'whitelabel', (
 		'variables': (

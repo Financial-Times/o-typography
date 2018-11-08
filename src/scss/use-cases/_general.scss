@@ -120,7 +120,7 @@
 	li {
 		@include oTypographySerif($scale: 1, $line-height: 28px);
 		@include oTypographyMargin($top: 0, $bottom: 0);
-		@include oColorsFor('o-typography-body');
+		color: oColorsGetColorFor('body', 'text');
 	}
 }
 
@@ -141,16 +141,16 @@
 
 			&:before {
 				@include oTypographySansBold($scale: 0);
-				@include oColorsFor('o-typography-list-prefix');
+				position: absolute;
 				display: inline-block;
 				width: oTypographySpacingSize($units: 5);
 				font-feature-settings: "tnum";
 				margin-right: oTypographySpacingSize($units: -1);
 				content: counter(item);
 				counter-increment: item;
-				position: absolute;
 				left: 0;
 				top: 4px;
+				color: oColorsGetColorFor('body', 'text');
 			}
 		}
 	}
@@ -168,7 +168,7 @@
 		padding-left: 1.333333333em; // padding-left 24px for `li` items with font-size of 18px
 
 		&:before {
-			@include oColorsFor('o-typography-list-prefix');
+			color: oColorsGetColorFor('body', 'text');
 			display: inline-block;
 			position: absolute;
 			content: '\2022'; // dot character

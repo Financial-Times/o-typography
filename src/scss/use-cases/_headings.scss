@@ -71,7 +71,7 @@
 			XL: _oTypographyGet('scale-xl', $from)
 		),
 	));
-	@include oColorsFor('o-typography-headline');
+	color: oColorsGetColorFor('body', 'text');
 	text-transform: _oTypographyGet('text-transform', $from);
 	letter-spacing: _oTypographyGet('letter-spacing', $from);
 	@if $bottom-spacing-size {

@@ -6,7 +6,6 @@
 @import 'src/scss/brand';
 @import 'src/scss/variables';
 @import 'src/scss/functions';
-@import 'src/scss/color-use-cases';
 @import 'src/scss/mixins';
 @import 'src/scss/type-mixins';
 @import 'src/scss/use-cases/general';
@@ -15,6 +14,7 @@
 @import 'src/scss/use-cases/article';
 @import 'src/scss/use-cases/asides';
 @import 'src/scss/use-cases/wrapper';
+@import 'src/scss/deprecated';
 
 /// Output all default typography styles.
 @mixin oTypography($opts: ('product', 'article')) {
@@ -27,16 +27,16 @@
 	}
 
 	// Headings
-	.o-typography-headline,
-	.o-typography-heading-level-1 {
-		@include oTypographyHeadline;
-	}
-
 	@if _oTypographySupports('heading-level-one-large') {
 		.o-typography-headline--large,
 		.o-typography-heading-level-1--large {
 			@include oTypographyHeadlineLarge;
 		}
+	}
+
+	.o-typography-headline,
+	.o-typography-heading-level-1 {
+		@include oTypographyHeadline;
 	}
 
 	.o-typography-heading-level-2 {

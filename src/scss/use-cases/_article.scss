@@ -1,6 +1,5 @@
 /// Body text styles
 @mixin oTypographyBody {
-	@include oColorsFor('o-typography-body');
 	// If family style is not given default to sans.
 	$family-style: _oTypographyGet('family-style', 'body');
 	$family-style: if($family-style, $family-style, 'sans');
@@ -18,16 +17,17 @@
 	@if $bottom-spacing-size {
 		margin: 0 0 oTypographySpacingSize($bottom-spacing-size) 0;
 	}
+	color: oColorsGetColorFor('body', 'text');
 }
 
 /// Style for timestamps
 /// @brand master
 @mixin oTypographyTimestamp {
   @include oTypographySans($scale: 0);
-  @include oColorsFor(o-typography-timestamp);
   @include oTypographyMargin($bottom: 4);
   display: inline-block;
   text-transform: uppercase;
+  color: oColorsGetPaletteColor('black-60');
 }
 
 /// Article Standfirst styles
@@ -35,22 +35,20 @@
 @mixin oTypographyStandfirst {
 	@include oTypographySans($scale: 2);
 	@include oTypographyMargin($top: 0, $bottom: 9);
-	@include oColorsFor('o-typography-standfirst');
+	color: oColorsGetPaletteColor('black-60');
 }
-
-
 
 /// Common tag styles - not used directly.
 /// Includes styles for `a` and `span` child elements
 /// @brand master
 @mixin oTypographyTag {
-	@include oColorsFor(tag-link, text);
+	@include oColorsFor('tag-link', text);
 	text-decoration: none;
 	border: 0;
 	display: inline-block;
 
 	&:hover {
-		@include oColorsFor(tag-link-hover, text);
+		@include oColorsFor('tag-link-hover', text);
 	}
 
 	a {
@@ -73,9 +71,9 @@
 @mixin oTypographyAuthor {
 	@include oTypographyTag;
 	@include oTypographySansBold($scale: 0);
-	@include oColorsFor('o-typography-author', text);
+	color: oColorsGetColorFor('body', 'text');
 	&:hover {
-		@include oColorsFor('o-typography-author-hover', text);
+		@include oColorsFor('tag-link', text);
 	}
 }
 
@@ -90,7 +88,7 @@
 /// @brand master
 @mixin oTypographyFooter {
 	@include oTypographySans($scale: 1, $line-height: 24px);
-	@include oColorsFor('o-typography-body');
+	color: oColorsGetColorFor('body', 'text');
 }
 
 /// Styles for photo or video credit/caption
@@ -98,5 +96,5 @@
 @mixin oTypographyCaption {
 	@include oTypographySans($scale: -1);
 	@include oTypographyMargin($top: 2, $bottom: 0);
-	@include oColorsFor('o-typography-caption');
+	color: oColorsGetColorFor('body', 'text');
 }
