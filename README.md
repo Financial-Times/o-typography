@@ -4,17 +4,14 @@ Typographical styles for FT branded sites - font families, weight, colors, sizes
 
 ----
 
-- [Usage](#usage)
-	- [Markup](#markup)
-	- [Sass](#sass)
-	- [JavaScript](#javascript)
+- [Markup](#markup)
+- [Sass](#sass)
+- [JavaScript](#javascript)
 - [Troubleshooting](#troubleshooting)
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
 
-
-## Usage
 
 By default, o-typography uses a single typographic scale for use with all fonts. The scale consists of font-size and line-height combinations, as shown below:
 
@@ -38,7 +35,7 @@ _Note: The whitelabel branded version of o-typography has a different default sc
 
 This scale makes up all typographic styles available through o-typography. It is available when using Sass through the [typography mixins](#mixins).
 
-### Markup
+## Markup
 
 Predefined CSS classes in `o-typography` are available when using the [build service](https://www.ft.com/__origami/service/build/v2/), and can be included optionally via [Sass](#sass).
 
@@ -68,7 +65,7 @@ Example:
 
 See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
 
-#### Progressive loading web fonts
+### Progressive loading web fonts
 
 One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to use a system fallback font initially. Then, once the web font has loaded, remove a class from the html element used to display the fallback font.
 
@@ -145,19 +142,19 @@ If silent mode is off and the main mixin `oTypography()` is not used, `o-typogra
 
 The Sass in o-typography also provides several mixins for use in your project. To explore all functions/mixins see the [SassDoc documentation](sassdoc) in the registry.
 
-#### Use Case mixins
+### Use Case mixins
 
 The module has common typographic use cases that are available as mixins, rather than using `o-typography` classes output with the main `oTypography()` mixin.
 
 E.g:
 
-- oTypographyHeadline
-- oTypographyHeadingLevel1
-- oTypographyHeadingLevel2
-- oTypographyBody
-- oTypographyLink
-- oTypographyCaption
-- oTypographyBlockquote
+- `oTypographyHeadline`
+- `oTypographyHeadingLevel1`
+- `oTypographyHeadingLevel2`
+- `oTypographyBody`
+- `oTypographyLink`
+- `oTypographyCaption`
+- `oTypographyBlockquote`
 - ...
 
 ```scss
@@ -170,17 +167,17 @@ E.g:
 
 See more usecase mixins in the registry [SassDoc documentation](sassdoc).
 
-#### Type mixins
+### Type mixins
 
 If you want to output only the font-family, font-size, and line-height, with no extra styles, use the type mixins.
 
-- oTypographySerif
-- oTypographyDisplay
-- oTypographySans
-- oTypographyDisplayBold
-- oTypographySansBold
-- oTypographySerifBold
-- oTypographySerifItalic
+- `oTypographySerif`
+- `oTypographyDisplay`
+- `oTypographySans`
+- `oTypographyDisplayBold`
+- `oTypographySansBold`
+- `oTypographySerifBold`
+- `oTypographySerifItalic`
 - ...
 
 These mixins take three arguments:
@@ -215,7 +212,7 @@ Sass:
 
 See more type mixins in the registry [SassDoc documentation](sassdoc).
 
-#### Font Scale mixin
+### Font Scale mixin
 
 If you want to output only the font-size and line-height from the font scale, you can use the `oTypographySize` mixin.
 
@@ -229,7 +226,7 @@ Example:
 
 As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a map for a responsive scale. It can also accept a second parameter of `$line-height` to override the default value from the font scale.
 
-#### Spacing
+### Spacing
 
 Along with font sizing o-typography provides spacing mixins, for spacing elements within a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
 
@@ -253,7 +250,7 @@ There is also a function that will cap line width based on the scale and the cha
 
 See more details about spacing in the registry [SassDoc documentation](sassdoc).
 
-#### Custom link mixin
+### Custom link mixin
 
 Links in o-typography have a custom underline which uses borders. As well as the default link mixin (`oTypographyLink`), we expose `oTypographyLinkCustom` which allows you to output link styles with your own colors.
 
@@ -285,7 +282,7 @@ Example usage:
 }
 ```
 
-#### Line Width capping
+### Line Width capping
 
 If you need to cap the line width, o-typography provides a function which limits that value based on the size of the font and an optimal amount of characters per line (65~).
 
@@ -293,7 +290,7 @@ If you need to cap the line width, o-typography provides a function which limits
 	max-width: oTypographyMaxLineWidth($scale: 1);
 ```
 
-#### Use A Custom Font
+### Use A Custom Font
 
 To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a key (sans, serif, or display), the custom font family, and the variants the fonts supports (which combinations of weight and style).
 
@@ -312,7 +309,7 @@ To use a custom font with `o-typography` set the custom font using `oTypographyS
 	@include oTypography();
 ```
 
-#### Use A Custom Font Scale
+### Use A Custom Font Scale
 
 `o-typography` supports multiple fonts scales, so each font may use a different scale. To register a custom scale use `oTypographyDefineFontScale`. The mixin accepts the font family the scale is for and the scale map (a map of scale numbers to font size/line height).
 
@@ -339,7 +336,7 @@ $example-custom-font-scale: (
 @include oTypographyDefineFontScale($example-custom-font-family, $example-custom-font-scale);
 ```
 
-### JavaScript
+## JavaScript
 
 o-typography uses JavaScript to [progressively load fonts](#progressive-loading-web-fonts) to prevent a flash of invisible content (FOIC) if the web-fonts are taking a long time to load.
 
