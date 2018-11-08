@@ -104,6 +104,8 @@
             )
 		),
 		'supports-variants': (
+            'product-wrapper', //@deprecated, replaced by standard headings and wrapper.
+            'product-headings' //@deprecated, replaced by standard headings and wrapper.
 		)
 	));
 }
