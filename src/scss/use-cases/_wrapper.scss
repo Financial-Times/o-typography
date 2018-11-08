@@ -15,32 +15,26 @@
 	// Only master brand supports product and article header styles.
 	@if _oTypographySupports('article') and $style != article {
 		h1 {
-			// Non-article headline
 			@include oTypographyProductHeadingLevel1;
 		}
 
 		h2 {
-			// Non-article headings
 			@include oTypographyProductHeadingLevel2;
 		}
 
 		h3 {
-			// Non-article headings
 			@include oTypographyProductHeadingLevel3;
 		}
 
 		h4 {
-			// Non-article headlines
 			@include oTypographyProductHeadingLevel4;
 		}
 
 		h5 {
-			// Non-article headlines
 			@include oTypographyProductHeadingLevel5;
 		}
 
 		h6 {
-			// Non-article headlines
 			@include oTypographyProductHeadingLevel6;
 		}
 	} @else {

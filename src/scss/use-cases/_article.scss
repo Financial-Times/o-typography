@@ -15,7 +15,7 @@
 	// Add bottom margin if set.
 	$bottom-spacing-size: _oTypographyGet('bottom-spacing-size', 'body');
 	@if $bottom-spacing-size {
-		margin: 0 0 oTypographySpacingSize($bottom-spacing-size) 0;
+		margin: 0 0 oTypographySpacingSize($bottom-spacing-size);
 	}
 	color: oColorsGetColorFor('body', 'text');
 }

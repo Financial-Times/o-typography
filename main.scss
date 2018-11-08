@@ -17,110 +17,77 @@
 @import 'src/scss/deprecated';
 
 /// Output all default typography styles.
-@mixin oTypography($opts: ('product', 'article')) {
-	$product-enabled: index($opts, 'product');
+@mixin oTypography($opts: (
+	'headings',
+	'wrapper',
+	'product-headings',
+	'product-wrapper',
+	'article',
+	'collection',
+	'big-number',
+	'read-next',
+	'body',
+	'links',
+	'lists',
+	'caption',
+	'footer',
+	'blockquote',
+	'utilities',
+)) {
+	$wrapper-enabled: index($opts, 'wrapper');
+	$product-wrapper-enabled: index($opts, 'product-wrapper');
+	$product-headings-enabled: index($opts, 'product-headings');
 	$article-enabled: index($opts, 'article');
+	$collection-enabled: index($opts, 'collection');
+	$big-number-enabled: index($opts, 'big-number');
+	$read-next-enabled: index($opts, 'read-next');
+	$headings-enabled: index($opts, 'headings');
+	$body-enabled: index($opts, 'body');
+	$links-enabled: index($opts, 'links');
+	$lists-enabled: index($opts, 'lists');
+	$caption-enabled: index($opts, 'caption');
+	$footer-enabled: index($opts, 'footer');
+	$blockquote-enabled: index($opts, 'blockquote');
+	$utilities-enabled: index($opts, 'utilities');
 
-	// @breaking Remove this conditional. Always include required font faces.
 	@if $o-typography-load-fonts == true {
 		@include oFontsIncludeAll();
 	}
 
 	// Headings
-	@if _oTypographySupports('heading-level-one-large') {
-		.o-typography-headline--large,
-		.o-typography-heading-level-1--large {
-			@include oTypographyHeadlineLarge;
+	@if $headings-enabled {
+		@if _oTypographySupports('heading-level-one-large') {
+			.o-typography-headline--large,
+			.o-typography-heading-level-1--large {
+				@include oTypographyHeadlineLarge;
+			}
+		}
+
+		.o-typography-headline,
+		.o-typography-heading-level-1 {
+			@include oTypographyHeadline;
+		}
+
+		.o-typography-heading-level-2 {
+			@include oTypographyHeadingLevel2;
+		}
+
+		.o-typography-heading-level-3 {
+			@include oTypographyHeadingLevel3;
+		}
+
+		.o-typography-heading-level-4 {
+			@include oTypographyHeadingLevel4;
+		}
+
+		.o-typography-heading-level-5 {
+			@include oTypographyHeadingLevel5;
 		}
 	}
 
-	.o-typography-headline,
-	.o-typography-heading-level-1 {
-		@include oTypographyHeadline;
-	}
 
-	.o-typography-heading-level-2 {
-		@include oTypographyHeadingLevel2;
-	}
-
-	.o-typography-heading-level-3 {
-		@include oTypographyHeadingLevel3;
-	}
-
-	.o-typography-heading-level-4 {
-		@include oTypographyHeadingLevel4;
-	}
-
-	.o-typography-heading-level-5 {
-		@include oTypographyHeadingLevel5;
-	}
-
-	.o-typography-body {
-		@include oTypographyBody;
-	}
-
-	// Body copy - common
-	.o-typography-bold {
-		@include oTypographyBold;
-	}
-
-	.o-typography-italic {
-		@include oTypographyItalic;
-	}
-
-	.o-typography-sup {
-		@include oTypographySuper;
-	}
-	.o-typography-sub {
-		@include oTypographySub;
-	}
-
-	.o-typography-link {
-		@include oTypographyLink;
-	}
-
-	.o-typography-link--external {
-		@include oTypographyLinkExternal;
-	}
-
-	.o-typography-caption {
-		@include oTypographyCaption;
-	}
-
-	.o-typography-list {
-		@include oTypographyList;
-	}
-
-	.o-typography-list--ordered {
-		@include oTypographyListOrdered;
-	}
-
-	.o-typography-list--unordered {
-		@include oTypographyListUnordered;
-	}
-
-	.o-typography-footer {
-		@include oTypographyFooter;
-	}
-
-	.o-typography-blockquote {
-		@include oTypographyBlockquote;
-	}
-
-	// Body wrapper
-	.o-typography-wrapper {
-		@include oTypographyWrapper;
-	}
-
-	// Body wrapper for non-article related products
-	@if $product-enabled and _oTypographySupports('product') {
-		.o-typography-wrapper--product {
-			@include oTypographyWrapper($style: product);
-		}
-	}
-
-	// Product Headings
-	@if $product-enabled and _oTypographySupports('product') {
+	// Product Headings - non-article headings for the master brand.
+	@if $product-headings-enabled and _oTypographySupports('product-headings') {
 		.o-typography-product-heading-level-1 {
 			@include oTypographyProductHeadingLevel1;
 		}
@@ -161,7 +128,73 @@
 		}
 	}
 
-	// FT.com article styles.
+	// Body, Links, Lists, etc.
+	@if $utilities-enabled {
+		.o-typography-bold {
+			@include oTypographyBold;
+		}
+
+		.o-typography-italic {
+			@include oTypographyItalic;
+		}
+
+		.o-typography-sup {
+			@include oTypographySuper;
+		}
+
+		.o-typography-sub {
+			@include oTypographySub;
+		}
+	}
+
+	@if $body-enabled {
+		.o-typography-body {
+			@include oTypographyBody;
+		}
+	}
+
+	@if $links-enabled {
+		.o-typography-link {
+			@include oTypographyLink;
+		}
+
+		.o-typography-link--external {
+			@include oTypographyLinkExternal;
+		}
+	}
+
+	@if $caption-enabled {
+		.o-typography-caption {
+			@include oTypographyCaption;
+		}
+	}
+
+	@if $lists-enabled {
+		.o-typography-list {
+			@include oTypographyList;
+		}
+
+		.o-typography-list--ordered {
+			@include oTypographyListOrdered;
+		}
+
+		.o-typography-list--unordered {
+			@include oTypographyListUnordered;
+		}
+	}
+
+	@if $footer-enabled {
+		.o-typography-footer {
+			@include oTypographyFooter;
+		}
+	}
+
+	@if $blockquote-enabled {
+		.o-typography-blockquote {
+			@include oTypographyBlockquote;
+		}
+	}
+
 	@if $article-enabled and _oTypographySupports('article') {
 		.o-typography-topic {
 			@include oTypographyTopic;
@@ -175,22 +208,40 @@
 			@include oTypographyStandfirst;
 		}
 
-		.o-typography-big-number {
-			@include oTypographyBigNumber;
+		.o-typography-timestamp {
+			@include oTypographyTimestamp;
 		}
+	}
 
-		.o-typography-read-next {
-			@include oTypographyReadNext;
-		}
-
-		// Collection Heading
+	@if $collection-enabled and _oTypographySupports('collection') {
 		.o-typography-collection-heading {
 			@include oTypographyCollectionHeader;
 		}
+	}
 
-		// Timestamps usecase
-		.o-typography-timestamp {
-			@include oTypographyTimestamp;
+	@if $big-number-enabled and _oTypographySupports('big-number') {
+		.o-typography-big-number {
+			@include oTypographyBigNumber;
+		}
+	}
+
+	@if $read-next-enabled and _oTypographySupports('read-next') {
+		.o-typography-read-next {
+			@include oTypographyReadNext;
+		}
+	}
+
+	// Wrapper
+	@if $wrapper-enabled {
+		.o-typography-wrapper {
+			@include oTypographyWrapper;
+		}
+	}
+
+	// Product Wrapper - non-article styles for the master brand.
+	@if $product-wrapper-enabled and _oTypographySupports('product-wrapper') {
+		.o-typography-wrapper--product {
+			@include oTypographyWrapper($style: product);
 		}
 	}
 }
