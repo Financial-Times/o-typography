@@ -95,13 +95,13 @@
 	@include oFontsDefineCustomFont($family, $variants);
 	// Set the custom font.
 	@if $family-style == 'sans' {
-		$o-typography-sans: $family;
+		$o-typography-sans: $family !global;
 	}
 	@if $family-style == 'serif' {
-		$o-typography-serif: $family;
+		$o-typography-serif: $family !global;
 	}
 	@if $family-style == 'display' {
-		$o-typography-display: $family;
+		$o-typography-display: $family !global;
 	}
 }
 
