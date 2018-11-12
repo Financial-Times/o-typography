@@ -65,7 +65,7 @@
 
 		.o-typography-headline,
 		.o-typography-heading-level-1 {
-			@include oTypographyHeadline;
+			@include oTypographyHeadingLevel1;
 		}
 
 		.o-typography-heading-level-2 {
@@ -82,6 +82,12 @@
 
 		.o-typography-heading-level-5 {
 			@include oTypographyHeadingLevel5;
+		}
+
+		@if _oTypographySupports('heading-level-six') {
+			.o-typography-heading-level-6 {
+				@include oTypographyHeadingLevel6;
+			}
 		}
 	}
 

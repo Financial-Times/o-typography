@@ -85,19 +85,26 @@
 		'variables': (
             'blockquote-color': oColorsGetColorFor(body, text),
             'heading-level-one': (
-                'scale': 6,
+                'scale': 5,
+                'weight': 'semibold'
             ),
             'heading-level-two': (
                 'scale': 5
             ),
             'heading-level-three': (
-                'scale': 4
+                'scale': 4,
+                'weight': 'semibold'
             ),
             'heading-level-four': (
-                'scale': 3
+                'scale': 4
             ),
             'heading-level-five': (
-                'scale': 2
+                'scale': 3,
+                'weight': 'semibold'
+            ),
+            'heading-level-six': (
+                'scale': 2,
+                'weight': 'semibold'
             ),
             'body': (
                 'bottom-spacing-size': 7,
@@ -105,7 +112,8 @@
 		),
 		'supports-variants': (
             'product-wrapper', //@deprecated, replaced by standard headings and wrapper.
-            'product-headings' //@deprecated, replaced by standard headings and wrapper.
+            'product-headings', //@deprecated, replaced by standard headings and wrapper.
+            'heading-level-six'
 		)
 	));
 }

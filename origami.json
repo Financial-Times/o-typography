@@ -59,6 +59,9 @@
 			"name": "headings",
 			"title": "Headings",
 			"template": "demos/src/headings.mustache",
+			"data": {
+				"headingLevel6": true
+			},
 			"brands": [
 				"internal",
 				"whitelabel"

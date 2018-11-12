@@ -47,6 +47,12 @@
 	@include _oTypographyHeading($from: 'heading-level-five');
 }
 
+/// Level 6 heading styles.
+/// @brand internal
+@mixin oTypographyHeadingLevel6 {
+	@include _oTypographyHeading($from: 'heading-level-six');
+}
+
 /// Heading styles.
 /// @access private
 @mixin _oTypographyHeading($from) {
