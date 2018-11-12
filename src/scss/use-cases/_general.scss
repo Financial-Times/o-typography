@@ -3,6 +3,28 @@
 /// @link http://registry.origami.ft.com/components/o-typography
 ////
 
+/// Body text styles
+@mixin oTypographyBody {
+	// If family style is not given default to sans.
+	$family-style: _oTypographyGet('family-style', 'body');
+	$family-style: if($family-style, $family-style, 'sans');
+	$font-family: _oTypographyFontFamilyForStyle($family-style);
+	// If scale isn't given default to 1.
+	$scale: _oTypographyGet('scale', 'body');
+	$scale: if($scale, $scale, 1);
+	@include _oTypographyFor($font-family, $opts: (
+		'family': true,
+		'scale': $scale,
+		'custom-line-height':  _oTypographyGet('custom-line-height', 'body'),
+	));
+	// Add bottom margin if set.
+	$bottom-spacing-size: _oTypographyGet('bottom-spacing-size', 'body');
+	@if $bottom-spacing-size {
+		margin: 0 0 oTypographySpacingSize($bottom-spacing-size);
+	}
+	color: oColorsGetColorFor('body', 'text');
+}
+
 /// Subscript text
 @mixin oTypographySub {
 	@include oTypographySans(-2);
@@ -118,7 +140,14 @@
 	@include oTypographyMargin($top: 0, $bottom: 7);
 
 	li {
-		@include oTypographySerif($scale: 1, $line-height: 28px);
+		$family-style: _oTypographyGet('family-style', 'body');
+		$family-style: if($family-style, $family-style, 'sans');
+		$font-family: _oTypographyFontFamilyForStyle($family-style);
+		@include _oTypographyFor($font-family, $opts: (
+			'family': true,
+			'scale': 1,
+			'custom-line-height': 28px,
+		));
 		@include oTypographyMargin($top: 0, $bottom: 0);
 		color: oColorsGetColorFor('body', 'text');
 	}
