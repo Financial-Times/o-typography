@@ -292,13 +292,13 @@ If you need to cap the line width, o-typography provides a function which limits
 
 ### Use A Custom Font
 
-To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a key (sans, serif, or display), the custom font family, and the variants the fonts supports (which combinations of weight and style).
+To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a family style (sans, serif, or display), the custom font family, and the variants the fonts supports (which combinations of weight and style).
 
 ```scss
 	@import 'o-typography/main';
 	// Set custom sans font, with support for regular and bold weights.
  	@include oTypographySetCustomFont(
-		$key: 'sans',
+		$family-style: 'sans',
 		$family: 'MySansFont, sans',
 		$variants: (
  			(weight: regular, style: normal),
