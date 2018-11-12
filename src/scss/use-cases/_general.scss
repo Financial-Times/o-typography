@@ -222,3 +222,20 @@
 		@include oTypographyFooter;
 	}
 }
+
+
+/// Style for <footer> tags
+/// @brand master
+@mixin oTypographyFooter {
+	@include oTypographySans($scale: 1, $line-height: 24px);
+	color: oColorsGetColorFor('body', 'text');
+}
+
+/// Styles for photo or video credit/caption
+/// @brand master
+@mixin oTypographyCaption {
+	@include oTypographySans($scale: -1);
+	@include oTypographyMargin($top: 2, $bottom: 0);
+	color: oColorsGetColorFor('body', 'text');
+}
+

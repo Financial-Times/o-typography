@@ -170,11 +170,15 @@
             'heading-level-five': (
                 'scale': 2
             ),
+            'heading-level-six': (
+                'scale': 1
+            ),
             'body': (
                 'bottom-spacing-size': 7,
             )
         ),
 		'supports-variants': (
+            'heading-level-six'
 		)
 	));
 }
