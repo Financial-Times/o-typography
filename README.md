@@ -226,6 +226,12 @@ Example:
 
 As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept a map for a responsive scale. It can also accept a second parameter of `$line-height` to override the default value from the font scale.
 
+```scss
+.example {
+	@include oTypographySize($scale: (default: 0, M: 1, XL: 2));
+}
+```
+
 ### Spacing
 
 Along with font sizing o-typography provides spacing mixins, for spacing elements within a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
