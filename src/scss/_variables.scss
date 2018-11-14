@@ -35,7 +35,7 @@ $o-typography-loading-prefix: 'o-typography--loading' !default;
 /// The default font scale of font-sizes and line-heights.
 /// For backward compatibility this scale is used by default when a scale is needed but the font family is not known.
 /// @see $_o-typography-font-scale-by-font
-/// @see '_o-band.scss' where this default scale is updated by the whitelabel brand
+/// @see '_o-brand.scss' where this default scale is updated by the whitelabel brand
 /// @type Map
 $o-typography-font-scale: (
    -2: (12, 16),
