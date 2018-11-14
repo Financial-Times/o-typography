@@ -42,9 +42,8 @@
 }
 
 /// Custom link styles
-/// @todo update `teal-100` to use a colour usecase
-/// https://github.com/Financial-Times/o-normalise/blob/master/src/scss/_variables.scss#L16
-@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: oColorsGetUseCase(page, background), $outlineColor: oColorsGetUseCase(focus, outline)) {
+/// @breaking Remove `$outlineColor` on the next major release. Instead use `o-normalise` to provide the focus outline: https://github.com/Financial-Times/o-typography/issues/169
+@mixin oTypographyLinkCustom($baseColor, $hoverColor, $backgroundColor: oColorsGetUseCase(page, background), $outlineColor: _oTypographyGet('custom-link-focus-outline-color')) {
 	color: oColorsGetPaletteColor($baseColor);
 	text-decoration: none;
 	cursor: pointer;
@@ -57,8 +56,11 @@
 
 	&:focus {
 		color: oColorsGetPaletteColor($hoverColor);
-		outline: 2px solid if($outlineColor, oColorsGetPaletteColor($outlineColor), null);
 		border-bottom-color: transparent;
+
+		@if $outlineColor {
+			outline: 2px solid if($outlineColor, oColorsGetPaletteColor($outlineColor), null);
+		}
 	}
 }
 
@@ -222,7 +224,6 @@
 		@include oTypographyFooter;
 	}
 }
-
 
 /// Style for <footer> tags
 /// @brand master
