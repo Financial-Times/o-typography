@@ -231,7 +231,7 @@ As with the [type mixins](#type-mixins), the `oTypographySize` mixin can accept 
 	@include oTypographySize($scale: (default: 0, M: 1, XL: 2));
 }
 ```
-
+g
 ### Spacing
 
 Along with font sizing o-typography provides spacing mixins, for spacing elements within a baseline grid. The baseline grid defaults to `4px`, stored in `$o-typography-baseline-unit`.
@@ -247,10 +247,9 @@ There is also a function that will cap line width based on the scale and the cha
 - `oTypographyMaxLineWidth($scale, $character-per-line)` - (function) returns a pixel value.
 
 ```sass
-.example {
+.example-box {
 	@include oTypographyMargin($top: 3, $bottom: 5);
 	@include oTypographyPadding($top: 0, $bottom: 5);
-	border-bottom: oTypographySpacingSize($units: 2) solid #000;
 }
 ```
 
