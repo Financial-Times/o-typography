@@ -130,7 +130,7 @@ To include typography styles granularly pass an options argument with the featur
 
 **Note: Including fonts**
 
-By defauling calling the mixin `oTypography`, or if silent mode is off, `o-typography` will download FT webfonts. To suppress this, set `$o-typography-load-fonts` to `false`:
+By calling the mixin `oTypography`, or if silent mode is off (set to `false`), `o-typography` will download FT webfonts. To suppress this, set `$o-typography-load-fonts` to `false`:
 
 ```sass
 $o-typography-load-fonts: false;
