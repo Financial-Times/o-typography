@@ -512,4 +512,4 @@ This software is published by the Financial Times under the [MIT licence](http:/
 For more see the [demos in the registry](registry).
 
 [registry]: https://registry.origami.ft.com/components/o-typography/
-[sassdoc]: https://registry.origami.ft.com/components/o-typography@5.7.8/sassdoc
+[sassdoc]: https://registry.origami.ft.com/components/o-typography/sassdoc
