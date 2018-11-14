@@ -297,7 +297,7 @@ If you need to cap the line width, o-typography provides a function which limits
 
 ### Use A Custom Font
 
-To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a family style (sans, serif, or display), the custom font family, and the variants the fonts supports (which combinations of weight and style).
+To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a family style (sans, serif, or display), the custom font family, and the variants the fonts supports (which are combinations of weight and style).
 
 ```scss
 	@import 'o-typography/main';
@@ -512,4 +512,4 @@ This software is published by the Financial Times under the [MIT licence](http:/
 For more see the [demos in the registry](registry).
 
 [registry]: https://registry.origami.ft.com/components/o-typography/
-[sassdoc]: https://registry.origami.ft.com/components/o-typography@5.7.8/sassdoc
+[sassdoc]: https://registry.origami.ft.com/components/o-typography/sassdoc
