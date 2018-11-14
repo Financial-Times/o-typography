@@ -138,7 +138,7 @@ $o-typography-load-fonts: false;
 @include oTypography();
 ```
 
-If silent mode is off and the main mixin `oTypography()` is not used, `o-typography` does not load web fonts. In this case products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
+If silent mode is on (set to `true`) and the main mixin `oTypography()` is **not** used, `o-typography` does not load web fonts. In this case products should load web fonts themselves using **[o-fonts](https://github.com/financial-times/o-fonts).**
 
 The Sass in o-typography also provides several mixins for use in your project. To explore all functions/mixins see the [SassDoc documentation](sassdoc) in the registry.
 
