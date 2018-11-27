@@ -20,12 +20,12 @@
 ));
 
 @if oBrandGetCurrentBrand() == 'master' {
-	$o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-	$o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+    $o-typography-serif: 'Georgia, serif' !default!global;
     $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
 
-	@include oBrandDefine('o-typography', 'master', (
-		'variables': (
+    @include oBrandDefine('o-typography', 'master', (
+        'variables': (
             'author-color': oColorsGetColorFor('body', 'text'),
             'author-hover-color': oColorsGetPaletteColor('claret'),
             'blockquote-color': oColorsGetPaletteColor('claret'),
@@ -64,8 +64,8 @@
                 'bottom-spacing-size': 7,
                 'custom-line-height': 28px,
             )
-		),
-		'supports-variants': (
+        ),
+        'supports-variants': (
             'article',
             'product-wrapper',
             'product-headings',
@@ -73,17 +73,17 @@
             'big-number',
             'read-next',
             'heading-level-one-large'
-		)
-	));
+        )
+    ));
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
-	$o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-	$o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+    $o-typography-serif: 'Georgia, serif' !default!global;
     $o-typography-display: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
 
-	@include oBrandDefine('o-typography', 'internal', (
-		'variables': (
+    @include oBrandDefine('o-typography', 'internal', (
+        'variables': (
             'blockquote-color': oColorsGetColorFor(body, text),
             'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
             'heading-level-one': (
@@ -111,13 +111,13 @@
             'body': (
                 'bottom-spacing-size': 7,
             )
-		),
-		'supports-variants': (
+        ),
+        'supports-variants': (
             'product-wrapper', //@deprecated, replaced by standard headings and wrapper.
             'product-headings', //@deprecated, replaced by standard headings and wrapper.
             'heading-level-six'
-		)
-	));
+        )
+    ));
 }
 
 @if oBrandGetCurrentBrand() == 'whitelabel' {
@@ -131,8 +131,8 @@
         (weight: bold, style: italic)
     ));
 
-	$o-typography-sans: 'Arial, sans' !default!global;
-	$o-typography-serif: 'Georgia, serif' !default!global;
+    $o-typography-sans: 'Arial, sans' !default!global;
+    $o-typography-serif: 'Georgia, serif' !default!global;
     $o-typography-display: 'Arial, sans' !default!global;
 
     // Other components may get values from the scale map and assume a px value.
@@ -154,8 +154,8 @@
        10: (84, (84 * 1.2)),
     ) !default!global;
 
-	@include oBrandDefine('o-typography', 'whitelabel', (
-		'variables': (
+    @include oBrandDefine('o-typography', 'whitelabel', (
+        'variables': (
             'blockquote-color': oColorsGetPaletteColor('black'),
             'heading-level-one': (
                 'scale': 6,
@@ -179,8 +179,8 @@
                 'bottom-spacing-size': 7,
             )
         ),
-		'supports-variants': (
+        'supports-variants': (
             'heading-level-six'
-		)
-	));
+        )
+    ));
 }
