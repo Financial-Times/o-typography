@@ -51,7 +51,7 @@
 	$utilities-enabled: index($opts, 'utilities');
 
 	@if $o-typography-load-fonts == true {
-		@include oFontsIncludeAll();
+		@include oFonts();
 	}
 
 	// Headings
