@@ -63,7 +63,7 @@ $_o-typography-types: ('sans', 'serif', 'display');
 /// @access private
 /// @see oTypographyDefineFontScale
 /// @type Map
-$_o-typography-font-scale-by-font: ()!default;
+$_o-typography-font-scale-by-font: () !default;
 
 /// Configuration for fallback fonts when loading fonts progressively.
 /// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb fonts.
