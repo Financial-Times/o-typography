@@ -72,20 +72,19 @@
 /// 	font-family: oTypographyGetFamily('sans')
 ///
 /// @access private
-/// @param {String} $family-style - One of 'sans', 'serif', or 'display'.
+/// @param {String} $type - One of 'sans', 'serif', or 'display'.
 /// @return {String|List} The font-family set for the given font style.
-@function _oTypographyFontFamilyForStyle($family-style) {
-	$family-styles: ('sans', 'serif', 'display');
-	@if not index($family-styles, $family-style) {
-		@error 'Could not get the font-family for font of style "#{$family-style}", style must be one of "#{$family-styles}".';
+@function _oTypographyFontFamilyForType($type) {
+	@if not index($_o-typography-types, $type) {
+		@error 'Could not get the font-family for font of style "#{$type}", style must be one of "#{$_o-typography-types}".';
 	}
-	@if $family-style == 'sans' {
+	@if $type == 'sans' {
 		@return $o-typography-sans;
 	}
-	@if $family-style == 'serif' {
+	@if $type == 'serif' {
 		@return $o-typography-serif;
 	}
-	@if $family-style == 'display' {
+	@if $type == 'display' {
 		@return $o-typography-display;
 	}
 }

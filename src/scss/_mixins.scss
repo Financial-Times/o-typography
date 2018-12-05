@@ -77,30 +77,27 @@
 
 /// Set a custom font.
 ///
-/// @example This example shows setting a custom font "MySansFont" as the "sans" font. We specify out custom font supports regular or bold variants.
-/// 	@include oTypographySetCustomFont($family-style: 'sans', $family: 'MySansFont, sans', $variants: (
-/// 		(weight: regular, style: normal),
-/// 		(weight: bold, style: normal)
-/// 	));
+/// @example This example shows setting a custom font "MySansFont" as the "sans" font.
+/// 	@include oTypographySetFont($type: 'sans', $family: 'MySansFont, sans');
 ///
-/// @param {String} $family-style - One of 'sans', 'serif', or 'display'.
+/// @param {String} $type - One of 'sans', 'serif', or 'display'.
 /// @param {String} $family - The font family to set.
-/// @param {Map} $variants - The variants (weight and style combinations) which are allowed in a nested map.
-@mixin oTypographySetCustomFont($family-style, $family, $variants) {
-	$family-styles: ('sans', 'serif', 'display');
-	@if not index($family-styles, $family-style) {
-		@error 'Could not set font-family "#{$family}" for family style "#{$family-style}", family style must be one of "#{$family-styles}".';
+@mixin oTypographySetFont($type, $family) {
+	$font: oFontsGetFontFamilyWithoutFallbacks($family);
+	@if not oFontsVariantExists($font, $weight: null, $style: null) {
+		@error 'Could not set the font family "#{$family}" as "#{$font}" does not exist in "o-fonts". If you are setting a custom font, first register your custom font with o-fonts (https://registry.origami.ft.com/components/o-fonts).';
 	}
-	// Register the custom font with o-fonts.
-	@include oFontsDefineCustomFont($family, $variants);
+	@if not index($_o-typography-types, $type) {
+		@error 'Could not set font-family "#{$family}" for family style "#{$type}", family style must be one of "#{$_o-typography-types}".';
+	}
 	// Set the custom font.
-	@if $family-style == 'sans' {
+	@if $type == 'sans' {
 		$o-typography-sans: $family !global;
 	}
-	@if $family-style == 'serif' {
+	@if $type == 'serif' {
 		$o-typography-serif: $family !global;
 	}
-	@if $family-style == 'display' {
+	@if $type == 'display' {
 		$o-typography-display: $family !global;
 	}
 }
