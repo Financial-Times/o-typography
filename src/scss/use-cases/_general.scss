@@ -6,9 +6,9 @@
 /// Body text styles
 @mixin oTypographyBody {
 	// If family style is not given default to sans.
-	$family-style: _oTypographyGet('family-style', 'body');
-	$family-style: if($family-style, $family-style, 'sans');
-	$font-family: _oTypographyFontFamilyForStyle($family-style);
+	$type: _oTypographyGet('font-type', 'body');
+	$type: if($type, $type, 'sans');
+	$font-family: _oTypographyFontFamilyForType($type);
 	// If scale isn't given default to 1.
 	$scale: _oTypographyGet('scale', 'body');
 	$scale: if($scale, $scale, 1);
@@ -142,9 +142,9 @@
 	@include oTypographyMargin($top: 0, $bottom: 7);
 
 	li {
-		$family-style: _oTypographyGet('family-style', 'body');
-		$family-style: if($family-style, $family-style, 'sans');
-		$font-family: _oTypographyFontFamilyForStyle($family-style);
+		$type: _oTypographyGet('font-type', 'body');
+		$type: if($type, $type, 'sans');
+		$font-family: _oTypographyFontFamilyForType($type);
 		@include _oTypographyFor($font-family, $opts: (
 			'family': true,
 			'scale': 1,
