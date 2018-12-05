@@ -105,9 +105,25 @@
 	}
 }
 
-/// Set the typographic scale for a given font.
+/// Define the typographic scale for a given font. The font may be an existing or custom font.
 /// @param {String} $family - The font name or family to apply a scale to.
 /// @param {Map} $scale - A map of scale numbers as keys (-2 to 10), with list values of font size and line height "(-2: (12, 16), -1: (14, 16), 0: (16, 20))" etc...
+/// @example This example shows defining a custom font scale for a custom font "MySansFont". At scale "0" the font size will be 16px, and the line-height 20px.
+///		@include oTypographyDefineFontScale($family: 'MySansFont, sans', (
+///		   -2: (12, 16),
+///		   -1: (14, 18),
+///		    0: (16, 20),
+///		    1: (18, 24),
+///		    2: (20, 26),
+///		    3: (24, 32),
+///		    4: (28, 36),
+///		    5: (32, 42),
+///		    6: (40, 52),
+///		    7: (48, 62),
+///		    8: (56, 72),
+///		    9: (72, 94),
+///		   10: (84, 110)
+///		));
 @mixin oTypographyDefineFontScale($family, $scale) {
 	@if type-of($scale) != 'map' {
 		@error 'Could not set the scale for font "#{$family}", expected the scale to be a map but found "#{$scale}", of type "#{type-of($scale)}".';
