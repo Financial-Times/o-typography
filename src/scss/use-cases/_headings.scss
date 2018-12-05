@@ -57,9 +57,9 @@
 /// @access private
 @mixin _oTypographyHeading($from) {
 	// If family style is not given default to sans.
-	$family-style: _oTypographyGet('family-style', $from);
-	$family-style: if($family-style, $family-style, 'sans');
-	$font-family: _oTypographyFontFamilyForStyle($family-style);
+	$type: _oTypographyGet('font-type', $from);
+	$type: if($type, $type, 'sans');
+	$font-family: _oTypographyFontFamilyForType($type);
 	// If weight is not given default to regular, overriding the browser default.
 	$weight: _oTypographyGet('weight', $from);
 	$weight: if($weight, $weight, 'regular');

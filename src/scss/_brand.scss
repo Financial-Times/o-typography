@@ -31,7 +31,7 @@
             'blockquote-color': oColorsGetPaletteColor('claret'),
             'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
             'heading-level-one-large': (
-                'family-style': 'display',
+                'font-type': 'display',
                 'weight': 'bold',
                 'bottom-spacing-size': 7,
                 'scale': 5,
@@ -39,7 +39,7 @@
                 'scale-l': 7,
             ),
             'heading-level-one': (
-                'family-style': 'display',
+                'font-type': 'display',
                 'scale': 4,
                 'scale-s': 5,
                 'scale-l': 6,
@@ -60,7 +60,7 @@
                 'letter-spacing': 0.5px
             ),
             'body': (
-                'family-style': 'serif',
+                'font-type': 'serif',
                 'bottom-spacing-size': 7,
                 'custom-line-height': 28px,
             )

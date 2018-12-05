@@ -53,6 +53,10 @@ $o-typography-font-scale: (
    10: (84, 84),
 ) !default;
 
+/// The "types" of fonts o-typography supports.
+/// @access private
+$_o-typography-types: ('sans', 'serif', 'display');
+
 /// Font scale of font-sizes and line-heights.
 /// Currently the default scale `$o-typography-font-scale` is used for all fonts and brands,
 /// but branded products may choose to define their own scale on a per font basis.

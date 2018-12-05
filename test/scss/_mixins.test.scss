@@ -28,40 +28,31 @@
 	}
 }
 
-@include test-module('oTypographySetCustomFont') {
+@include test-module('oTypographySetFont') {
 	@include test('Updates the global variable for the sans font') {
-        @include oTypographySetCustomFont(
-            $family-style: 'sans',
-            $family: 'system-ui',
-            $variants: (
-                (weight: semibold, style: normal),
-                (weight: regular, style: normal),
-                (weight: bold, style: normal)
-            )
+        @include oFontsDefineCustomFont('system-ui', (
+            (weight: semibold, style: normal),
+            (weight: regular, style: normal),
+            (weight: bold, style: normal)
+        ));
+        // Set sans font.
+        @include oTypographySetFont(
+            $type: 'sans',
+            $family: 'system-ui'
         );
         @include assert-equal($o-typography-sans, 'system-ui');
 	}
-	@include test('Updates the global variable for the serif font') {
-        @include oTypographySetCustomFont(
-            $family-style: 'serif',
-            $family: 'MySerifFont, serif',
-            $variants: (
-                (weight: semibold, style: normal),
-                (weight: regular, style: normal),
-                (weight: bold, style: normal)
-            )
-        );
-        @include assert-equal($o-typography-serif, 'MySerifFont, serif');
-	}
+
 	@include test('Updates the global variable for the display font') {
-        @include oTypographySetCustomFont(
-            $family-style: 'display',
-            $family: 'MyDisplayFont',
-            $variants: (
-                (weight: semibold, style: normal),
-                (weight: regular, style: normal),
-                (weight: bold, style: normal)
-            )
+        @include oFontsDefineCustomFont('MyDisplayFont, serif', (
+            (weight: semibold, style: normal),
+            (weight: regular, style: normal),
+            (weight: bold, style: normal)
+        ));
+        // Set display font.
+        @include oTypographySetFont(
+            $type: 'display',
+            $family: 'MyDisplayFont'
         );
         @include assert-equal($o-typography-display, 'MyDisplayFont');
 	}

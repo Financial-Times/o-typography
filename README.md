@@ -297,19 +297,13 @@ If you need to cap the line width, o-typography provides a function which limits
 
 ### Use A Custom Font
 
-To use a custom font with `o-typography` set the custom font using `oTypographySetCustomFont` before calling any other `o-typography` mixins. It accepts a family style (sans, serif, or display), the custom font family, and the variants the fonts supports (which are combinations of weight and style).
+To set a custom font, [first register the font using o-fonts](https://registry.origami.ft.com/components/o-fonts).
+
+Then set the custom font using `oTypographySetFont` before calling any other `o-typography` mixins. It accepts a font type (sans, serif, or display) and the custom font family.
 
 ```scss
-	@import 'o-typography/main';
-	// Set custom sans font, with support for regular and bold weights.
- 	@include oTypographySetCustomFont(
-		$family-style: 'sans',
-		$family: 'MySansFont, sans',
-		$variants: (
- 			(weight: regular, style: normal),
- 			(weight: bold, style: normal)
-		)
-	);
+	// Set custom sans font.
+ 	@include oTypographySetFont($type: 'sans', $family: 'MySansFont, sans');
 	// The custom sans font is now output by other `o-typography` mixins such as `oTypography`.
 	@include oTypography();
 ```
