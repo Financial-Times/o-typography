@@ -59,7 +59,7 @@ $o-typography-font-scale: (
 /// @access private
 /// @see oTypographyDefineFontScale
 /// @type Map
-$_o-typography-font-scale-by-font: ();
+$_o-typography-font-scale-by-font: ()!default;
 
 /// Configuration for fallback fonts when loading fonts progressively.
 /// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb fonts.
