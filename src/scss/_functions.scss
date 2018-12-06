@@ -18,7 +18,7 @@
 /// @returns {Number} size in px
 @function _oTypographyFontSizeFromScale($scale, $font-adjust: 1, $font: '') {
 	$settings: oTypographyGetScale($scale, $font);
-	@return (nth($settings, 1) * $font-adjust) * 1px;
+	@return _oTypographyAddUnit(nth($settings, 1) * $font-adjust);
 }
 
 /// Returns the line-height value from the scale passed in or
@@ -32,10 +32,10 @@
 	$settings: oTypographyGetScale($scale, $font);
 
 	@if $line-height {
-		@return $line-height;
+		@return _oTypographyCorrectUnit($line-height);
 	} @else {
 		$line-height: nth($settings, 2);
-		@return if($line-height, $line-height * 1px, null);
+		@return if($line-height, _oTypographyAddUnit($line-height), null);
 	}
 }
 
@@ -45,7 +45,7 @@
 /// @param {Number} $units [0] - multiple of the baseline unit
 /// @returns {Number} size in px
 @function oTypographySpacingSize($units: 0) {
-	@return ($units * $o-typography-baseline-unit) * 1px;
+	@return _oTypographyAddUnit($units * $o-typography-baseline-unit);
 }
 
 /// Returns a maximum line width based on the given scale
@@ -57,8 +57,8 @@
 @function oTypographyMaxLineWidth($scale: 0, $optimal-characters-per-line: 65, $font: '') {
 	$settings: oTypographyGetScale($scale, $font);
 
-	$font-size: nth($settings, 1) * 1px;
-	$line-height: if(nth($settings, 2), nth($settings, 2) * 1px, $font-size);
+	$font-size: _oTypographyAddUnit(nth($settings, 1));
+	$line-height: if(nth($settings, 2), _oTypographyAddUnit(nth($settings, 2)), $font-size);
 
 	$golden-ratio: 1.618;
 	$scale-ratio: ($font-size / $line-height)  + $golden-ratio; //adapts ratio to quirks in oTypography's line-heights
@@ -87,4 +87,27 @@
 	@if $type == 'display' {
 		@return $o-typography-display;
 	}
+}
+
+/// Changes a px value to a rem value if relative units are enabled.
+/// Useful for user input such as custom line-heights, where a px value
+/// should become a rem value but otherwise the value should remain unchanged.
+/// @access private
+/// @param {Number} $value
+@function _oTypographyCorrectUnit($value) {
+	@if ($o-typography-relative-units and unit($value) == 'px') {
+		@return (($value / 1px) / 16) * 1rem;
+	}
+	@return $value;
+}
+
+/// Adds a px unit to a unitless pixel value, or converts to a rem unit if relative units are enabled.
+/// Useful as the public typographic scales are currently defined in px but unitless.
+/// @access private
+/// @param {Number} $value
+@function _oTypographyAddUnit($value) {
+	@if ($o-typography-relative-units) {
+		@return ($value / 16) * 1rem;
+	}
+	@return $value * 1px;
 }
