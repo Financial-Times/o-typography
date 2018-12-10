@@ -8,7 +8,7 @@ $o-typography-is-silent: true !default;
 /// For legacy reasons, this defaults to `false` (outputs px units).
 /// Components and projects may need to be updated to support relative units.
 /// @type Bool
-$o-typography-relative-units: true !default;
+$o-typography-relative-units: false !default;
 
 /// When true, webfonts will be downloaded
 /// @type Bool
