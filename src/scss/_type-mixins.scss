@@ -135,7 +135,7 @@
 	@if $scale {
 		@include oTypographySize($scale: $scale, $line-height: $custom-line-height, $font: $font);
 	} @else if $custom-line-height {
-		line-height: _oTypographyCorrectUnit($custom-line-height);
+		line-height: _oTypographyAdjustUnit($custom-line-height);
 	}
 
 	@if $weight  {

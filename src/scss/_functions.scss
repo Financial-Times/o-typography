@@ -32,7 +32,7 @@
 	$settings: oTypographyGetScale($scale, $font);
 
 	@if $line-height {
-		@return _oTypographyCorrectUnit($line-height);
+		@return _oTypographyAdjustUnit($line-height);
 	} @else {
 		$line-height: nth($settings, 2);
 		@return if($line-height, _oTypographyAddUnit($line-height), null);
@@ -94,7 +94,7 @@
 /// should become a rem value but otherwise the value should remain unchanged.
 /// @access private
 /// @param {Number} $value
-@function _oTypographyCorrectUnit($value) {
+@function _oTypographyAdjustUnit($value) {
 	@if ($o-typography-relative-units and unit($value) == 'px') {
 		@return (($value / 1px) / 16) * 1rem;
 	}
