@@ -11,7 +11,7 @@
 			@if $breakpoint == 'default' {
 				@if type-of($scale) == list {
 					font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
-					line-height: nth($scale, 2);
+					line-height: _oTypographyLineHeightFromScale($scale, $font);
 				} @else {
 					font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
 					line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
@@ -20,7 +20,7 @@
 				@include oGridRespondTo($breakpoint) {
 					@if type-of($scale) == list {
 						font-size: _oTypographyFontSizeFromScale(nth($scale, 1), 1, $font);
-						line-height: nth($scale, 2);
+						line-height: _oTypographyLineHeightFromScale($scale, $font);
 					} @else {
 						font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
 						line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);

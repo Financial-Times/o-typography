@@ -2,6 +2,14 @@
 /// @type Bool
 $o-typography-is-silent: true !default;
 
+/// Use relative units (rem) or not (px) when outputting typographic styles.
+/// When `true`, the user will be able to modify their font size using browser settings.
+///
+/// For legacy reasons, this defaults to `false` (outputs px units).
+/// Components and projects may need to be updated to support relative units.
+/// @type Bool
+$o-typography-relative-units: false !default;
+
 /// When true, webfonts will be downloaded
 /// @type Bool
 $o-typography-load-fonts: true !default;
