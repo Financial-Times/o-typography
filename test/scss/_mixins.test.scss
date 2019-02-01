@@ -152,3 +152,46 @@
         }
     }
 }
+
+
+@include test-module('oTypographyLinkExternalIcon') {
+	@include test('Colours according to the link colour usecase by default.') {
+        @include assert {
+            @include output {
+                @include oTypographyLinkExternalIcon();
+            }
+            @include contains {
+                &::after {
+                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%230D7680,%230D7680&format=svg");
+                }
+            }
+        }
+    }
+	@include test('Defaults to black when no link colour usecase is set (i.e. whitelabel).') {
+        @include assert {
+            @include output {
+                $original-palette: $o-colors-palette;
+                $o-colors-palette: () !global;
+                @include oTypographyLinkExternalIcon();
+                $o-colors-palette: $original-palette !global;
+            }
+            @include contains {
+                &::after {
+                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&format=svg");
+                }
+            }
+        }
+    }
+	@include test('Allows a custom icon colour') {
+        @include assert {
+            @include output {
+                @include oTypographyLinkExternalIcon(red);
+            }
+            @include contains {
+                &::after {
+                    background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=o-icons&tint=%23FF0000,%23FF0000&format=svg");
+                }
+            }
+        }
+    }
+}
