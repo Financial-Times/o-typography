@@ -15,30 +15,30 @@
 /// @param {Map} $variables - Brand variables to customise
 /// @access public
 /// @example scss
-///		@include oTypographyCustomize((
-///         'blockquote-color': hotpink,
-///         'heading-level-one': (
-///             'scale': 7,
-///         ),
-///         'heading-level-two': (
-///             'scale': 6
-///         ),
-///         'heading-level-three': (
-///             'scale': 5
-///         ),
-///         'heading-level-four': (
-///             'scale': 4
-///         ),
-///         'heading-level-five': (
-///             'scale': 3
-///         ),
-///         'heading-level-six': (
-///             'scale': 2
-///         ),
-///         'body': (
-///             'bottom-spacing-size': 8,
-///         )
-///		))
+///    @include oTypographyCustomize((
+///        'blockquote-color': hotpink,
+///        'heading-level-one': (
+///            'scale': 7,
+///        ),
+///        'heading-level-two': (
+///            'scale': 6
+///        ),
+///        'heading-level-three': (
+///            'scale': 5
+///        ),
+///        'heading-level-four': (
+///            'scale': 4
+///        ),
+///        'heading-level-five': (
+///            'scale': 3
+///        ),
+///        'heading-level-six': (
+///            'scale': 2
+///        ),
+///        'body': (
+///            'bottom-spacing-size': 8,
+///        )
+//    ))
 @mixin oTypographyCustomize($variables) {
     // Only allow certain brand variables to be customised.
     $allowed-brand-variables: (
