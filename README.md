@@ -359,9 +359,11 @@ With `oTypographyCustomize` you can change the size of heading levels and update
 $o-brand: whitelabel;
 @import 'o-typography/main';
 
-// 1. Set a custom font (see "Use A Custom Font").
+// 1. Set a custom font.
+// See "Use A Custom Font".
 
-// 2. Set a custom typographic scale (see "Use A Custom Font Scale").
+// 2. Set a custom typographic scale.
+// See "Use A Custom Font Scale".
 
 // 3. Customise typography variants.
 @include oTypographyCustomize((
