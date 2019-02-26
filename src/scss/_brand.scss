@@ -71,9 +71,9 @@
 ));
 
 @if oBrandGetCurrentBrand() == 'master' {
-    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
+    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default;
+    $o-typography-serif: Georgia, serif !default;
+    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
 
     @include oBrandDefine('o-typography', 'master', (
         'variables': (
