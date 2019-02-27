@@ -91,7 +91,7 @@ $o-typography-display: '' !default;
 @if oBrandGetCurrentBrand() == 'master' {
     $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
     $o-typography-serif: Georgia, serif !default;
-    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default;
+    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
 
     @include oBrandDefine('o-typography', 'master', (
         'variables': (
