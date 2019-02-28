@@ -89,9 +89,9 @@ $o-typography-display: '' !default;
 ));
 
 @if oBrandGetCurrentBrand() == 'master' {
-    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb) !default!global;
+    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
+    $o-typography-display: if($o-typography-display != '', $o-typography-display, oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb)) !global;
 
     @include oBrandDefine('o-typography', 'master', (
         'variables': (
@@ -147,9 +147,9 @@ $o-typography-display: '' !default;
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
-    $o-typography-sans: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: oFontsGetFontFamilyWithFallbacks(MetricWeb) !default!global;
+    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
+    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
+    $o-typography-display: if($o-typography-display != '', $o-typography-display, oFontsGetFontFamilyWithFallbacks(MetricWeb)) !global;
 
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
@@ -200,9 +200,9 @@ $o-typography-display: '' !default;
         (weight: bold, style: italic)
     ));
 
-    $o-typography-sans: Arial, sans !default!global;
-    $o-typography-serif: Georgia, serif !default!global;
-    $o-typography-display: Arial, sans !default!global;
+    $o-typography-sans: if($o-typography-sans != '', $o-typography-sans, (Arial, sans)) !global;
+    $o-typography-serif: if($o-typography-serif != '', $o-typography-serif, (Georgia, serif)) !global;
+    $o-typography-display: if($o-typography-display != '', $o-typography-display, (Arial, sans)) !global;
 
     // Other components may get values from the scale map and assume a px value.
     // Therefore we must set a line height of px value.
