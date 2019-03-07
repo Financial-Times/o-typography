@@ -1,9 +1,9 @@
 /* eslint-env mocha, sinon, proclaim */
-import proclaim from 'proclaim';
-import FontFaceObserver from 'fontfaceobserver/fontfaceobserver.standalone.js';
-import sinon from 'sinon/pkg/sinon';
+const proclaim = require('proclaim');
+const FontFaceObserver = require('fontfaceobserver/fontfaceobserver.standalone.js');
+const sinon = require('sinon/pkg/sinon');
 
-import Typography from './../main';
+const Typography = require('./../main');
 
 const fontLabels = ['display', 'sans', 'sansBold', 'displayBold'];
 const stubPrefix = 'loading-font-';

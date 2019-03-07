@@ -1,9 +1,9 @@
 /* eslint-env mocha, sinon, proclaim */
-import proclaim from 'proclaim';
-import sinon from 'sinon/pkg/sinon';
-import * as fixtures from './helpers/fixtures';
+const proclaim = require('proclaim');
+const sinon = require('sinon/pkg/sinon');
+const fixtures = require('./helpers/fixtures');
 
-import Typography from './../main';
+const Typography = require('./../main');
 
 describe("Typography", () => {
 	it('is defined', () => {
