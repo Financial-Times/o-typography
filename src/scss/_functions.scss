@@ -94,7 +94,7 @@
 ///
 /// @access private
 /// @param {Bool | String} $font-type - the font type to style bold (i.e. 'sans', 'serif').
-/// @return {String} - The font weight to style the font type bold e.g. bold or semibold.
+/// @return {Null | Bool | String} - The font weight to style the font type bold e.g. bold or semibold. `false` or `null` is also accepted but deprecated.
 @function _oTypographyGetBoldWeight($font-type) {
 	$font-weight: _oTypographyGet('bold-weight', $from: $font-type);
 	$default-bold-weight: _oTypographyGet('bold-weight');
