@@ -89,6 +89,18 @@
 	}
 }
 
+/// Get the configured font weight to display a font type "bold".
+/// Returns a weight e.g. bold or semibold.
+///
+/// @access private
+/// @param {Bool | String} $font-type - the font type to style bold (i.e. 'sans', 'serif').
+/// @return {String} - The font weight to style the font type bold e.g. bold or semibold.
+@function _oTypographyGetBoldWeight($font-type) {
+	$font-weight: _oTypographyGet('bold-weight', $from: $font-type);
+	$default-bold-weight: _oTypographyGet('bold-weight');
+	@return if($font-weight, $font-weight, $default-bold-weight);
+}
+
 /// Changes a px value to a rem value if relative units are enabled.
 /// Useful for user input such as custom line-heights, where a px value
 /// should become a rem value but otherwise the value should remain unchanged.
