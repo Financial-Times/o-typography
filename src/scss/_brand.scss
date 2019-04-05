@@ -60,7 +60,7 @@ $o-typography-display: '' !default;
 ///        'body': (
 ///            'bottom-spacing-size': 8,
 ///        )
-//    ))
+///    ));
 @mixin oTypographyCustomize($variables) {
     // Only allow certain brand variables to be customised.
     $allowed-brand-variables: (
