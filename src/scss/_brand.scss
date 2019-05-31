@@ -35,6 +35,10 @@ $o-typography-display: '' !default;
 /// @example scss
 ///    @include oTypographyCustomize((
 ///        'blockquote-color': hotpink,
+///        'bold-level': 'bold',
+///        'sans': (
+///            'bold-level': 'semibold'
+///        ),
 ///        'heading-level-one': (
 ///            'scale': 7,
 ///        ),
@@ -56,7 +60,7 @@ $o-typography-display: '' !default;
 ///        'body': (
 ///            'bottom-spacing-size': 8,
 ///        )
-//    ))
+///    ));
 @mixin oTypographyCustomize($variables) {
     // Only allow certain brand variables to be customised.
     $allowed-brand-variables: (
@@ -98,7 +102,11 @@ $o-typography-display: '' !default;
             'author-color': oColorsGetColorFor('body', 'text'),
             'author-hover-color': oColorsGetPaletteColor('claret'),
             'blockquote-color': oColorsGetPaletteColor('claret'),
-            'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
+            'custom-link-focus-outline-color': oColorsGetPaletteColor('black-50'), //deprecated
+            'bold-level': 'bold',
+            'sans': (
+                'bold-level': 'semibold' // override the default "bold" font weight for the sans font
+            ),
             'heading-level-one-large': (
                 'font-type': 'display',
                 'weight': 'bold',
@@ -154,7 +162,8 @@ $o-typography-display: '' !default;
     @include oBrandDefine('o-typography', 'internal', (
         'variables': (
             'blockquote-color': oColorsGetColorFor(body, text),
-            'custom-link-focus-outline-color': oColorsGetPaletteColor('teal-100'), //deprecated
+            'custom-link-focus-outline-color': oColorsGetPaletteColor('oxford-80'), //deprecated
+            'bold-level': 'semibold',
             'heading-level-one': (
                 'scale': 5,
                 'weight': 'semibold'
@@ -221,11 +230,12 @@ $o-typography-display: '' !default;
         8: (56, (56 * 1.2)),
         9: (72, (72 * 1.2)),
        10: (84, (84 * 1.2)),
-    ) !default!global;
+    ) !global;
 
     @include oBrandDefine('o-typography', 'whitelabel', (
         'variables': (
             'blockquote-color': oColorsGetPaletteColor('black'),
+            'bold-level': 'bold',
             'heading-level-one': (
                 'scale': 6,
             ),
