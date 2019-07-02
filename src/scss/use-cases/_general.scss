@@ -171,16 +171,16 @@
 		> li {
 			display: block;
 			position: relative;
-			padding-left: oSpacingByIncrement($units: 6);
+			padding-left: oSpacingByIncrement(6);
 
 
 			&:before {
 				@include oTypographySansBold($scale: 0);
 				position: absolute;
 				display: inline-block;
-				width: oSpacingByIncrement($units: 5);
+				width: oSpacingByIncrement(5);
 				font-feature-settings: "tnum";
-				margin-right: oSpacingByIncrement($units: -1);
+				margin-right: oSpacingByIncrement(-1);
 				content: counter(item);
 				counter-increment: item;
 				left: 0;
@@ -217,8 +217,8 @@
 /// and `footer` elements
 @mixin oTypographyBlockquote {
 	margin-left: 0;
-	padding-left: oSpacingByIncrement($units: 4);
-	border-left: oSpacingByIncrement($units: 1) solid _oTypographyGet('blockquote-color');
+	padding-left: oSpacingByIncrement(4);
+	border-left: oSpacingByIncrement(1) solid _oTypographyGet('blockquote-color');
 
 	p {
 		@include oTypographyBody;
