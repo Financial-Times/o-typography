@@ -2,6 +2,8 @@
 
 ### Migrating from v5 to v6
 
+The class `o-typography--loading-sansBold` is now `o-typography--loading-sans-bold` and `o-typography--loading-displayBold` is now `o-typography--loading-display-bold`.
+
 The following mixins have been replaced:
 - oTypographySansBold: oTypographySans($weight: 'semibold')
 - oTypographyDisplayBold: oTypographyDisplay($weight: 'bold')
