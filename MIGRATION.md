@@ -30,6 +30,9 @@ The following mixins have been removed:
 - oTypographyPadding
 - oTypographyMargin
 
+The following functions have been removed:
+- oTypographySpacingSize
+
 The following css classes have been removed:
 - o-typography-topic
 - o-typography-author
