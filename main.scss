@@ -98,7 +98,10 @@
 		}
 
 		.o-typography-link--external {
-			@include oTypographyLinkExternal;
+			@include oTypographyLink(
+				$external: true,
+				$include-base-styles: false
+			);
 		}
 	}
 
