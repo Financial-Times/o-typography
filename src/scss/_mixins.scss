@@ -1,34 +1,3 @@
-/// Outputs the font size and line height based on the scale, also
-/// accepts an override line-height to output and a font adjustment
-/// parameter for when outputting styles for progressively loaded fonts
-///
-/// @param {Number} $scale number on scale the sizes are based on
-/// @param {Bool | Number} $line-height size to override the line-height property
-/// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
-@mixin oTypographySize($scale, $line-height: false, $font: '') {
-	@if type-of($scale) == map {
-		@each $breakpoint, $scale in $scale {
-			$current-line-height: if(length($scale) == 2, nth($scale, 2), $line-height);
-			$current-scale: if(type-of($scale) == list and length($scale) != 0, nth($scale, 1), $scale);
-
-			@if $breakpoint == 'default' and $current-scale {
-				font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
-				line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
-			}
-
-			@if $breakpoint != 'default' and $current-scale {
-				@include oGridRespondTo($breakpoint) {
-					font-size: _oTypographyFontSizeFromScale($current-scale, 1, $font);
-					line-height: _oTypographyLineHeightFromScale($current-scale, $current-line-height, $font);
-				}
-			}
-		}
-	} @else {
-		font-size: _oTypographyFontSizeFromScale($scale, 1, $font);
-		line-height: _oTypographyLineHeightFromScale($scale, $line-height, $font);
-	}
-}
-
 /// Set a custom font.
 ///
 /// @example This example shows setting a custom font "MySansFont" as the "sans" font.

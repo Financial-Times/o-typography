@@ -17,6 +17,7 @@ The following mixins have been replaced:
 - oTypographyLinkCustom: oTypographyLink($theme: ('base': 'claret', 'hover': 'claret-30'));
 - oTypographyLinkExternal: oTypographyLink($external: true);
 - oTypographyLinkExternalIcon: oTypographyLink($external: true, $include-base-styles: false);
+- oTypographySize: oTypographySans($scale: 1, $opts: ('font-family': false))
 
 The following mixins have been updated:
 - oTypographyMaxLineWidth: Returns a relative `ch` rather than `px` value. The `$scale` and `$font` parameters are redundant and have been removed.
