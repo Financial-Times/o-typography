@@ -117,12 +117,19 @@
 	// Fallback to a black icon if no link colour is given.
 	@if($external) {
 		$icon-color: if($base-color, $base-color, oColorsGetPaletteColor('black'));
+		$icon-padding: calc(1em + 0.5ch);
 		@include oIconsGetIcon('outside-page', $icon-color, 24, $apply-base-styles: false, $apply-width-height: false, $iconset-version: 1);
 		background-repeat: no-repeat;
 		background-position-x: right;
-		background-size: contain;
-		padding-right: calc(1em + 0.5ch);
+		padding-right: $icon-padding;
 		background-origin: border-box;
+		// IE11 does not size and position the svg icon background correctly
+		// using `background-size: contain`. Use @supports to exclude IE11,
+		// as IE11 does not support @supports
+		background-size: $icon-padding $icon-padding; // IE11 fallback
+		@supports (background-size: contain) {
+			background-size: contain;
+		}
 	}
 
 	// Output base styles shared by all links.
