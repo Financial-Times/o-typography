@@ -67,7 +67,8 @@
 /// @param {Number} $scale - Number on scale the size is based on.
 /// @param {String} $weight [null] - The weight of the font which needs a fallback e.g. 'bold'.
 /// @param {String} $style [null] - The style of the font which needs a fallback e.g. 'italic'.
-@mixin _oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null) {
+/// @param {Boolean} $include-font-family [true] - Whether to output the font family of the fallback font (vs. just the size)
+@mixin _oTypographyProgressiveFontFallback($font, $scale, $weight: null, $style: null, $include-font-family: true) {
 	@if $scale {
 		// If falsy weight/style default to regular/normal.
 		$weight: if($weight, $weight, 'regular');
@@ -93,7 +94,9 @@
 			@if ($label-match or ($family-match and $weight-match and $style-match)) {
 				.#{$o-typography-loading-prefix}-#{$fallback-label} & {
 					@include _oTypographyFontSize($scale: $scale, $progressive-font-adjust: $fallback-scale, $font: $fallback-family);
-					font-family: map-get($fallback, 'fallback');
+					@if $include-font-family {
+						font-family: map-get($fallback, 'fallback');
+					}
 				}
 			}
 		}

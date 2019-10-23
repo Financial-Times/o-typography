@@ -146,7 +146,7 @@
 /// @access private
 @mixin _oTypographyFor($font, $opts: ()) {
 	// Get options, null default.
-	$family: map-get($opts, 'family');
+	$include-font-family: map-get($opts, 'family');
 	$scale: map-get($opts, 'scale');
 	$custom-line-height: map-get($opts, 'custom-line-height');
 	$weight: map-get($opts, 'weight');
@@ -161,7 +161,7 @@
 		@error 'Font family "#{$font-without-fallbacks}" of weight "#{if($weight, $weight, 'regular')}" and style "#{if($style, $style, 'normal')}" is not supported.';
 	}
 
-	@if $family {
+	@if $include-font-family {
 		font-family: if(type-of($font) == 'string', unquote($font), $font);
 	}
 
@@ -180,7 +180,7 @@
 	}
 
 	@if $progressive {
-		@include _oTypographyProgressiveFontFallback($font, $scale, $weight, $style);
+		@include _oTypographyProgressiveFontFallback($font, $scale, $weight, $style, $include-font-family);
 	}
 }
 
