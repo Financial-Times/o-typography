@@ -81,9 +81,7 @@
     @include test('Does not output a font-family when the option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySans(1, 1.6, $opts: (
-                    'font-family': false
-                ));
+                @include oTypographySans(1, 1.6, $include-font-family: false);
             }
             @include expect {
                 font-size: 18px;
@@ -99,9 +97,7 @@
     @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySans(1, 1.6, $opts: (
-                    'progressive': false
-                ));
+                @include oTypographySans(1, 1.6, $include-progressive: false);
             }
             @include expect {
                 font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
@@ -182,9 +178,7 @@
     @include test('Does not output a font-family when the option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySerif(1, 1.6, $opts: (
-                    'font-family': false
-                ));
+                @include oTypographySerif(1, 1.6, $include-font-family: false);
             }
             @include expect {
                 font-size: 18px;
@@ -196,9 +190,7 @@
     @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
         @include assert {
             @include output {
-                @include oTypographySerif(1, 1.6, $opts: (
-                    'progressive': false
-                ));
+                @include oTypographySerif(1, 1.6, $include-progressive: false);
             }
             @include expect {
                 font-family: oFontsGetFontFamilyWithFallbacks(Georgia);
@@ -276,9 +268,7 @@
     @include test('Does not output a font-family when the option is set to false') {
         @include assert {
             @include output {
-                @include oTypographyDisplay(1, 1.6, $opts: (
-                    'font-family': false
-                ));
+                @include oTypographyDisplay(1, 1.6, $include-font-family: false);
             }
             @include expect {
                 font-size: 18px;
@@ -294,9 +284,7 @@
     @include test('Does not output a progressive font fallback scale when the `progressive` option is set to false') {
         @include assert {
             @include output {
-                @include oTypographyDisplay(1, 1.6, $opts: (
-                    'progressive': false
-                ));
+                @include oTypographyDisplay(1, 1.6, $include-progressive: false);
             }
             @include expect {
                 font-family: oFontsGetFontFamilyWithFallbacks(FinancierDisplayWeb);

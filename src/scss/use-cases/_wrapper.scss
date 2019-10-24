@@ -58,7 +58,7 @@
 	> strong {
 		@include oTypographySans (
 			$weight: 'semibold',
-			$opts: ('font-family': false)
+			$include-font-family: false
 		);
 	}
 
