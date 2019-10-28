@@ -14,6 +14,12 @@
 @import 'src/scss/use-cases/headings';
 @import 'src/scss/use-cases/wrapper';
 
+// Load fonts outside the primary mixin
+// as they ay be required by other mixins.
+@if $o-typography-load-fonts == true {
+	@include oFonts();
+}
+
 /// Output all default typography styles.
 @mixin oTypography($opts: (
 	'headings',
@@ -33,10 +39,6 @@
 	$caption-enabled: index($opts, 'caption');
 	$footer-enabled: index($opts, 'footer');
 	$utilities-enabled: index($opts, 'utilities');
-
-	@if $o-typography-load-fonts == true {
-		@include oFonts();
-	}
 
 	// Headings
 	@if $headings-enabled {
