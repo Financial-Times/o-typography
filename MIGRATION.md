@@ -17,7 +17,7 @@ The following mixins have been replaced:
 - oTypographyLinkCustom: oTypographyLink($theme: ('base': 'claret', 'hover': 'claret-30'));
 - oTypographyLinkExternal: oTypographyLink($external: true);
 - oTypographyLinkExternalIcon: oTypographyLink($external: true, $include-base-styles: false);
-- oTypographySize: oTypographySans($scale: 1, $opts: ('font-family': false))
+- oTypographySize: oTypographySans($scale: 1, $include-font-family: false)
 - oTypographyListOrdered: oTypographyList($type: 'ordered', $include-base-styles: false)
 - oTypographyListUnordered: oTypographyList($type: 'unordered', $include-base-styles: false)
 
