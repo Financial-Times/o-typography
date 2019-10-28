@@ -21,7 +21,7 @@ The following editorial style css classes have been moved to [o-editorial-typogr
 - `o-typography-topic` is now `o-editorial-typography-topic`
 - `o-typography-author` is now `o-editorial-typography-author`
 - `o-typography-standfirst` is now `o-editorial-typography-standfirst`
-- `o-typography-timestamp` is now `o-editorial-typography-timestamp`
+- `o-typography-timestamp` is now `o-editorial-typography-byline-timestamp`
 - `o-typography-read-next` is now `o-editorial-typography-read-next`
 
 The previous default wrapper has been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
