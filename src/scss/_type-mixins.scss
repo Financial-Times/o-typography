@@ -202,7 +202,7 @@
 /// parameter for when outputting styles for progressively loaded fonts
 ///
 /// @param {Number} $scale number on scale the sizes are based on
-/// @param {Bool | Number} $line-height size to override the line-height property
+/// @param {Boolean | Number} $line-height size to override the line-height property
 /// @param {String} $font [''] - The font to get the font size for, as fonts may have different scales. Uses the default scale if not specified.
 @mixin _oTypographySize($scale, $line-height: false, $font: '') {
 	@if type-of($scale) == map {
