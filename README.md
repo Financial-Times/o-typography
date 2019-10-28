@@ -65,7 +65,7 @@ Example:
 
 See the [demos](http://registry.origami.ft.com/components/o-typography) for a full list of the classes provided and their effects.
 
-### Progressive loading web fonts
+### Progressive Loading Web Fonts
 
 One of the drawbacks of using web fonts is some browsers hide the text while the font is downloading (Flash of Invisible Text, aka FOIT). A common pattern for avoiding this is to use a system fallback font initially. Then, once the web font has loaded, remove a class from the html element used to display the fallback font.
 
