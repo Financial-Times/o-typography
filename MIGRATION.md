@@ -11,8 +11,8 @@ The following mixins have been replaced:
 - oTypographyDisplayBold: oTypographyDisplay($weight: 'bold')
 - oTypographySerifBold: oTypographySerif($weight: 'bold')
 - oTypographySerifItalic: oTypographySerif($style: 'italic')
-- oTypographyBold('sans'): oTypographySans($weight: 'semibold', $include-base-styles: false)
-- oTypographyBold('serif'): oTypographySerif($weight: 'bold', $include-base-styles: false)
+- oTypographyBold('sans'): oTypographySans($weight: 'semibold', $include-font-family: false)
+- oTypographyBold('serif'): oTypographySerif($weight: 'bold', $include-font-family: false)
 - oTypographyItalic: Use the `$style` argument of other mixins. Eg. `oTypographySerif($style: 'italic')`.
 - oTypographyLinkCustom: oTypographyLink($theme: ('base': 'claret', 'hover': 'claret-30'));
 - oTypographyLinkExternal: oTypographyLink($external: true);
