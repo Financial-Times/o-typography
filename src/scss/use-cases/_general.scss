@@ -15,13 +15,14 @@
 		'heading-level-three',
 		'heading-level-four',
 		'heading-level-five',
+		'heading-level-six',
 	);
 
-	$from: nth($headings, $level);
-
-	@if(not $from) {
-		@error 'Heading level must be a Number 1-5. Found #{inspect($from)}.';
+	@if(type-of($level) != 'number' or $level < 1 or $level > 6) {
+		@error 'Heading level must be a Number 1-6. Found #{inspect($level)}.';
 	}
+
+	$from: nth($headings, $level);
 
 	// Get heading styles from brand config (see _brand.scss)
 	// If weight is not given default to regular, to override browser defaults.

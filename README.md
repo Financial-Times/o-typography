@@ -161,11 +161,11 @@ See [o-typography SassDoc](https://registry.origami.ft.com/components/o-typograp
 
 #### oTypographyHeading
 
-Use `oTypographyHeading` to output styles for heading levels 1-5.
+Use `oTypographyHeading` to output styles for heading levels 1-6.
 
 ```scss
-h5 {
-	@include oTypographyHeading($level: 5);
+h2 {
+	@include oTypographyHeading($level: 2);
 }
 ```
 
