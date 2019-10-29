@@ -153,7 +153,7 @@ If `oTypographyItalic` has been used without one of the three type mixins `oTypo
 + @include oTypographyDisplay($style: 'italic', $include-font-family: false);
 ```
 
-Note: If your project uses `oTypographyItalic` once to style multiple elements with different font families, you may use the css property `font-style: italic` directly instead. We don't recommend this approach because you will not be warned if the italic font required does not exist.
+Note: If it aids your projects migration you may swap oTypographyItalic for the css property `font-style: italic;` directly instead. We don't recommend this approach because you will not be warned if the required italic font does not exist.
 
 ##### oTypographySize
 
