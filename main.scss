@@ -40,7 +40,7 @@
 	$links-enabled: map-get($opts, 'links');
 	$caption-enabled: map-get($opts, 'caption');
 	$footer-enabled: map-get($opts, 'footer');
-	$utilities-enabled: mep-get($opts, 'utilities');
+	$utilities-enabled: map-get($opts, 'utilities');
 	$headings: map-get($opts, 'headings');
 	$headings: if($headings, $headings, ());
 	@if($headings and type-of($headings) != 'list') {
