@@ -35,11 +35,11 @@
 	'footer': true,
 	'utilities': true,
 )) {
-	$wrapper-enabled: mep-get($opts, 'wrapper');
-	$body-enabled: mep-get($opts, 'body');
-	$links-enabled: mep-get($opts, 'links');
-	$caption-enabled: mep-get($opts, 'caption');
-	$footer-enabled: mep-get($opts, 'footer');
+	$wrapper-enabled: map-get($opts, 'wrapper');
+	$body-enabled: map-get($opts, 'body');
+	$links-enabled: map-get($opts, 'links');
+	$caption-enabled: map-get($opts, 'caption');
+	$footer-enabled: map-get($opts, 'footer');
 	$utilities-enabled: mep-get($opts, 'utilities');
 	$headings: map-get($opts, 'headings');
 	$headings: if($headings, $headings, ());
