@@ -98,7 +98,7 @@ $o-typography-progressive-font-loading:: false;
 
 #### Setup Progressive Loading
 
-To setup `o-typography` progressive font loading include both the CSS and JavaScript for `o-typography`s in your project. While ensuring you have the loading classes for each font you wish to load on your html element:
+To setup `o-typography` progressive font loading include both its CSS and JavaScript in your project. While ensuring you have the loading classes for each font you wish to load on your html element:
 
 ```html
 <html class="o-typography--loading-sans o-typography--loading-sans-bold o-typography--loading-display o-typography--loading-display-bold">
