@@ -304,16 +304,18 @@ Editorial typography, such as that used in article pages, has moved to a new com
 - `oTypographyTimestamp` becomes `oEditorialTypographyTimestamp`
 - `oTypographyReadNext` has no direct replacement as it didn't appear to be used, but `oEditorialTypographyDecorated` may be used to apply a decorative underline to typography of any size in the style of "read next".
 
-For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
+For master brand products, the previous default headings have been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your Sass:
 
-- `oTypographyHeadlineLarge` becomes `oEditorialTypographyHeadline`
-- `oTypographyHeadline` becomes `oEditorialTypographyHeading($level: 1)`
-- `oTypographyHeadingLevel1` becomes `oEditorialTypographyHeading($level: 1)`
-- `oTypographyHeadingLevel2` becomes `oEditorialTypographyHeading($level: 2)`
-- `oTypographyHeadingLevel3` becomes `oEditorialTypographyHeading($level: 3)`
-- `oTypographyHeadingLevel4` becomes `oEditorialTypographyHeading($level: 4)`
-- `oTypographyHeadingLevel5` becomes `oEditorialTypographyHeading($level: 5)`
-- `oTypographyHeadingLevel6` becomes `oEditorialTypographyHeading($level: 6)`
+- `oTypographyHeadlineLarge` becomes `oEditorialTypographyHeadline` (plus margin)
+- `oTypographyHeadline` becomes `oEditorialTypographyHeading($level: 1)` (plus margin)
+- `oTypographyHeadingLevel1` becomes `oEditorialTypographyHeading($level: 1)` (plus margin)
+- `oTypographyHeadingLevel2` becomes `oEditorialTypographyHeading($level: 2)` (plus margin)
+- `oTypographyHeadingLevel3` becomes `oEditorialTypographyHeading($level: 3)` (plus margin)
+- `oTypographyHeadingLevel4` becomes `oEditorialTypographyHeading($level: 4)` (plus margin)
+- `oTypographyHeadingLevel5` becomes `oEditorialTypographyHeading($level: 5)` (plus margin)
+- `oTypographyHeadingLevel6` becomes `oEditorialTypographyHeading($level: 6)` (plus margin)
+
+_Note: `o-editorial-typography` does not apply margin as it makes no assumption about where the editorial typography is being used -- it could be a page, another component, or email for example. Include margin as required by your project or, for article and article-like pages, use [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) instead._
 
 For master brand products, the "product" headings are now the default o-typography heading:
 - `oTypographyProductHeadingLevel1` becomes `oTypographyHeading($level: 1)`
