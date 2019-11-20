@@ -24,9 +24,7 @@ The following editorial style css classes have been moved to [o-editorial-typogr
 - `o-typography-timestamp` is now `o-editorial-typography-byline-timestamp`
 - `o-typography-read-next` has no direct replacement, but there is a mixin in the editorial typography component `oEditorialTypographyDecorated` to apply the decorative underline. Please speak to Origami if your team uses this class.
 
-The previous default wrapper has been moved to [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography). No changes are required by internal or whitelabel brand products. Include `o-editorial-typography` in your project and update your markup:
-- `o-typography-wrapper` is now `o-editorial-typography-wrapper`
-- the wrapper no longer styles blockquotes, instead use [o-quote](https://github.com/Financial-Times/o-quote/)
+The previous default wrapper `o-typography-wrapper` has been removed. Consider using [o-editorial-layout](https://registry.origami.ft.com/components/o-editorial-layout) and [o-editorial-typography](https://registry.origami.ft.com/components/o-editorial-typography) classes, or contact the Origami team to discuss this feature. No changes are required by internal or whitelabel brand products.
 
 The product wrapper is now the default wrapper:
 - `o-typography-wrapper--product` is now `o-typography-wrapper`
