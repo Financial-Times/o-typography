@@ -280,21 +280,24 @@
 			margin: 0;
 			// Allow space for 2-3 numbers for both ordered and unordered lists,
 			// so content aligns between both list types.
-			padding-left: calc(3ch - #{oSpacingByName('s1')});
+			padding-left: calc(2ch + #{oSpacingByName('s1')});
 		}
 		&:before {
 			@if($include-base-styles) {
 				display: inline-block;
 				position: absolute;
 				left: 0;
+				transform-origin: center left;
+				@include oTypographySans();
 			}
 
 			@if($type == 'unordered') {
 				content: '\2022'; // dot character
 				color: inherit;
-				// 32px marker given a parent font-size of 18px
-				transform: scale(#{(32 / 18)});
-				transform-origin: center;
+				// 28px marker given a parent font-size of 18px
+				transform: scale(#{(28 / 18)});
+				// magic number to center marker
+				margin-top: #{(28 / 18) * -0.16ch};
 			}
 
 			@if($type == 'ordered') {
@@ -302,10 +305,8 @@
 				content: counter(item);
 				counter-increment: item;
 				font-feature-settings: "tnum";
-				font-family: $_o-typography-sans;
 				// 16px marker given a parent font-size of 18px
 				transform: scale(#{(16 / 18)});
-				transform-origin: center;
 				// magic number to make marker flush to the left
 				margin-left: #{(16 / 18) * -0.16ch};
 			}
