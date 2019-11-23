@@ -275,29 +275,26 @@
 	}
 	> li {
 		@if($include-base-styles) {
-			margin: 0; // Undo browser default.
+			position: relative;
+			// Undo browser default.
+			margin: 0;
+			// Allow space for 2-3 numbers for both ordered and unordered lists,
+			// so content aligns between both list types.
 			padding-left: calc(3ch - #{oSpacingByName('s1')});
 		}
 		&:before {
-			// Allow space for 2-3 numbers for both ordered and unordered lists,
-			// so content aligns between both list types.
 			@if($include-base-styles) {
 				display: inline-block;
-				position: relative;
-				width: 0;
-				left: calc(-3ch + #{oSpacingByName('s1')});
+				position: absolute;
+				left: 0;
 			}
 
 			@if($type == 'unordered') {
-				content: ''; // dot character
+				content: '\2022'; // dot character
 				color: inherit;
-				$marker-size: 0.9ex;
-				width: $marker-size;
-				height: $marker-size;
-				margin-right: -$marker-size;
-				border-radius: $marker-size / 2;
-				background: currentColor;
-				vertical-align: middle;
+				// 32px marker given a parent font-size of 18px
+				transform: scale(#{(32 / 18)});
+				transform-origin: center;
 			}
 
 			@if($type == 'ordered') {
@@ -309,7 +306,6 @@
 				// 16px marker given a parent font-size of 18px
 				transform: scale(#{(16 / 18)});
 				transform-origin: center;
-				line-height: #{(18/16)};
 				// magic number to make marker flush to the left
 				margin-left: #{(16 / 18) * -0.16ch};
 			}
