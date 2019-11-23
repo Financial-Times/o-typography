@@ -284,11 +284,11 @@
 		}
 		&:before {
 			@if($include-base-styles) {
+				@include oTypographySans();
 				display: inline-block;
 				position: absolute;
 				left: 0;
 				transform-origin: center left;
-				@include oTypographySans();
 			}
 
 			@if($type == 'unordered') {
