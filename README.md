@@ -172,7 +172,7 @@ If an `oTypography` mixin outputs a font family/weight/style for a font face whi
 // configure o-typography to not include fonts
 $o-typography-load-fonts: false;
 // error if a font is used which has not been included
-$o-typography-error-for-missing-fonts: 'This project only allows MetricWeb regular! No fun for you without first discussing performance with the Font Guardians of this project.';
+$o-typography-error-for-missing-fonts: 'This project only allows recommended o-fonts! No fun for you without first discussing performance with the Font Guardians of this project.';
 // include a limited set of recommended font families manually
 @include oFonts($opts: ('recommended': true));
 // try to use a font which is not recommended,
@@ -180,7 +180,7 @@ $o-typography-error-for-missing-fonts: 'This project only allows MetricWeb regul
 .fancy-typography-used-only-here {
   // throws an error which includes the `$o-typography-error-for-missing-fonts` message.
   // a thin/italic font face has not been included
-  @include oTypographySans($scale: 1, $weight: 'thin', $style: 'italic');
+  @include oTypographySans($scale: 1, $weight: 'thin', $style: 'normal');
 }
 ```
 
