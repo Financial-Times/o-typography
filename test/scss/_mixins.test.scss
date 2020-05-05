@@ -497,9 +497,9 @@
 		@include assert-equal(
 			$_o-typography-font-scale-by-font,
 			(
-                'MyFont': $custom-font-scale
-            )
-        );
+				'MyFont': $custom-font-scale
+			)
+		);
 	}
 }
 
@@ -508,13 +508,13 @@
 		@include oFontsDefineCustomFont('system-ui', (
 			(weight: semibold, style: normal),
 			(weight: regular, style: normal),
-            (weight: bold, style: normal)
-        ));
+			(weight: bold, style: normal)
+		));
 		// Set sans font.
 		@include oTypographySetFont(
 			$type: 'sans',
 			$family: 'system-ui'
-        );
+		);
 		@include assert-equal($_o-typography-sans, 'system-ui');
 	}
 
@@ -522,13 +522,13 @@
 		@include oFontsDefineCustomFont('MyDisplayFont, serif', (
 			(weight: semibold, style: normal),
 			(weight: regular, style: normal),
-            (weight: bold, style: normal)
-        ));
+			(weight: bold, style: normal)
+		));
 		// Set display font.
 		@include oTypographySetFont(
 			$type: 'display',
 			$family: 'MyDisplayFont'
-        );
+		);
 		@include assert-equal($_o-typography-display, 'MyDisplayFont');
 	}
 }
@@ -570,7 +570,7 @@
 				@include oTypographyLink($theme: (
 					'base': 'claret',
 					'hover': 'claret-30',
-                ), $include-base-styles: false);
+				), $include-base-styles: false);
 			}
 			@include expect {
 				color: #990f3d;
@@ -593,7 +593,7 @@
 				@include oTypographyLink($theme: (
 					'base': oColorsByName('claret'),
 					'hover': oColorsByName('claret-30'),
-                ), $include-base-styles: false);
+				), $include-base-styles: false);
 			}
 			@include expect {
 				color: #990f3d;
@@ -639,7 +639,7 @@
 				@include oTypographyLink($theme: (
 					'base': 'claret',
 					'hover': 'claret-30',
-                ), $external: true);
+				), $external: true);
 			}
 			@include contains {
 				background-image: url("https://www.ft.com/__origami/service/image/v2/images/raw/fticon-v1:outside-page?source=origami-build-tools&tint=%23990F3D,%23990F3D&format=svg");

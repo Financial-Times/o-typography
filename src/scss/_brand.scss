@@ -98,8 +98,8 @@ $_o-typography-font-scale: (
 @include oFontsDefineCustomFont('Georgia, serif', (
 	(weight: regular, style: normal),
 	(weight: regular, style: italic),
-    (weight: bold, style: normal),
-    (weight: bold, style: italic)
+	(weight: bold, style: normal),
+	(weight: bold, style: italic)
 ));
 
 @if oBrandGetCurrentBrand() == 'master' {
@@ -110,34 +110,34 @@ $_o-typography-font-scale: (
 	@include oBrandDefine('o-typography', 'master', (
 		'variables': (
 			'author-color': oColorsByUsecase('body', 'text'),
-            'author-hover-color': oColorsByName('claret'),
-            'heading-level-one': (
-                'scale': 5,
-                'weight': 'semibold'
-            ),
-            'heading-level-two': (
-                'scale': 4,
-                'weight': 'semibold'
-            ),
-            'heading-level-three': (
-                'scale': 3,
-                'weight': 'semibold'
-            ),
-            'heading-level-four': (
-                'scale': 2,
-                'weight': 'semibold'
-            ),
-            'heading-level-five': (
-                'scale': 1,
-                'weight': 'semibold'
-            ),
-            'heading-level-six': (
-                'scale': 0,
-                'weight': 'semibold'
-            )
-        ),
-        'supports-variants': ()
-    ));
+			'author-hover-color': oColorsByName('claret'),
+			'heading-level-one': (
+				'scale': 5,
+				'weight': 'semibold'
+			),
+			'heading-level-two': (
+				'scale': 4,
+				'weight': 'semibold'
+			),
+			'heading-level-three': (
+				'scale': 3,
+				'weight': 'semibold'
+			),
+			'heading-level-four': (
+				'scale': 2,
+				'weight': 'semibold'
+			),
+			'heading-level-five': (
+				'scale': 1,
+				'weight': 'semibold'
+			),
+			'heading-level-six': (
+				'scale': 0,
+				'weight': 'semibold'
+			)
+		),
+		'supports-variants': ()
+	));
 }
 
 @if oBrandGetCurrentBrand() == 'internal' {
@@ -148,30 +148,30 @@ $_o-typography-font-scale: (
 	@include oBrandDefine('o-typography', 'internal', (
 		'variables': (
 			'heading-level-one': (
-                'scale': 5,
-                'weight': 'semibold'
-            ),
-            'heading-level-two': (
-                'scale': 5
-            ),
-            'heading-level-three': (
-                'scale': 4,
-                'weight': 'semibold'
-            ),
-            'heading-level-four': (
-                'scale': 4
-            ),
-            'heading-level-five': (
-                'scale': 3,
-                'weight': 'semibold'
-            ),
-            'heading-level-six': (
-                'scale': 2,
-                'weight': 'semibold'
-            )
-        ),
-        'supports-variants': ()
-    ));
+				'scale': 5,
+				'weight': 'semibold'
+			),
+			'heading-level-two': (
+				'scale': 5
+			),
+			'heading-level-three': (
+				'scale': 4,
+				'weight': 'semibold'
+			),
+			'heading-level-four': (
+				'scale': 4
+			),
+			'heading-level-five': (
+				'scale': 3,
+				'weight': 'semibold'
+			),
+			'heading-level-six': (
+				'scale': 2,
+				'weight': 'semibold'
+			)
+		),
+		'supports-variants': ()
+	));
 }
 
 @if oBrandGetCurrentBrand() == 'whitelabel' {
@@ -179,11 +179,11 @@ $_o-typography-font-scale: (
 	@include oFontsDefineCustomFont('Arial, sans', (
 		(weight: regular, style: normal),
 		(weight: regular, style: italic),
-        (weight: semibold, style: normal),
-        (weight: bold, style: normal),
-        (weight: semibold, style: italic),
-        (weight: bold, style: italic)
-    ));
+		(weight: semibold, style: normal),
+		(weight: bold, style: normal),
+		(weight: semibold, style: italic),
+		(weight: bold, style: italic)
+	));
 
 	$_o-typography-sans: if($_o-typography-sans != '', $_o-typography-sans, (Arial, sans)) !global;
 	$_o-typography-serif: if($_o-typography-serif != '', $_o-typography-serif, (Georgia, serif)) !global;
@@ -209,24 +209,24 @@ $_o-typography-font-scale: (
 	@include oBrandDefine('o-typography', 'whitelabel', (
 		'variables': (
 			'heading-level-one': (
-                'scale': 6,
-            ),
-            'heading-level-two': (
-                'scale': 5
-            ),
-            'heading-level-three': (
-                'scale': 4
-            ),
-            'heading-level-four': (
-                'scale': 3
-            ),
-            'heading-level-five': (
-                'scale': 2
-            ),
-            'heading-level-six': (
-                'scale': 1
-            )
-        ),
-        'supports-variants': ()
-    ));
+				'scale': 6,
+			),
+			'heading-level-two': (
+				'scale': 5
+			),
+			'heading-level-three': (
+				'scale': 4
+			),
+			'heading-level-four': (
+				'scale': 3
+			),
+			'heading-level-five': (
+				'scale': 2
+			),
+			'heading-level-six': (
+				'scale': 1
+			)
+		),
+		'supports-variants': ()
+	));
 }
