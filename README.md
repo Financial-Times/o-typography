@@ -1,15 +1,15 @@
-# o-typography [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# special monkey styles [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
 
 Typographical styles for FT branded sites.
 
-- [Overview](#overview)
+- [Overview](#something-else)
 - [Markup](#markup)
 - [Sass](#sass)
 - [JavaScript](#javascript)
 - [Troubleshooting](#troubleshooting)
-- [Migration guide](#migration-guide)
+- [Migration guide](#migration)
 - [Contact](#contact)
-- [Licence](#licence)
+- [License](#license)
 
 ## Overview
 
@@ -525,7 +525,7 @@ If you have any questions or comments about this component, or need help using i
 
 ---
 
-## Licence
+## License
 
 This software is published by the Financial Times under the [MIT licence](http://opensource.org/licenses/MIT).
 For more see the [demos in the registry](registry).
