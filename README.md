@@ -2,6 +2,7 @@
 
 Typographical styles for FT branded sites.
 
+- [Usage](#usage)
 - [Overview](#overview)
 - [Markup](#markup)
 - [Sass](#sass)
@@ -10,6 +11,10 @@ Typographical styles for FT branded sites.
 - [Migration guide](#migration-guide)
 - [Contact](#contact)
 - [Licence](#licence)
+
+## Usage
+
+Check out [how to include Origami components in your project](https://origami.ft.com/docs/components/#including-origami-components-in-your-project) to get started with `o-typography`.
 
 ## Overview
 
