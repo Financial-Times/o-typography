@@ -12,12 +12,12 @@
     },
     "main": "main.js",
     "peerDependencies": {
-        "@financial-times/o-colors": "^5.0.0",
-        "@financial-times/o-fonts": "^4.4.0",
-        "@financial-times/o-grid": "^5.0.0",
-        "@financial-times/o-icons": "^6.0.0",
-        "@financial-times/o-normalise": "^2.0.0",
-        "@financial-times/o-spacing": "^2.0.0",
+        "@financial-times/o-colors": "^100.0.0-3",
+        "@financial-times/o-fonts": "^100.0.0-3",
+        "@financial-times/o-grid": "^100.0.0-3",
+        "@financial-times/o-icons": "^100.0.0-3",
+        "@financial-times/o-normalise": "^100.0.0-3",
+        "@financial-times/o-spacing": "^100.0.0-3",
         "fontfaceobserver": "^2.0.9"
     },
     "description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
