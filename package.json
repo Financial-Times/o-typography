@@ -10,7 +10,7 @@
         "stylelint": "^13.7.0",
         "stylelint-config-origami-component": "^1.0.4"
     },
-    "main": "main.js",
+    "browser": "main.js",
     "peerDependencies": {
         "@financial-times/o-colors": "^100.0.0-6",
         "@financial-times/o-fonts": "^100.0.0-6",
