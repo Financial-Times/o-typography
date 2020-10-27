@@ -1,6 +1,6 @@
 {
     "name": "@financial-times/o-typography",
-    "version": "100.0.0-7",
+    "version": "100.0.0-8",
     "description": "Typographical styles for FT branded sites. Including typographical fundamentals such as font scales, vertical rhythm, and font fallbacks; plus styles for UI including links, headings, and titles. Other components build on o-typography to provide for more specific usecases.",
     "license": "MIT",
     "type": "module",
@@ -22,12 +22,12 @@
         "stylelint-config-origami-component": "^1.0.4"
     },
     "peerDependencies": {
-        "@financial-times/o-colors": "^100.0.0-7",
-        "@financial-times/o-fonts": "^100.0.0-7",
-        "@financial-times/o-grid": "^100.0.0-7",
-        "@financial-times/o-icons": "^100.0.0-7",
-        "@financial-times/o-normalise": "^100.0.0-7",
-        "@financial-times/o-spacing": "^100.0.0-7",
+        "@financial-times/o-colors": "^100.0.0-8",
+        "@financial-times/o-fonts": "^100.0.0-8",
+        "@financial-times/o-grid": "^100.0.0-8",
+        "@financial-times/o-icons": "^100.0.0-8",
+        "@financial-times/o-normalise": "^100.0.0-8",
+        "@financial-times/o-spacing": "^100.0.0-8",
         "fontfaceobserver": "^2.0.9"
     },
     "publishConfig": {
