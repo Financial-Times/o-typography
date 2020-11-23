@@ -47,7 +47,7 @@ $_o-typography-types: ('sans', 'serif', 'display');
 $_o-typography-font-scale-by-font: () !default;
 
 /// Configuration for fallback fonts when loading fonts progressively.
-/// Currently only supports fallbacks for MetricWeb and FinancierDisplayWeb
+/// Currently only supports fallbacks for MetricWeb and FinancierDisplayWebVF
 /// fonts.
 /// @type Map
 $_o-typography-progressive-font-fallbacks: (
@@ -66,13 +66,13 @@ $_o-typography-progressive-font-fallbacks: (
 	),
 	(
 		label: 'display',
-		family: 'FinancierDisplayWeb',
+		family: 'FinancierDisplayWebVF',
 		fallback: serif,
 		fallback-scale: 0.9
 	),
 	(
 		label: 'display-bold',
-		family: 'FinancierDisplayWeb',
+		family: 'FinancierDisplayWebVF',
 		weight: bold,
 		fallback: serif,
 		fallback-scale: 0.9

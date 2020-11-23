@@ -22,9 +22,11 @@ class Typography {
 		this.opts = Typography.checkOptions(this.opts);
 		this.hasRun = false;
 
+		const supportsVariableFonts = CSS && CSS.supports && CSS.supports(`font-variation-settings: 'ital' 0`);
+
 		this.fontConfigs = [
 			{
-				family: 'FinancierDisplayWeb',
+				family: supportsVariableFonts ? 'FinancierDisplayWebVF' : 'FinancierDisplayWeb',
 				weight: 'normal',
 				label: 'display'
 			},
@@ -39,7 +41,7 @@ class Typography {
 				label: 'sans-bold'
 			},
 			{
-				family: 'FinancierDisplayWeb',
+				family: supportsVariableFonts ? 'FinancierDisplayWebVF' : 'FinancierDisplayWeb',
 				weight: 700,
 				label: 'display-bold'
 			}
@@ -54,6 +56,7 @@ class Typography {
 	 * declaratively, this method is used to extract the data attributes from
 	 * the DOM.
 	 * @param {HTMLElement} typographyEl - The typography element in the DOM (Required)
+	 * @return {Object} - options from data attributes
 	 */
 	static getOptions(typographyEl) {
 		const dataset = Object(typographyEl.dataset);
@@ -138,8 +141,9 @@ class Typography {
 
 	/**
 	 * Initialise o-typography.
-	 * @param {(HTMLElement|String)} rootElement - The root element to intialise o-typography on, or a CSS selector for the root element
-	 * @param {Object} [options={}] - An options object for configuring o-typography
+	 * @param {(HTMLElement|String)} rootEl - The root element to intialise o-typography on, or a CSS selector for the root element
+	 * @param {Object} [opts={}] - An options object for configuring o-typography
+	 * @returns {Typography} The newly constructed typography component
 	 */
 	static init (rootEl, opts) {
 		if (!rootEl) {
