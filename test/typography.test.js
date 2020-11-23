@@ -29,6 +29,38 @@ describe("Typography", () => {
 			loadFontsStub.restore();
 		});
 
+		it("configures the variable font family used for FinancierDisplayWeb when variable fonts are supported", () => {
+			const stubEl = "stubEL";
+			const stubOpts = {};
+
+			const variableFontSupportStub = sinon.stub(CSS, 'supports');
+			variableFontSupportStub
+				.withArgs(`font-variation-settings: 'ital' 0`)
+				.returns(true);
+
+			const typography = new Typography(stubEl, stubOpts);
+			const variableFontConfig = typography.fontConfigs.filter(c => c.family === 'FinancierDisplayWebVF');
+			proclaim.equal(variableFontConfig.length, 2, 'Did not find the expected variable font family configuration.');
+
+			variableFontSupportStub.restore();
+		});
+
+		it("does not configure the variable font family used for FinancierDisplayWeb when variable fonts are not supported", () => {
+			const stubEl = "stubEL";
+			const stubOpts = {};
+
+			const variableFontSupportStub = sinon.stub(CSS, 'supports');
+			variableFontSupportStub
+				.withArgs(`font-variation-settings: 'ital' 0`)
+				.returns(false);
+
+			const typography = new Typography(stubEl, stubOpts);
+			const variableFontConfig = typography.fontConfigs.filter(c => c.family === 'FinancierDisplayWebVF');
+			proclaim.equal(variableFontConfig.length, 0, 'Found unexpected variable font family configuration.');
+
+			variableFontSupportStub.restore();
+		});
+
 		it("doesn't call getOptions if options are passed in", () => {
 			const stubEl = "stubEL";
 			const stubOpts = {};
