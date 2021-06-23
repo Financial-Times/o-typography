@@ -1,4 +1,4 @@
-# o-typography [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](#licence)
+# o-typography
 
 Typographical styles for FT branded sites.
 
@@ -114,8 +114,8 @@ If you do not want to use `o-typography` progressive font loading set `$o-typogr
 // configure o-typography to not include progressive font fallback css
 $o-typography-progressive-font-loading: false;
 // import dependencies
-@import 'o-typography/main';
-@import 'o-fonts/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-fonts/main';
 ```
 
 #### Setup Progressive Loading
@@ -175,8 +175,8 @@ Calling `oTypography` will output font faces to download custom Financial Times 
 
 ```scss
 // import dependencies
-@import 'o-typography/main';
-@import 'o-fonts/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-fonts/main';
 // configure o-typography to not include fonts
 $o-typography-load-fonts: false;
 // include a limited set of recommended font families manually
@@ -189,8 +189,8 @@ If an `oTypography` mixin outputs a font family/weight/style for a font face whi
 
 ```scss
 // import dependencies
-@import 'o-typography/main';
-@import 'o-fonts/main';
+@import '@financial-times/o-typography/main';
+@import '@financial-times/o-fonts/main';
 // configure o-typography to not include fonts
 $o-typography-load-fonts: false;
 // error if a font is used which has not been included
@@ -445,7 +445,7 @@ In the below example, we update the size and weight of h1 and h2 headings:
 
 ```scss
 $o-brand: whitelabel;
-@import 'o-typography/main';
+@import '@financial-times/o-typography/main';
 
 // 1. Set a custom font.
 // See "Use A Custom Font".
@@ -514,8 +514,9 @@ This is likely due to the server sending the fonts having misconfigured Cross Or
 
 State | Major Version | Last Minor Release | Migration guide |
 :---: | :---: | :---: | :---:
-✨ active | 6 | N/A | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
-⚠ maintained | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
+✨ active | 7 | N/A | [migrate to v7](MIGRATION.md#migrating-from-v6-to-v7) |
+⚠ maintained | 6 | 6.4.6 | [migrate to v6](MIGRATION.md#migrating-from-v5-to-v6) |
+╳ deprecated | 5 | 5.12 | [migrate to v5](MIGRATION.md#migrating-from-v4-to-v5) |
 ╳ deprecated | 4 | 4.3 | - |
 ╳ deprecated | 3 | 3.3 | - |
 ╳ deprecated | 2 | 2.0 | - |
